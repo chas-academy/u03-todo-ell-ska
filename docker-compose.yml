@@ -17,7 +17,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./sql:/docker-entrypoint-initdb.d:ro
+      - ./entrypoint:/docker-entrypoint-initdb.d:ro
 
   adminer:
     image: adminer:latest
