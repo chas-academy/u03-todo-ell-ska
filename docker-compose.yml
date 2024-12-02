@@ -12,10 +12,12 @@ services:
     environment:
       MYSQL_USER: mariadb
       MYSQL_PASSWORD: mariadb
-      MYSQL_DATABASE: mariadb
+      MYSQL_DATABASE: todo
       MARIADB_ROOT_PASSWORD: mariadb
     ports:
       - 3306:3306
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d:ro
 
   adminer:
     image: adminer:latest
