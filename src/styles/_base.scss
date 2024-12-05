@@ -1,0 +1,20 @@
+@use 'variables';
+@use 'typography';
+
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:focus,
+:focus-visible {
+  border-radius: 4px;
+  outline: 2px solid variables.$color-primary;
+  outline-offset: 1px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: variables.$color-zinc-50;
+  color: variables.$color-zinc-800;
+  font-family: variables.$font-primary;
+  @include typography.medium();
+}

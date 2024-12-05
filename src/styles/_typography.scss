@@ -1,0 +1,27 @@
+@mixin heading {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+@mixin medium($weight: 500) {
+  font-style: normal;
+  font-weight: $weight;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@mixin small($weight: 500) {
+  font-style: normal;
+  font-weight: $weight;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+@mixin tiny($weight: 500) {
+  font-style: normal;
+  font-weight: $weight;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
