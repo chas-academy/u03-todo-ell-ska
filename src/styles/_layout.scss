@@ -1,0 +1,45 @@
+@use 'components';
+@use 'typography';
+@use 'variables';
+@use 'utils';
+
+aside {
+  flex-grow: 1;
+  padding-top: 6rem;
+
+  @include utils.breakpoint('md') {
+    max-width: 20rem;
+    border-right: 1px solid variables.$color-zinc-200;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .static-menu-items,
+  .dynamic-menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-inline: 1rem;
+  }
+
+  .separator {
+    width: calc(100% - 2rem);
+    height: 1px;
+    margin-inline: 1rem;
+    background-color: variables.$color-zinc-200;
+
+    @include utils.breakpoint('md') {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+  .menu-item {
+    @include components.menu-item;
+    @include typography.medium(700);
+  }
+}
