@@ -1,4 +1,72 @@
+@use 'variables';
+@use 'typography';
+
 @mixin menu-item {
   display: flex;
   gap: 0.5rem;
+}
+
+@mixin form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: variables.$color-zinc-800;
+
+  label {
+    @include typography.medium(700);
+    margin-inline: 0.25rem;
+  }
+
+  input {
+    @include typography.medium;
+    padding: 0.5rem 1rem;
+    background-color: variables.$color-white;
+    border: 1px solid variables.$color-zinc-200;
+    border-radius: 0.5rem;
+
+    &::placeholder {
+      color: variables.$color-zinc-400;
+    }
+  }
+}
+
+@mixin button($variant: 'primary', $type: 'label') {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: background-color variables.$transition;
+
+  @if $variant == 'primary' {
+    @if $type == 'label' {
+      padding: 0.5rem 1.5rem;
+    } @else if $type == 'icon' {
+      padding: 0.75rem;
+    }
+
+    @include typography.medium(700);
+    border-radius: 999px;
+    background-color: variables.$color-primary;
+    color: variables.$color-white;
+
+    &:hover {
+      background-color: variables.$color-primary-darker;
+    }
+  } @else if $variant == 'tertiary' {
+    @if $type == 'label' {
+      padding: 0.25rem 0.5rem;
+    } @else if $type == 'icon' {
+      padding: 0.25rem;
+    }
+
+    @include typography.small;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    color: variables.$color-zinc-600;
+
+    &:hover {
+      background-color: variables.$color-zinc-100;
+    }
+  }
 }

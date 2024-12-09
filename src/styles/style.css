@@ -62,13 +62,12 @@ li {
 :focus,
 :focus-visible {
   border-radius: 4px;
-  outline: 2px solid #e71d36;
+  outline: 2px solid #5da4f5;
   outline-offset: 1px;
 }
 
 body {
   display: flex;
-  flex-direction: column;
   background-color: #fafafa;
   color: #27272a;
   font-family: "Albert Sans", sans-serif;
@@ -119,4 +118,102 @@ aside .menu-item {
   font-weight: 700;
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.auth {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20vh 1rem 1rem;
+}
+.auth section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 30rem;
+  width: 100%;
+}
+.auth h1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+.auth form {
+  display: flex;
+  flex-direction: column;
+}
+.auth form div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: #27272a;
+}
+.auth form div label {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-inline: 0.25rem;
+}
+.auth form div input {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  border: 1px solid #e4e4e7;
+  border-radius: 0.5rem;
+}
+.auth form div input::-moz-placeholder {
+  color: #a1a1aa;
+}
+.auth form div input::placeholder {
+  color: #a1a1aa;
+}
+.auth form div ~ div {
+  margin-top: 1rem;
+}
+.auth form button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.5rem 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border-radius: 999px;
+  background-color: #e71d36;
+  color: #fff;
+  margin-top: 1.5rem;
+}
+.auth form button:hover {
+  background-color: #d2061f;
+}
+.auth a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.25rem 0.5rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: #53535b;
+}
+.auth a:hover {
+  background-color: #f4f4f5;
 }/*# sourceMappingURL=style.css.map */
