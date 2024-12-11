@@ -1,4 +1,11 @@
 <?php
+require_once 'lib/auth.php';
+require_once 'utils/handle-error.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  Auth::login($_POST['username'], $_POST['password']);
+}
+
 $title = 'Log in';
 ob_start();
 ?>

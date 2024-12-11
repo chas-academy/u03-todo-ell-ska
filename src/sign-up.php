@@ -1,10 +1,8 @@
 <?php
 require_once 'lib/auth.php';
-require_once 'utils/redirect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   Auth::register($_POST['username'], $_POST['password']);
-  redirect('/log-in.php');
 }
 
 $title = 'Sign up';
