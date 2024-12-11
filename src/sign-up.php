@@ -3,7 +3,7 @@ $title = 'Sign up';
 ob_start();
 ?>
 
-<main class="sign-up">
+<main class="auth">
   <section>
     <h1>Welcome to Ordna!</h1>
     <form method="post">
