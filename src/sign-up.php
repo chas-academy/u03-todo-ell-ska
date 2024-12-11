@@ -1,4 +1,12 @@
 <?php
+require_once 'lib/auth.php';
+require_once 'utils/redirect.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  Auth::register($_POST['username'], $_POST['password']);
+  redirect('/log-in.php');
+}
+
 $title = 'Sign up';
 ob_start();
 ?>
@@ -9,11 +17,11 @@ ob_start();
     <form method="post">
       <div>
         <label for="username">Username</label>
-        <input type="text" name="username" id="username" placeholder="Enter your username">
+        <input type="text" name="username" id="username" placeholder="Enter your username" required>
       </div>
       <div>
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="Enter your password">
+        <input type="password" name="password" id="password" placeholder="Enter your password" required>
       </div>
       <button type="submit">Sign up</button>
     </form>

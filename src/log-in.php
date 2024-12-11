@@ -18,7 +18,7 @@ ob_start();
       <button type="submit">Log in</button>
     </form>
   </section>
-  <a href="/log-in.php">Don't have an account? Sign up.</a>
+  <a href="/sign-up.php">Don't have an account? Sign up.</a>
 </main>
 
 <?php
