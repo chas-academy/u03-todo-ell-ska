@@ -6,13 +6,12 @@
 :focus,
 :focus-visible {
   border-radius: 4px;
-  outline: 2px solid variables.$color-primary;
+  outline: 2px solid #5da4f5;
   outline-offset: 1px;
 }
 
 body {
   display: flex;
-  flex-direction: column;
   background-color: variables.$color-zinc-50;
   color: variables.$color-zinc-800;
   font-family: variables.$font-primary;
