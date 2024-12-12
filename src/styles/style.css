@@ -78,11 +78,13 @@ body {
 }
 
 aside {
+  display: none;
   flex-grow: 1;
   padding-top: 6rem;
 }
 @media (min-width: 768px) {
   aside {
+    display: block;
     max-width: 20rem;
     border-right: 1px solid #e4e4e7;
   }
@@ -229,4 +231,25 @@ aside .menu-item {
 }
 .auth a:hover {
   background-color: #f4f4f5;
+}
+
+.list {
+  width: 100%;
+  margin-inline: 1rem;
+}
+.list header {
+  display: flex;
+  justify-content: space-between;
+}
+.list header div {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-block: 1.5rem;
+}
+.list header div h1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
 }/*# sourceMappingURL=style.css.map */

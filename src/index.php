@@ -11,7 +11,20 @@ if (!Auth::getUser()) {
 $title = 'Inbox';
 ob_start();
 ?>
-<?php require_once './components/sidebar.php' ?>
+
+<?php require_once 'components/sidebar.php' ?>
+<main class="list">
+  <header>
+    <button>
+      <img src="assets/icons/chevron-left.svg" />
+    </button>
+    <div>
+      <img src="assets/icons/inbox.svg" alt="inbox icon" width="24" height="24" />
+      <h1>Inbox</h1>
+    </div>
+  </header>
+</main>
+
 <?php
 $content = ob_get_clean();
 require 'layout.php';
