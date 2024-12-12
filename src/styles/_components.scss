@@ -89,7 +89,7 @@
     align-items: center;
     gap: 0.5rem;
 
-    div {
+    .text {
       display: flex;
       align-items: center;
       gap: 0.25rem;
@@ -126,6 +126,7 @@
       border-radius: 0.25rem;
       background-color: variables.$color-white;
       appearance: none;
+      cursor: pointer;
 
       &:checked {
         background-color: variables.$color-success;
@@ -143,6 +144,7 @@
       left: 50%;
       top: 50%;
       transform: scale(0) translate(-50%, -50%);
+      pointer-events: none;
     }
   }
 
