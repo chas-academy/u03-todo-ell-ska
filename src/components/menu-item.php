@@ -1,4 +1,5 @@
 <?php
+require_once 'components/icon.php';
 
 class MenuItem {
   private string $name;
