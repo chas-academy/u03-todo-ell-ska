@@ -5,7 +5,7 @@
   fill="none"
   xmlns="http://www.w3.org/2000/svg">
   <path
-    d="M10 3L4.5 8.5L2 6"
+    d="M7.5 9L4.5 6L7.5 3"
     stroke="currentColor"
     stroke-width="<?= $this->strokeWidth ?>"
     stroke-linecap="round"

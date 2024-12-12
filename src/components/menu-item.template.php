@@ -1,6 +1,11 @@
 <a class="menu-item" href="<?= $this->href ?>">
-  <?php if (isset($this->icon)) : ?>
-    <img src="assets/icons/<?= $this->icon ?>.svg" alt="<?= $this->icon ?> icon" width="16" height="16" />
-  <?php endif; ?>
+  <?php
+  if (isset($this->icon)) {
+    require_once 'components/icon.php';
+
+    $icon = new Icon($this->icon, 16);
+    $icon->render();
+  }
+  ?>
   <span><?= $this->name ?></span>
 </a>

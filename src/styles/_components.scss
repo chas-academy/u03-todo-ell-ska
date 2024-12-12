@@ -4,6 +4,7 @@
 
 @mixin menu-item {
   display: flex;
+  align-items: center;
   gap: 0.5rem;
 
   span {
@@ -157,13 +158,15 @@
   .deadline {
     @include typography.tiny;
     display: flex;
+    align-items: center;
     gap: 0.25rem;
 
     span {
       @include utils.sr-only;
     }
 
-    time {
+    time,
+    svg {
       color: variables.$color-primary;
     }
   }

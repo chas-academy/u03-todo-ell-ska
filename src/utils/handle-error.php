@@ -1,5 +1,6 @@
 <?php
 require_once 'utils/session-start-unless-started.php';
+require 'components/icon.php';
 
 sessionStartUnlessStarted();
 $error = $_SESSION['error'] ?? null;
@@ -8,7 +9,10 @@ unset($_SESSION['error']);
 if ($error) :
 ?>
   <div class="error">
-    <img src="assets/icons/circle-alert.svg" alt="alert icon" width="16" height="16" />
+    <?php
+    $icon = new Icon('circle-alert', 16);
+    $icon->render();
+    ?>
     <p><?= $error ?></p>
   </div>
 <?php endif ?>

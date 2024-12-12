@@ -116,6 +116,7 @@ aside .separator {
 }
 aside .menu-item {
   display: flex;
+  align-items: center;
   gap: 0.5rem;
   font-style: normal;
   font-weight: 700;
@@ -133,6 +134,7 @@ aside .menu-item span {
   left: 1rem;
   bottom: 1rem;
   display: flex;
+  align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1.5rem;
   border: 1px solid #27272a;
@@ -246,12 +248,26 @@ aside .menu-item span {
 .list header {
   display: flex;
   justify-content: space-between;
+  padding-block: 1.5rem;
+}
+.list header button {
+  color: #a1a1aa;
+}
+.list header button span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 .list header div {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding-block: 1.5rem;
 }
 .list header div h1 {
   font-style: normal;
@@ -347,6 +363,7 @@ aside .menu-item span {
   font-size: 0.75rem;
   line-height: 1rem;
   display: flex;
+  align-items: center;
   gap: 0.25rem;
 }
 .list .task .deadline span {
@@ -360,6 +377,7 @@ aside .menu-item span {
   white-space: nowrap;
   border-width: 0;
 }
-.list .task .deadline time {
+.list .task .deadline time,
+.list .task .deadline svg {
   color: #e71d36;
 }/*# sourceMappingURL=style.css.map */
