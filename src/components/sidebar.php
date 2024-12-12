@@ -1,9 +1,14 @@
 <?php
 require_once 'db.php';
+require_once 'lib/auth.php';
 require_once 'components/menu-item/index.php';
 
 $db = Database::getInstance();
-$lists = $db->query("SELECT * FROM lists");
+$user = Auth::getUser();
+
+$query = $db->prepare("SELECT * FROM lists WHERE user_id = :id");
+$query->execute(['id' => $user['id']]);
+$lists = $query->fetchAll();
 
 $dynamicMenuItems = [];
 foreach ($lists as $list) {

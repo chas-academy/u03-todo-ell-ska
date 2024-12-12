@@ -10,8 +10,10 @@ CREATE TABLE users (
 CREATE TABLE lists (
   id CHAR(36) NOT NULL PRIMARY KEY DEFAULT UUID(),
   name VARCHAR(255) NOT NULL,
+  user_id CHAR(36) NOT NULL,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 CREATE TABLE tasks (
@@ -34,8 +36,8 @@ INSERT INTO users (id, username, password) VALUES
 ('f4ce1e4f-7fcf-42f8-ba14-f3db56f05ec4', 'test1', 'password'),
 ('dd5ea6b4-ea3d-4aeb-b29d-9960176c113b', 'test2', 'password');
 
-INSERT INTO lists (id, name) VALUES
-('85129bfc-6ad3-49c4-804e-413baf4bb0ff', 'Home');
+INSERT INTO lists (id, name, user_id) VALUES
+('85129bfc-6ad3-49c4-804e-413baf4bb0ff', 'Home', 'f4ce1e4f-7fcf-42f8-ba14-f3db56f05ec4');
 
 INSERT INTO tasks (name, note, done, scheduled, deadline, user_id, list_id) VALUES
 ('buy milk', NULL, 0, NULL, NULL, 'f4ce1e4f-7fcf-42f8-ba14-f3db56f05ec4', '85129bfc-6ad3-49c4-804e-413baf4bb0ff'),
