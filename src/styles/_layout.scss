@@ -4,10 +4,12 @@
 @use 'utils';
 
 aside {
+  display: none;
   flex-grow: 1;
   padding-top: 6rem;
 
   @include utils.breakpoint('md') {
+    display: block;
     max-width: 20rem;
     border-right: 1px solid variables.$color-zinc-200;
   }
