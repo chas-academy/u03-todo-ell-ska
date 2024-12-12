@@ -23,6 +23,33 @@ ob_start();
       <h1>Inbox</h1>
     </div>
   </header>
+
+  <ul>
+    <li class="task">
+      <div class="main">
+        <div class="checkbox">
+          <label>done</label>
+          <input type="checkbox">
+          <?php
+          require_once 'components/icons/check.php';
+
+          $icon = new Check(12);
+          $icon->render();
+          ?>
+        </div>
+        <div>
+          <time>when</time>
+          <h2>label</h2>
+          <span>list</span>
+        </div>
+      </div>
+      <div class="deadline">
+        <img src="assets/icons/flag.svg" alt="flag icon" width="12" height="12" />
+        <span>due:</span>
+        <time>deadline</time>
+      </div>
+    </li>
+  </ul>
 </main>
 
 <?php

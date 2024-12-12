@@ -1,7 +1,5 @@
 <?php
 
-include_once 'components/component.php';
-
 class MenuItem {
   private string $name;
   private string $href;

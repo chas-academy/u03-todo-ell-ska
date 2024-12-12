@@ -1,5 +1,6 @@
 @use 'variables';
 @use 'typography';
+@use 'utils';
 
 @mixin menu-item {
   display: flex;
@@ -67,6 +68,95 @@
 
     &:hover {
       background-color: variables.$color-zinc-100;
+    }
+  }
+}
+
+@mixin tag {
+  padding-inline: 0.25rem;
+  border-radius: 0.25rem;
+  background-color: variables.$color-zinc-200;
+  color: variables.$color-zinc-600;
+}
+
+@mixin task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .main {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+
+      time {
+        @include tag;
+      }
+
+      h2 {
+        @include typography.medium;
+      }
+
+      span {
+        @include typography.tiny;
+        color: variables.$color-zinc-400;
+      }
+    }
+  }
+
+  .checkbox {
+    position: relative;
+
+    label {
+      @include utils.sr-only;
+    }
+
+    input {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1rem;
+      height: 1rem;
+      border: 1px solid variables.$color-zinc-200;
+      border-radius: 0.25rem;
+      background-color: variables.$color-white;
+      appearance: none;
+
+      &:checked {
+        background-color: variables.$color-success;
+        border-color: variables.$color-success;
+
+        & ~ svg {
+          transform: scale(1) translate(-50%, -50%);
+        }
+      }
+    }
+
+    svg {
+      color: variables.$color-white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: scale(0) translate(-50%, -50%);
+    }
+  }
+
+  .deadline {
+    @include typography.tiny;
+    display: flex;
+    gap: 0.25rem;
+
+    span {
+      @include utils.sr-only;
+    }
+
+    time {
+      color: variables.$color-primary;
     }
   }
 }

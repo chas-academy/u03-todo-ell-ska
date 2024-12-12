@@ -1,5 +1,6 @@
 @use '../variables';
 @use '../typography';
+@use '../components';
 
 .list {
   width: 100%;
@@ -19,5 +20,15 @@
         @include typography.heading();
       }
     }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .task {
+    @include components.task;
   }
 }
