@@ -1,7 +1,7 @@
 <?php
 require_once 'db.php';
 require_once 'lib/auth.php';
-require_once 'components/menu-item/index.php';
+require_once 'components/menu-item.php';
 
 $db = Database::getInstance();
 $user = Auth::getUser();

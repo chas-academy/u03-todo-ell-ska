@@ -3,6 +3,7 @@ require_once 'db.php';
 require_once 'lib/auth.php';
 require_once 'utils/redirect.php';
 require_once 'utils/session-start-unless-started.php';
+require 'components/icon.php';
 
 sessionStartUnlessStarted();
 $user = Auth::getUser();
@@ -25,10 +26,17 @@ ob_start();
 <main class="list">
   <header>
     <button>
-      <img src="assets/icons/chevron-left.svg" />
+      <span>go back</span>
+      <?php
+      $icon = new Icon('chevron-left', 24);
+      $icon->render();
+      ?>
     </button>
     <div>
-      <img src="assets/icons/inbox.svg" alt="inbox icon" width="24" height="24" />
+      <?php
+      $icon = new Icon('inbox', 24);
+      $icon->render();
+      ?>
       <h1>Inbox</h1>
     </div>
   </header>
@@ -41,9 +49,7 @@ ob_start();
             <label for="done">task finished</label>
             <input type="checkbox" name="done" id="done" <?= $task['done'] ? 'checked' : '' ?>>
             <?php
-            require_once 'components/icons/check.php';
-
-            $icon = new Check(12);
+            $icon = new Icon('check', 12);
             $icon->render();
             ?>
           </div>
@@ -59,7 +65,10 @@ ob_start();
         </div>
         <?php if (isset($task['deadline'])) : ?>
           <div class="deadline">
-            <img src="assets/icons/flag.svg" alt="flag icon" width="12" height="12" />
+            <?php
+            $icon = new Icon('flag', 12);
+            $icon->render();
+            ?>
             <span>due:</span>
             <time><?= $task['deadline'] ?></time>
           </div>

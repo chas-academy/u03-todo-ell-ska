@@ -12,6 +12,6 @@ class MenuItem {
   }
 
   public function render() {
-    require 'components/menu-item/template.php';
+    require 'components/menu-item.template.php';
   }
 }
