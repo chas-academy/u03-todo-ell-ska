@@ -11,6 +11,7 @@ aside {
   @include utils.breakpoint('md') {
     display: block;
     max-width: 20rem;
+    width: 100%;
     border-right: 1px solid variables.$color-zinc-200;
   }
 
