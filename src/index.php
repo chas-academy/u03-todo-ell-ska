@@ -1,4 +1,5 @@
 <?php
+require_once 'lib/auth.php';
 require_once 'utils/redirect.php';
 require_once 'utils/session-start-unless-started.php';
 

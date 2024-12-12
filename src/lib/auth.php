@@ -60,10 +60,10 @@ class Auth {
   public static function getUser() {
     sessionStartUnlessStarted();
 
-    $id = $_SESSION['user_id'];
-    $username = $_SESSION['username'];
+    $id = $_SESSION['user_id'] ?? null;
+    $username = $_SESSION['username'] ?? null;
 
-    if (!$id) {
+    if (!$id || !$username) {
       return null;
     }
 
