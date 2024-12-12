@@ -56,4 +56,17 @@ class Auth {
       die($error->getMessage());
     }
   }
+
+  public static function getUser() {
+    sessionStartUnlessStarted();
+
+    $id = $_SESSION['user_id'];
+    $username = $_SESSION['username'];
+
+    if (!$id) {
+      return null;
+    }
+
+    return ["id" => $id, "username" => $username];
+  }
 }

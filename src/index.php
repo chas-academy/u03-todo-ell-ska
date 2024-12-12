@@ -3,7 +3,7 @@ require_once 'utils/redirect.php';
 require_once 'utils/session-start-unless-started.php';
 
 sessionStartUnlessStarted();
-if (!isset($_SESSION['user_id'])) {
+if (!Auth::getUser()) {
   redirect('/log-in.php');
 }
 
