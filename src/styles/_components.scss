@@ -5,6 +5,12 @@
 @mixin menu-item {
   display: flex;
   gap: 0.5rem;
+
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 @mixin form-field {
