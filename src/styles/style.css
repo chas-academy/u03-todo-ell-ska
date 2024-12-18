@@ -214,12 +214,12 @@ aside .menu-item span {
   font-size: 1rem;
   line-height: 1.5rem;
   border-radius: 999px;
-  background-color: #e71d36;
+  background-color: #2837fa;
   color: #fff;
   margin-top: 1.5rem;
 }
 .auth form button:hover {
-  background-color: #d2061f;
+  background-color: #1d29cb;
 }
 .auth a {
   display: inline-flex;
