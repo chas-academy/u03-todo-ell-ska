@@ -24,58 +24,50 @@ ob_start();
 
 <?php require_once 'components/sidebar.php' ?>
 <main class="list">
-  <header>
-    <button>
-      <span>go back</span>
-      <?php
-      $icon = new Icon('chevron-left', 24);
-      $icon->render();
-      ?>
-    </button>
-    <div>
-      <?php
-      $icon = new Icon('inbox', 24);
-      $icon->render();
-      ?>
-      <h1>Inbox</h1>
-    </div>
-  </header>
+  <div>
+    <?php
+    require_once 'components/header.php';
 
-  <ul>
-    <?php foreach ($tasks as $task) : ?>
-      <li class="task">
-        <div class="main">
-          <div class="checkbox">
-            <label for="done">task finished</label>
-            <input type="checkbox" name="done" id="done" <?= $task['done'] ? 'checked' : '' ?>>
-            <?php
-            $icon = new Icon('check', 12);
-            $icon->render();
-            ?>
+    $header = new Header('Inbox', 'inbox');
+    $header->render();
+    ?>
+
+    <ul>
+      <?php foreach ($tasks as $task) : ?>
+        <li class="task">
+          <div class="main">
+            <div class="checkbox">
+              <label for="done">task finished</label>
+              <input type="checkbox" name="done" id="done" <?= $task['done'] ? 'checked' : '' ?>>
+              <?php
+              $icon = new Icon('check', 12);
+              $icon->render();
+              ?>
+            </div>
+            <div class="text">
+              <?php if (isset($task['when'])) : ?>
+                <time><?= $task['when'] ?></time>
+              <?php endif ?>
+              <h2><?= $task['name'] ?></h2>
+              <?php if (isset($task['list'])) : ?>
+                <span><?= $task['list'] ?></span>
+              <?php endif ?>
+            </div>
           </div>
-          <div class="text">
-            <?php if (isset($task['when'])) : ?>
-              <time><?= $task['when'] ?></time>
-            <?php endif ?>
-            <h2><?= $task['name'] ?></h2>
-            <?php if (isset($task['list'])) : ?>
-              <span><?= $task['list'] ?></span>
-            <?php endif ?>
-          </div>
-        </div>
-        <?php if (isset($task['deadline'])) : ?>
-          <div class="deadline">
-            <?php
-            $icon = new Icon('flag', 12);
-            $icon->render();
-            ?>
-            <span>due:</span>
-            <time><?= $task['deadline'] ?></time>
-          </div>
-        <?php endif ?>
-      </li>
-    <?php endforeach; ?>
-  </ul>
+          <?php if (isset($task['deadline'])) : ?>
+            <div class="deadline">
+              <?php
+              $icon = new Icon('flag', 12);
+              $icon->render();
+              ?>
+              <span>due:</span>
+              <time><?= $task['deadline'] ?></time>
+            </div>
+          <?php endif ?>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
 </main>
 
 <?php

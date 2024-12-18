@@ -4,8 +4,7 @@
   viewBox="0 0 12 12"
   fill="none"
   xmlns="http://www.w3.org/2000/svg">
-  <path
-    d="M7.5 9L4.5 6L7.5 3"
+  <path d="M2 6H10M2 3H10M2 9H10"
     stroke="currentColor"
     stroke-width="<?= $this->strokeWidth ?>"
     stroke-linecap="round"
