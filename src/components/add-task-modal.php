@@ -37,7 +37,7 @@ $lists = $query->fetchAll();
             $icon = new Icon('list', 16);
             $icon->render();
             ?>
-            <span>List</span>
+            <span id="list-preview">List</span>
           </button>
           <select name="list" id="list">
             <option value="">No list</option>
@@ -52,7 +52,7 @@ $lists = $query->fetchAll();
             $icon = new Icon('calendar', 16);
             $icon->render();
             ?>
-            <span>Scheduled</span>
+            <span id="scheduled-preview">Scheduled</span>
           </button>
           <input type="date" name="scheduled" id="scheduled">
         </div>
@@ -62,7 +62,7 @@ $lists = $query->fetchAll();
             $icon = new Icon('flag', 16);
             $icon->render();
             ?>
-            <span>Deadline</span>
+            <span id="deadline-preview">Deadline</span>
           </button>
           <input type="date" name="deadline" id="deadline">
         </div>
