@@ -47,7 +47,7 @@ $lists = $query->fetchAll();
           </select>
         </div>
         <div class="date-picker">
-          <button type="button" id="open-scheduled-input">
+          <button type="button">
             <?php
             $icon = new Icon('calendar', 16);
             $icon->render();
@@ -57,7 +57,7 @@ $lists = $query->fetchAll();
           <input type="date" name="scheduled" id="scheduled">
         </div>
         <div class="date-picker">
-          <button type="button" id="open-deadline-input">
+          <button type="button">
             <?php
             $icon = new Icon('flag', 16);
             $icon->render();
