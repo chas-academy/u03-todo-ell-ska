@@ -23,6 +23,12 @@
   inset-inline: 0;
   bottom: 0;
 
+  @include utils.breakpoint('md') {
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+  }
+
   &.hidden {
     display: none;
   }
@@ -35,7 +41,14 @@
     padding: 1rem;
     border-radius: 1.5rem 1.5rem 0 0;
     width: 100%;
+    min-height: 16rem;
     background-color: variables.$color-zinc-50;
+
+    @include utils.breakpoint('md') {
+      border-radius: 1.5rem;
+      max-width: 32rem;
+      width: 100%;
+    }
   }
 }
 
@@ -43,9 +56,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 16rem;
 
   .inputs {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
@@ -55,13 +68,20 @@
       @include utils.sr-only;
     }
 
-    input {
+    input,
+    textarea {
       @include components.input('invisible');
       width: 100%;
     }
 
-    input[name='note'] {
+    textarea[name='note'] {
       @include typography.small;
+      height: 100%;
+      resize: none;
+    }
+
+    div:last-of-type {
+      flex-grow: 1;
     }
   }
 
@@ -70,10 +90,6 @@
     justify-content: space-between;
     align-items: center;
     padding-left: 0.5rem;
-
-    button span {
-      @include utils.sr-only;
-    }
 
     .options {
       display: flex;
@@ -84,6 +100,15 @@
         @include components.button('tertiary', 'icon');
         color: variables.$color-zinc-400;
 
+        span {
+          @include typography.small;
+          color: variables.$color-zinc-600;
+
+          @include utils.breakpoint('md', 'max') {
+            @include utils.sr-only;
+          }
+        }
+
         svg .fill {
           display: none;
         }
@@ -92,6 +117,10 @@
 
     button[type='submit'] {
       @include components.button($type: 'icon');
+
+      span {
+        @include utils.sr-only;
+      }
     }
   }
 }

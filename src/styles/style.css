@@ -37,7 +37,8 @@ video {
 }
 
 input,
-button {
+button,
+textarea {
   color: inherit;
   font-family: inherit;
   font-size: inherit;
@@ -203,6 +204,13 @@ aside .menu-item span {
   inset-inline: 0;
   bottom: 0;
 }
+@media (min-width: 768px) {
+  .modal {
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+  }
+}
 .modal.hidden {
   display: none;
 }
@@ -213,16 +221,24 @@ aside .menu-item span {
   padding: 1rem;
   border-radius: 1.5rem 1.5rem 0 0;
   width: 100%;
+  min-height: 16rem;
   background-color: #fafafa;
+}
+@media (min-width: 768px) {
+  .modal form {
+    border-radius: 1.5rem;
+    max-width: 32rem;
+    width: 100%;
+  }
 }
 
 #add-task-modal form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 16rem;
 }
 #add-task-modal form .inputs {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -239,7 +255,8 @@ aside .menu-item span {
   white-space: nowrap;
   border-width: 0;
 }
-#add-task-modal form .inputs input {
+#add-task-modal form .inputs input,
+#add-task-modal form .inputs textarea {
   border: 0;
   background-color: transparent;
   font-style: normal;
@@ -248,34 +265,29 @@ aside .menu-item span {
   line-height: 1.5rem;
   width: 100%;
 }
-#add-task-modal form .inputs input::-moz-placeholder {
+#add-task-modal form .inputs input::-moz-placeholder, #add-task-modal form .inputs textarea::-moz-placeholder {
   color: #a1a1aa;
 }
-#add-task-modal form .inputs input::placeholder {
+#add-task-modal form .inputs input::placeholder,
+#add-task-modal form .inputs textarea::placeholder {
   color: #a1a1aa;
 }
-#add-task-modal form .inputs input[name=note] {
+#add-task-modal form .inputs textarea[name=note] {
   font-style: normal;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
+  height: 100%;
+  resize: none;
+}
+#add-task-modal form .inputs div:last-of-type {
+  flex-grow: 1;
 }
 #add-task-modal form .buttons {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 0.5rem;
-}
-#add-task-modal form .buttons button span {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
 }
 #add-task-modal form .buttons .options {
   display: flex;
@@ -302,6 +314,26 @@ aside .menu-item span {
 #add-task-modal form .buttons .options button:hover {
   background-color: #f4f4f5;
 }
+#add-task-modal form .buttons .options button span {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #53535b;
+}
+@media (max-width: 768px) {
+  #add-task-modal form .buttons .options button span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
 #add-task-modal form .buttons .options button svg .fill {
   display: none;
 }
@@ -323,6 +355,17 @@ aside .menu-item span {
 }
 #add-task-modal form .buttons button[type=submit]:hover {
   background-color: #1d29cb;
+}
+#add-task-modal form .buttons button[type=submit] span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .auth {

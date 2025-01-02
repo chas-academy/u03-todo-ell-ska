@@ -12,31 +12,31 @@ require_once 'components/icon.php';
       </div>
       <div>
         <label for="note">Task notes</label>
-        <input type="text" name="note" id="note" placeholder="Notes">
+        <textarea name="note" id="note" placeholder="Notes"></textarea>
       </div>
     </div>
     <div class="buttons">
       <div class="options">
         <button>
-          <span>List</span>
           <?php
           $icon = new Icon('list', 16);
           $icon->render();
           ?>
+          <span>List</span>
         </button>
         <button>
-          <span>Scheduled date</span>
           <?php
           $icon = new Icon('calendar', 16);
           $icon->render();
           ?>
+          <span>Scheduled</span>
         </button>
         <button>
-          <span>Deadline</span>
           <?php
           $icon = new Icon('flag', 16);
           $icon->render();
           ?>
+          <span>Deadline</span>
         </button>
       </div>
       <button type="submit">
