@@ -184,6 +184,147 @@ aside .menu-item span {
   color: #27272a;
 }
 
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(39, 39, 42, 0.0784313725);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+}
+.overlay.hidden {
+  display: none;
+}
+.overlay.visible {
+  display: block;
+}
+
+.modal {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+}
+.modal.hidden {
+  display: none;
+}
+.modal.visible {
+  display: flex;
+}
+.modal form {
+  padding: 1rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+  width: 100%;
+  background-color: #fafafa;
+}
+
+#add-task-modal form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 16rem;
+}
+#add-task-modal form .inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem;
+}
+#add-task-modal form .inputs label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+#add-task-modal form .inputs input {
+  border: 0;
+  background-color: transparent;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  width: 100%;
+}
+#add-task-modal form .inputs input::-moz-placeholder {
+  color: #a1a1aa;
+}
+#add-task-modal form .inputs input::placeholder {
+  color: #a1a1aa;
+}
+#add-task-modal form .inputs input[name=note] {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+#add-task-modal form .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0.5rem;
+}
+#add-task-modal form .buttons button span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+#add-task-modal form .buttons .options {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+#add-task-modal form .buttons .options button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.25rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: #53535b;
+  color: #a1a1aa;
+}
+#add-task-modal form .buttons .options button:hover {
+  background-color: #f4f4f5;
+}
+#add-task-modal form .buttons .options button svg .fill {
+  display: none;
+}
+#add-task-modal form .buttons button[type=submit] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.75rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border-radius: 999px;
+  background-color: #2837fa;
+  color: #fff;
+}
+#add-task-modal form .buttons button[type=submit]:hover {
+  background-color: #1d29cb;
+}
+
 .auth {
   flex-grow: 1;
   display: flex;
@@ -224,14 +365,14 @@ aside .menu-item span {
   margin-inline: 0.25rem;
 }
 .auth form div input {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.5rem;
   padding: 0.5rem 1rem;
   background-color: #fff;
   border: 1px solid #e4e4e7;
   border-radius: 0.5rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .auth form div input::-moz-placeholder {
   color: #a1a1aa;
@@ -294,6 +435,7 @@ aside .menu-item span {
   }
 }
 .list > div {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -411,4 +553,31 @@ aside .menu-item span {
 .list .task .deadline time,
 .list .task .deadline svg {
   color: #e71d36;
+}
+.list #open-add-task-modal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.75rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border-radius: 999px;
+  background-color: #2837fa;
+  color: #fff;
+  position: absolute;
+  right: 0;
+  bottom: 1rem;
+}
+.list #open-add-task-modal:hover {
+  background-color: #1d29cb;
+}
+@media (min-width: 768px) {
+  .list #open-add-task-modal {
+    right: 1rem;
+  }
 }/*# sourceMappingURL=style.css.map */

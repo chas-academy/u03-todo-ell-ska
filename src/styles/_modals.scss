@@ -1,0 +1,97 @@
+@use 'variables';
+@use 'typography';
+@use 'utils';
+@use 'components';
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: variables.$color-zinc-800-08o;
+  backdrop-filter: blur(2px);
+
+  &.hidden {
+    display: none;
+  }
+
+  &.visible {
+    display: block;
+  }
+}
+
+.modal {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+
+  &.hidden {
+    display: none;
+  }
+
+  &.visible {
+    display: flex;
+  }
+
+  form {
+    padding: 1rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+    width: 100%;
+    background-color: variables.$color-zinc-50;
+  }
+}
+
+#add-task-modal form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 16rem;
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+
+    label {
+      @include utils.sr-only;
+    }
+
+    input {
+      @include components.input('invisible');
+      width: 100%;
+    }
+
+    input[name='note'] {
+      @include typography.small;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 0.5rem;
+
+    button span {
+      @include utils.sr-only;
+    }
+
+    .options {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      button {
+        @include components.button('tertiary', 'icon');
+        color: variables.$color-zinc-400;
+
+        svg .fill {
+          display: none;
+        }
+      }
+    }
+
+    button[type='submit'] {
+      @include components.button($type: 'icon');
+    }
+  }
+}

@@ -14,6 +14,24 @@
   }
 }
 
+@mixin input($type: 'default') {
+  @if $type == 'invisible' {
+    border: 0;
+    background-color: transparent;
+  } @else {
+    padding: 0.5rem 1rem;
+    background-color: variables.$color-white;
+    border: 1px solid variables.$color-zinc-200;
+    border-radius: 0.5rem;
+  }
+
+  @include typography.medium;
+
+  &::placeholder {
+    color: variables.$color-zinc-400;
+  }
+}
+
 @mixin form-field {
   display: flex;
   flex-direction: column;
@@ -26,15 +44,7 @@
   }
 
   input {
-    @include typography.medium;
-    padding: 0.5rem 1rem;
-    background-color: variables.$color-white;
-    border: 1px solid variables.$color-zinc-200;
-    border-radius: 0.5rem;
-
-    &::placeholder {
-      color: variables.$color-zinc-400;
-    }
+    @include input;
   }
 }
 

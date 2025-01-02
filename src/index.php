@@ -67,9 +67,18 @@ ob_start();
         </li>
       <?php endforeach; ?>
     </ul>
+
+    <button id="open-add-task-modal">
+      <?php
+      $icon = new Icon('plus', 24);
+      $icon->render();
+      ?>
+    </button>
   </div>
 </main>
 
 <?php
+require_once 'components/add-task-modal.php';
+
 $content = ob_get_clean();
 require 'layout.php';
