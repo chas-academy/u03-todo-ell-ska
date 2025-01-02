@@ -45,8 +45,8 @@ ob_start();
               ?>
             </div>
             <div class="text">
-              <?php if (isset($task['when'])) : ?>
-                <time><?= $task['when'] ?></time>
+              <?php if (isset($task['scheduled'])) : ?>
+                <time><?= $task['scheduled'] ?></time>
               <?php endif ?>
               <h2><?= $task['name'] ?></h2>
               <?php if (isset($task['list'])) : ?>

@@ -85,7 +85,7 @@
     }
   }
 
-  .buttons {
+  .tools {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -111,6 +111,27 @@
 
         svg .fill {
           display: none;
+        }
+      }
+
+      .dropdown,
+      .date-picker {
+        position: relative;
+
+        select,
+        input {
+          opacity: 0;
+          position: absolute;
+          inset: 0;
+          border: none;
+          cursor: pointer;
+        }
+
+        input::-webkit-calendar-picker-indicator {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
         }
       }
     }

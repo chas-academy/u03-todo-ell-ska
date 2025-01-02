@@ -113,6 +113,7 @@
 
       time {
         @include tag;
+        @include typography.tiny;
       }
 
       h2 {

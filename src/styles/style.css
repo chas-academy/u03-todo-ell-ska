@@ -283,18 +283,18 @@ aside .menu-item span {
 #add-task-modal form .inputs div:last-of-type {
   flex-grow: 1;
 }
-#add-task-modal form .buttons {
+#add-task-modal form .tools {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-left: 0.5rem;
 }
-#add-task-modal form .buttons .options {
+#add-task-modal form .tools .options {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-#add-task-modal form .buttons .options button {
+#add-task-modal form .tools .options button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -311,10 +311,10 @@ aside .menu-item span {
   color: #53535b;
   color: #a1a1aa;
 }
-#add-task-modal form .buttons .options button:hover {
+#add-task-modal form .tools .options button:hover {
   background-color: #f4f4f5;
 }
-#add-task-modal form .buttons .options button span {
+#add-task-modal form .tools .options button span {
   font-style: normal;
   font-weight: 500;
   font-size: 0.875rem;
@@ -322,7 +322,7 @@ aside .menu-item span {
   color: #53535b;
 }
 @media (max-width: 768px) {
-  #add-task-modal form .buttons .options button span {
+  #add-task-modal form .tools .options button span {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -334,10 +334,31 @@ aside .menu-item span {
     border-width: 0;
   }
 }
-#add-task-modal form .buttons .options button svg .fill {
+#add-task-modal form .tools .options button svg .fill {
   display: none;
 }
-#add-task-modal form .buttons button[type=submit] {
+#add-task-modal form .tools .options .dropdown,
+#add-task-modal form .tools .options .date-picker {
+  position: relative;
+}
+#add-task-modal form .tools .options .dropdown select,
+#add-task-modal form .tools .options .dropdown input,
+#add-task-modal form .tools .options .date-picker select,
+#add-task-modal form .tools .options .date-picker input {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  border: none;
+  cursor: pointer;
+}
+#add-task-modal form .tools .options .dropdown input::-webkit-calendar-picker-indicator,
+#add-task-modal form .tools .options .date-picker input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+#add-task-modal form .tools button[type=submit] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -353,10 +374,10 @@ aside .menu-item span {
   background-color: #2837fa;
   color: #fff;
 }
-#add-task-modal form .buttons button[type=submit]:hover {
+#add-task-modal form .tools button[type=submit]:hover {
   background-color: #1d29cb;
 }
-#add-task-modal form .buttons button[type=submit] span {
+#add-task-modal form .tools button[type=submit] span {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -516,6 +537,10 @@ aside .menu-item span {
   border-radius: 0.25rem;
   background-color: #e4e4e7;
   color: #53535b;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 .list .task .main .text h2 {
   font-style: normal;
