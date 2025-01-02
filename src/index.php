@@ -45,8 +45,8 @@ ob_start();
               ?>
             </div>
             <div class="text">
-              <?php if (isset($task['when'])) : ?>
-                <time><?= $task['when'] ?></time>
+              <?php if (isset($task['scheduled'])) : ?>
+                <time><?= $task['scheduled'] ?></time>
               <?php endif ?>
               <h2><?= $task['name'] ?></h2>
               <?php if (isset($task['list'])) : ?>
@@ -67,9 +67,18 @@ ob_start();
         </li>
       <?php endforeach; ?>
     </ul>
+
+    <button id="open-add-task-modal">
+      <?php
+      $icon = new Icon('plus', 24);
+      $icon->render();
+      ?>
+    </button>
   </div>
 </main>
 
 <?php
+require_once 'components/add-task-modal.php';
+
 $content = ob_get_clean();
 require 'layout.php';

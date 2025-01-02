@@ -1,0 +1,28 @@
+<?php
+require_once 'db.php';
+require_once 'utils/redirect.php';
+require_once 'utils/validation.php';
+
+function createTask(string $name, string $note, string $deadline, string $scheduled, string $listId) {
+  $name = validateString($name, true, 'Task name is required');
+  $note = validateString($note);
+  $deadline = validateString($deadline);
+  $scheduled = validateString($scheduled);
+  $listId = validateString($listId);
+
+  $db = Database::getInstance();
+  $user = Auth::getUser();
+
+  if (!$user['id']) {
+    redirect('/log-in.php');
+  }
+
+  try {
+    $query = $db->prepare('INSERT INTO tasks (name, note, deadline, scheduled, list_id, user_id) VALUES (:name, :note, :deadline, :scheduled, :listId, :userId)');
+    $query->execute(['name' => $name, 'note' => $note, 'deadline' => $deadline, 'scheduled' => $scheduled, 'listId' => $listId, 'userId' => $user['id']]);
+
+    redirect('/');
+  } catch (PDOException $error) {
+    die($error->getMessage());
+  }
+}
