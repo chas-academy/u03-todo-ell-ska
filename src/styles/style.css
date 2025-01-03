@@ -232,12 +232,12 @@ aside .menu-item span {
   }
 }
 
-#add-task-modal form {
+.task-modal form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-#add-task-modal form label {
+.task-modal form label {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -248,15 +248,15 @@ aside .menu-item span {
   white-space: nowrap;
   border-width: 0;
 }
-#add-task-modal form .content {
+.task-modal form .content {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
   padding: 0.5rem;
 }
-#add-task-modal form .content input,
-#add-task-modal form .content textarea {
+.task-modal form .content input,
+.task-modal form .content textarea {
   border: 0;
   background-color: transparent;
   font-style: normal;
@@ -265,14 +265,14 @@ aside .menu-item span {
   line-height: 1.5rem;
   width: 100%;
 }
-#add-task-modal form .content input::-moz-placeholder, #add-task-modal form .content textarea::-moz-placeholder {
+.task-modal form .content input::-moz-placeholder, .task-modal form .content textarea::-moz-placeholder {
   color: #a1a1aa;
 }
-#add-task-modal form .content input::placeholder,
-#add-task-modal form .content textarea::placeholder {
+.task-modal form .content input::placeholder,
+.task-modal form .content textarea::placeholder {
   color: #a1a1aa;
 }
-#add-task-modal form .content textarea[name=note] {
+.task-modal form .content textarea[name=note] {
   font-style: normal;
   font-weight: 500;
   font-size: 0.875rem;
@@ -280,23 +280,23 @@ aside .menu-item span {
   height: 100%;
   resize: none;
 }
-#add-task-modal form .content div:last-of-type {
+.task-modal form .content div:last-of-type {
   flex-grow: 1;
 }
-#add-task-modal form .tools {
+.task-modal form .tools {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
   padding-left: 0.5rem;
 }
-#add-task-modal form .tools .options {
+.task-modal form .tools .options {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   overflow-x: scroll;
 }
-#add-task-modal form .tools .options button {
+.task-modal form .tools .options button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -315,53 +315,53 @@ aside .menu-item span {
   height: 2rem;
   color: #a1a1aa;
 }
-#add-task-modal form .tools .options button:hover {
+.task-modal form .tools .options button:hover {
   background-color: #f4f4f5;
 }
-#add-task-modal form .tools .options button span {
+.task-modal form .tools .options button span {
   font-style: normal;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: #27272a;
 }
-#add-task-modal form .tools .options button span.hidden {
+.task-modal form .tools .options button span.hidden {
   display: none;
 }
-#add-task-modal form .tools .options button span.visible {
+.task-modal form .tools .options button span.visible {
   display: inline;
 }
-#add-task-modal form .tools .options button svg .fill {
+.task-modal form .tools .options button svg .fill {
   display: none;
 }
-#add-task-modal form .tools .options .dropdown,
-#add-task-modal form .tools .options .date-picker {
+.task-modal form .tools .options .dropdown,
+.task-modal form .tools .options .date-picker {
   position: relative;
 }
-#add-task-modal form .tools .options .dropdown select,
-#add-task-modal form .tools .options .dropdown input,
-#add-task-modal form .tools .options .date-picker select,
-#add-task-modal form .tools .options .date-picker input {
+.task-modal form .tools .options .dropdown select,
+.task-modal form .tools .options .dropdown input,
+.task-modal form .tools .options .date-picker select,
+.task-modal form .tools .options .date-picker input {
   opacity: 0;
   position: absolute;
   inset: 0;
   border: none;
   cursor: pointer;
 }
-#add-task-modal form .tools .options .dropdown select:hover ~ button,
-#add-task-modal form .tools .options .dropdown input:hover ~ button,
-#add-task-modal form .tools .options .date-picker select:hover ~ button,
-#add-task-modal form .tools .options .date-picker input:hover ~ button {
+.task-modal form .tools .options .dropdown select:hover ~ button,
+.task-modal form .tools .options .dropdown input:hover ~ button,
+.task-modal form .tools .options .date-picker select:hover ~ button,
+.task-modal form .tools .options .date-picker input:hover ~ button {
   background-color: #f4f4f5;
 }
-#add-task-modal form .tools .options .dropdown input::-webkit-calendar-picker-indicator,
-#add-task-modal form .tools .options .date-picker input::-webkit-calendar-picker-indicator {
+.task-modal form .tools .options .dropdown input::-webkit-calendar-picker-indicator,
+.task-modal form .tools .options .date-picker input::-webkit-calendar-picker-indicator {
   position: absolute;
   width: 100%;
   height: 100%;
   cursor: pointer;
 }
-#add-task-modal form .tools button[type=submit] {
+.task-modal form .tools button[type=submit] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -377,10 +377,10 @@ aside .menu-item span {
   background-color: #2837fa;
   color: #fff;
 }
-#add-task-modal form .tools button[type=submit]:hover {
+.task-modal form .tools button[type=submit]:hover {
   background-color: #1d29cb;
 }
-#add-task-modal form .tools button[type=submit] span {
+.task-modal form .tools button[type=submit] span {
   position: absolute;
   width: 1px;
   height: 1px;
