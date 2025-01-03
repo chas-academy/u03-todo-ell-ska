@@ -1,12 +1,7 @@
 <?php
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../lib/auth.php';
-require_once __DIR__ . '/../lib/mutations.php';
 require_once __DIR__ . '/icon.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  createTask($_POST['name'], $_POST['note'], $_POST['deadline'], $_POST['scheduled'], $_POST['list']);
-}
 
 $db = Database::getInstance();
 $user = Auth::getUser();
@@ -18,7 +13,7 @@ $lists = $query->fetchAll();
 
 <div id="add-task-overlay" class="overlay hidden"></div>
 <div id="add-task-modal" class="modal hidden">
-  <form method="post">
+  <form action="/actions/tasks/create.php" method="post">
     <div class="content">
       <label for="name">Task name</label>
       <input type="text" name="name" id="name" placeholder="New task" required>
