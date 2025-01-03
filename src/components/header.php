@@ -1,5 +1,5 @@
 <?php
-require_once 'components/icon.php';
+require_once __DIR__ . '/icon.php';
 
 class Header {
   private string $list;
@@ -11,6 +11,6 @@ class Header {
   }
 
   public function render() {
-    require 'components/header.template.php';
+    require_once __DIR__ . '/header.template.php';
   }
 }

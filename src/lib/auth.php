@@ -1,7 +1,7 @@
 <?php
-require_once 'db.php';
-require_once 'utils/redirect.php';
-require_once 'utils/session-start-unless-started.php';
+require_once __DIR__ . '/../db.php';
+require_once __DIR__ . '/../utils/redirect.php';
+require_once __DIR__ . '/../utils/session-start-unless-started.php';
 
 class Auth {
   public static function register(string $username, string $password) {

@@ -1,5 +1,5 @@
 <?php
-require_once 'components/icon.php';
+require_once __DIR__ . '/icon.php';
 
 class MenuItem {
   private string $name;
@@ -13,6 +13,6 @@ class MenuItem {
   }
 
   public function render() {
-    require 'components/menu-item.template.php';
+    require __DIR__ . '/menu-item.template.php';
   }
 }

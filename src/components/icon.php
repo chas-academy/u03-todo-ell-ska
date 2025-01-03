@@ -11,7 +11,7 @@ class Icon {
   }
 
   private function getPath() {
-    return "components/icons/$this->type.template.php";
+    return __DIR__ . "/icons/$this->type.template.php";
   }
 
   public function render() {

@@ -1,5 +1,5 @@
 <?php
-require_once 'lib/auth.php';
+require_once __DIR__ . '/lib/auth.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   Auth::register($_POST['username'], $_POST['password']);
@@ -29,5 +29,5 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-require 'layout.php'
+require_once __DIR__ . '/layout.php'
 ?>
