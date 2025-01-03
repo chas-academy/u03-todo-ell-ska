@@ -19,52 +19,51 @@ $lists = $query->fetchAll();
 <div id="add-task-overlay" class="overlay hidden"></div>
 <div id="add-task-modal" class="modal hidden">
   <form method="post">
-    <div class="inputs">
-      <div>
-        <label for="name">Task name</label>
-        <input type="text" name="name" id="name" placeholder="New task" required>
-      </div>
-      <div>
-        <label for="note">Task notes</label>
-        <textarea name="note" id="note" placeholder="Notes"></textarea>
-      </div>
+    <div class="content">
+      <label for="name">Task name</label>
+      <input type="text" name="name" id="name" placeholder="New task" required>
+      <label for="note">Task notes</label>
+      <textarea name="note" id="note" placeholder="Notes"></textarea>
     </div>
     <div class="tools">
       <div class="options">
         <div class="dropdown">
-          <button>
-            <?php
-            $icon = new Icon('list', 16);
-            $icon->render();
-            ?>
-            <span id="list-preview">List</span>
-          </button>
+          <label for="list">Task list</label>
           <select name="list" id="list">
             <option value="">No list</option>
             <?php foreach ($lists as $list) : ?>
               <option value="<?= $list['id'] ?>"><?= $list['name'] ?></option>
             <?php endforeach; ?>
           </select>
+          <button>
+            <?php
+            $icon = new Icon('list', 16);
+            $icon->render();
+            ?>
+            <span id="list-preview" class="hidden"></span>
+          </button>
         </div>
         <div class="date-picker">
+          <label for="scheduled">Scheduled date</label>
+          <input type="date" name="scheduled" id="scheduled">
           <button type="button">
             <?php
             $icon = new Icon('calendar', 16);
             $icon->render();
             ?>
-            <span id="scheduled-preview">Scheduled</span>
+            <span id="scheduled-preview" class="hidden"></span>
           </button>
-          <input type="date" name="scheduled" id="scheduled">
         </div>
         <div class="date-picker">
+          <label for="deadline">Deadline</label>
+          <input type="date" name="deadline" id="deadline">
           <button type="button">
             <?php
             $icon = new Icon('flag', 16);
             $icon->render();
             ?>
-            <span id="deadline-preview">Deadline</span>
+            <span id="deadline-preview" class="hidden"></span>
           </button>
-          <input type="date" name="deadline" id="deadline">
         </div>
       </div>
       <button type="submit">
