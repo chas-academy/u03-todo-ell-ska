@@ -518,24 +518,29 @@ aside .menu-item span {
 .list ul {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
-.list .task {
+.list .task a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.5rem;
 }
-.list .task .main {
+.list .task a:hover {
+  background-color: #f4f4f5;
+}
+.list .task a .main {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-.list .task .main .text {
+.list .task a .main .text {
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
-.list .task .main .text time {
+.list .task a .main .text time {
   padding-inline: 0.25rem;
   border-radius: 0.25rem;
   background-color: #e4e4e7;
@@ -545,23 +550,23 @@ aside .menu-item span {
   font-size: 0.75rem;
   line-height: 1rem;
 }
-.list .task .main .text h2 {
+.list .task a .main .text h2 {
   font-style: normal;
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.5rem;
 }
-.list .task .main .text span {
+.list .task a .main .text span {
   font-style: normal;
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1rem;
   color: #a1a1aa;
 }
-.list .task .checkbox {
+.list .task a .checkbox {
   position: relative;
 }
-.list .task .checkbox label {
+.list .task a .checkbox label {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -572,7 +577,7 @@ aside .menu-item span {
   white-space: nowrap;
   border-width: 0;
 }
-.list .task .checkbox input {
+.list .task a .checkbox input {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -586,14 +591,14 @@ aside .menu-item span {
           appearance: none;
   cursor: pointer;
 }
-.list .task .checkbox input:checked {
+.list .task a .checkbox input:checked {
   background-color: #74c476;
   border-color: #74c476;
 }
-.list .task .checkbox input:checked ~ svg {
+.list .task a .checkbox input:checked ~ svg {
   transform: scale(1) translate(-50%, -50%);
 }
-.list .task .checkbox svg {
+.list .task a .checkbox svg {
   color: #fff;
   position: absolute;
   left: 50%;
@@ -601,7 +606,7 @@ aside .menu-item span {
   transform: scale(0) translate(-50%, -50%);
   pointer-events: none;
 }
-.list .task .deadline {
+.list .task a .deadline {
   font-style: normal;
   font-weight: 500;
   font-size: 0.75rem;
@@ -610,7 +615,7 @@ aside .menu-item span {
   align-items: center;
   gap: 0.25rem;
 }
-.list .task .deadline span {
+.list .task a .deadline span {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -621,8 +626,8 @@ aside .menu-item span {
   white-space: nowrap;
   border-width: 0;
 }
-.list .task .deadline time,
-.list .task .deadline svg {
+.list .task a .deadline time,
+.list .task a .deadline svg {
   color: #e71d36;
 }
 .list #open-add-task-modal {

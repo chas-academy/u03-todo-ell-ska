@@ -98,6 +98,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.5rem;
+
+  &:hover {
+    background-color: variables.$color-zinc-100;
+  }
 
   .main {
     display: flex;
