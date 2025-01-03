@@ -1,6 +1,6 @@
 <?php
-require_once 'lib/auth.php';
-require_once 'utils/handle-error.php';
+require_once __DIR__ . '/lib/auth.php';
+require_once __DIR__ . '/utils/handle-error.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   Auth::login($_POST['username'], $_POST['password']);
@@ -30,5 +30,5 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-require 'layout.php'
+require_once __DIR__ . '/layout.php'
 ?>

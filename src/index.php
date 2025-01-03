@@ -1,9 +1,9 @@
 <?php
-require_once 'db.php';
-require_once 'lib/auth.php';
-require_once 'utils/redirect.php';
-require_once 'utils/session-start-unless-started.php';
-require 'components/icon.php';
+require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/lib/auth.php';
+require_once __DIR__ . '/utils/redirect.php';
+require_once __DIR__ . '/utils/session-start-unless-started.php';
+require_once __DIR__ . '/components/icon.php';
 
 sessionStartUnlessStarted();
 $user = Auth::getUser();
@@ -22,11 +22,11 @@ $title = 'Inbox';
 ob_start();
 ?>
 
-<?php require_once 'components/sidebar.php' ?>
+<?php require_once __DIR__ . '/components/sidebar.php' ?>
 <main class="list">
   <div>
     <?php
-    require_once 'components/header.php';
+    require_once __DIR__ . '/components/header.php';
 
     $header = new Header('Inbox', 'inbox');
     $header->render();
@@ -78,7 +78,7 @@ ob_start();
 </main>
 
 <?php
-require_once 'components/add-task-modal.php';
+require_once __DIR__ . '/components/add-task-modal.php';
 
 $content = ob_get_clean();
-require 'layout.php';
+require_once __DIR__ . '/layout.php';

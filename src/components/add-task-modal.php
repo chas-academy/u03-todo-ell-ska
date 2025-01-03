@@ -1,8 +1,8 @@
 <?php
-require_once 'db.php';
-require_once 'lib/auth.php';
-require_once 'lib/mutations.php';
-require_once 'components/icon.php';
+require_once __DIR__ . '/../db.php';
+require_once __DIR__ . '/../lib/auth.php';
+require_once __DIR__ . '/../lib/mutations.php';
+require_once __DIR__ . '/icon.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   createTask($_POST['name'], $_POST['note'], $_POST['deadline'], $_POST['scheduled'], $_POST['list']);

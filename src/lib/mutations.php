@@ -1,7 +1,7 @@
 <?php
-require_once 'db.php';
-require_once 'utils/redirect.php';
-require_once 'utils/validation.php';
+require_once __DIR__ . '/../db.php';
+require_once __DIR__ . '/../utils/redirect.php';
+require_once __DIR__ . '/../utils/validation.php';
 
 function createTask(string $name, string $note, string $deadline, string $scheduled, string $listId) {
   $name = validateString($name, true, 'Task name is required');
