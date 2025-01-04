@@ -141,7 +141,24 @@ aside .menu-item span {
   }
 }
 .header button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.25rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: #53535b;
   color: #a1a1aa;
+}
+.header button:hover {
+  background-color: #f4f4f5;
 }
 .header button span {
   position: absolute;
@@ -169,6 +186,33 @@ aside .menu-item span {
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+main.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-inline: 1rem;
+}
+@media (min-width: 1024px) {
+  main.container {
+    margin-inline: 4rem;
+  }
+}
+main.container > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  max-width: 64rem;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  main.container > div {
+    gap: 2rem;
+    margin-block: 5rem;
+  }
 }
 
 .error {
@@ -232,12 +276,19 @@ aside .menu-item span {
   }
 }
 
-#add-task-modal form {
+.task-modal form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-#add-task-modal form label {
+.task-modal form .content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem;
+}
+.task-modal form .content label {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -248,15 +299,8 @@ aside .menu-item span {
   white-space: nowrap;
   border-width: 0;
 }
-#add-task-modal form .content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: 0.5rem;
-}
-#add-task-modal form .content input,
-#add-task-modal form .content textarea {
+.task-modal form .content input,
+.task-modal form .content textarea {
   border: 0;
   background-color: transparent;
   font-style: normal;
@@ -265,38 +309,51 @@ aside .menu-item span {
   line-height: 1.5rem;
   width: 100%;
 }
-#add-task-modal form .content input::-moz-placeholder, #add-task-modal form .content textarea::-moz-placeholder {
+.task-modal form .content input::-moz-placeholder, .task-modal form .content textarea::-moz-placeholder {
   color: #a1a1aa;
 }
-#add-task-modal form .content input::placeholder,
-#add-task-modal form .content textarea::placeholder {
+.task-modal form .content input::placeholder,
+.task-modal form .content textarea::placeholder {
   color: #a1a1aa;
 }
-#add-task-modal form .content textarea[name=note] {
+.task-modal form .content textarea[name=note] {
   font-style: normal;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
+  min-height: 5rem;
   height: 100%;
+  color: #53535b;
   resize: none;
 }
-#add-task-modal form .content div:last-of-type {
+.task-modal form .content div:last-of-type {
   flex-grow: 1;
 }
-#add-task-modal form .tools {
+.task-modal form .tools {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
   padding-left: 0.5rem;
 }
-#add-task-modal form .tools .options {
+.task-modal form .tools .options {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   overflow-x: scroll;
 }
-#add-task-modal form .tools .options button {
+.task-modal form .tools .options label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.task-modal form .tools .options button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -315,53 +372,53 @@ aside .menu-item span {
   height: 2rem;
   color: #a1a1aa;
 }
-#add-task-modal form .tools .options button:hover {
+.task-modal form .tools .options button:hover {
   background-color: #f4f4f5;
 }
-#add-task-modal form .tools .options button span {
+.task-modal form .tools .options button span {
   font-style: normal;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: #27272a;
 }
-#add-task-modal form .tools .options button span.hidden {
+.task-modal form .tools .options button span.hidden {
   display: none;
 }
-#add-task-modal form .tools .options button span.visible {
+.task-modal form .tools .options button span.visible {
   display: inline;
 }
-#add-task-modal form .tools .options button svg .fill {
+.task-modal form .tools .options button svg .fill {
   display: none;
 }
-#add-task-modal form .tools .options .dropdown,
-#add-task-modal form .tools .options .date-picker {
+.task-modal form .tools .options .dropdown,
+.task-modal form .tools .options .date-picker {
   position: relative;
 }
-#add-task-modal form .tools .options .dropdown select,
-#add-task-modal form .tools .options .dropdown input,
-#add-task-modal form .tools .options .date-picker select,
-#add-task-modal form .tools .options .date-picker input {
+.task-modal form .tools .options .dropdown select,
+.task-modal form .tools .options .dropdown input,
+.task-modal form .tools .options .date-picker select,
+.task-modal form .tools .options .date-picker input {
   opacity: 0;
   position: absolute;
   inset: 0;
   border: none;
   cursor: pointer;
 }
-#add-task-modal form .tools .options .dropdown select:hover ~ button,
-#add-task-modal form .tools .options .dropdown input:hover ~ button,
-#add-task-modal form .tools .options .date-picker select:hover ~ button,
-#add-task-modal form .tools .options .date-picker input:hover ~ button {
+.task-modal form .tools .options .dropdown select:hover ~ button,
+.task-modal form .tools .options .dropdown input:hover ~ button,
+.task-modal form .tools .options .date-picker select:hover ~ button,
+.task-modal form .tools .options .date-picker input:hover ~ button {
   background-color: #f4f4f5;
 }
-#add-task-modal form .tools .options .dropdown input::-webkit-calendar-picker-indicator,
-#add-task-modal form .tools .options .date-picker input::-webkit-calendar-picker-indicator {
+.task-modal form .tools .options .dropdown input::-webkit-calendar-picker-indicator,
+.task-modal form .tools .options .date-picker input::-webkit-calendar-picker-indicator {
   position: absolute;
   width: 100%;
   height: 100%;
   cursor: pointer;
 }
-#add-task-modal form .tools button[type=submit] {
+.task-modal form .tools button[type=submit] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -377,10 +434,10 @@ aside .menu-item span {
   background-color: #2837fa;
   color: #fff;
 }
-#add-task-modal form .tools button[type=submit]:hover {
+.task-modal form .tools button[type=submit]:hover {
   background-color: #1d29cb;
 }
-#add-task-modal form .tools button[type=submit] span {
+.task-modal form .tools button[type=submit] span {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -490,52 +547,32 @@ aside .menu-item span {
   background-color: #f4f4f5;
 }
 
-.list {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-inline: 1rem;
-}
-@media (min-width: 1024px) {
-  .list {
-    margin-inline: 4rem;
-  }
-}
-.list > div {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 64rem;
-  width: 100%;
-}
-@media (min-width: 768px) {
-  .list > div {
-    gap: 2rem;
-    margin-block: 5rem;
-  }
-}
 .list ul {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
-.list .task {
+.list .task a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.5rem;
 }
-.list .task .main {
+.list .task a:hover {
+  background-color: #f4f4f5;
+}
+.list .task a .main {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-.list .task .main .text {
+.list .task a .main .text {
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
-.list .task .main .text time {
+.list .task a .main .text time {
   padding-inline: 0.25rem;
   border-radius: 0.25rem;
   background-color: #e4e4e7;
@@ -545,23 +582,23 @@ aside .menu-item span {
   font-size: 0.75rem;
   line-height: 1rem;
 }
-.list .task .main .text h2 {
+.list .task a .main .text h2 {
   font-style: normal;
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.5rem;
 }
-.list .task .main .text span {
+.list .task a .main .text span {
   font-style: normal;
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1rem;
   color: #a1a1aa;
 }
-.list .task .checkbox {
+.list .task a .checkbox {
   position: relative;
 }
-.list .task .checkbox label {
+.list .task a .checkbox label {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -572,7 +609,7 @@ aside .menu-item span {
   white-space: nowrap;
   border-width: 0;
 }
-.list .task .checkbox input {
+.list .task a .checkbox input {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -586,14 +623,14 @@ aside .menu-item span {
           appearance: none;
   cursor: pointer;
 }
-.list .task .checkbox input:checked {
+.list .task a .checkbox input:checked {
   background-color: #74c476;
   border-color: #74c476;
 }
-.list .task .checkbox input:checked ~ svg {
+.list .task a .checkbox input:checked ~ svg {
   transform: scale(1) translate(-50%, -50%);
 }
-.list .task .checkbox svg {
+.list .task a .checkbox svg {
   color: #fff;
   position: absolute;
   left: 50%;
@@ -601,7 +638,7 @@ aside .menu-item span {
   transform: scale(0) translate(-50%, -50%);
   pointer-events: none;
 }
-.list .task .deadline {
+.list .task a .deadline {
   font-style: normal;
   font-weight: 500;
   font-size: 0.75rem;
@@ -610,7 +647,7 @@ aside .menu-item span {
   align-items: center;
   gap: 0.25rem;
 }
-.list .task .deadline span {
+.list .task a .deadline span {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -621,8 +658,8 @@ aside .menu-item span {
   white-space: nowrap;
   border-width: 0;
 }
-.list .task .deadline time,
-.list .task .deadline svg {
+.list .task a .deadline time,
+.list .task a .deadline svg {
   color: #e71d36;
 }
 .list #open-add-task-modal {
@@ -651,4 +688,206 @@ aside .menu-item span {
   .list #open-add-task-modal {
     right: 1rem;
   }
+}
+
+@media (min-width: 768px) {
+  .details .header {
+    display: none;
+  }
+}
+.details form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.details form .main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (min-width: 1024px) {
+  .details form .main {
+    flex-direction: row;
+    align-items: start;
+  }
+}
+.details form .content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem;
+}
+.details form .content label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.details form .content input,
+.details form .content textarea {
+  border: 0;
+  background-color: transparent;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  width: 100%;
+}
+.details form .content input::-moz-placeholder, .details form .content textarea::-moz-placeholder {
+  color: #a1a1aa;
+}
+.details form .content input::placeholder,
+.details form .content textarea::placeholder {
+  color: #a1a1aa;
+}
+.details form .content textarea[name=note] {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  min-height: 5rem;
+  height: 100%;
+  color: #53535b;
+  resize: none;
+}
+.details form .content div:last-of-type {
+  flex-grow: 1;
+}
+.details form .options {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: scroll;
+}
+.details form .options label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.details form .options button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.25rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: #53535b;
+  padding-inline: 0.5rem;
+  height: 2rem;
+  color: #a1a1aa;
+}
+.details form .options button:hover {
+  background-color: #f4f4f5;
+}
+.details form .options button span {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #27272a;
+}
+.details form .options button span.hidden {
+  display: none;
+}
+.details form .options button span.visible {
+  display: inline;
+}
+.details form .options button svg .fill {
+  display: none;
+}
+.details form .options .dropdown,
+.details form .options .date-picker {
+  position: relative;
+}
+.details form .options .dropdown select,
+.details form .options .dropdown input,
+.details form .options .date-picker select,
+.details form .options .date-picker input {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  border: none;
+  cursor: pointer;
+}
+.details form .options .dropdown select:hover ~ button,
+.details form .options .dropdown input:hover ~ button,
+.details form .options .date-picker select:hover ~ button,
+.details form .options .date-picker input:hover ~ button {
+  background-color: #f4f4f5;
+}
+.details form .options .dropdown input::-webkit-calendar-picker-indicator,
+.details form .options .date-picker input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.details form .actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+@media (min-width: 768px) {
+  .details form .actions {
+    flex-direction: row;
+    justify-content: end;
+  }
+}
+.details form .actions .delete {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.5rem 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border-radius: 999px;
+  background-color: #27272a;
+  color: #fff;
+}
+.details form .actions .delete:hover {
+  background-color: #18181b;
+}
+.details form .actions .save {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.5rem 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border-radius: 999px;
+  background-color: #2837fa;
+  color: #fff;
+}
+.details form .actions .save:hover {
+  background-color: #1d29cb;
 }/*# sourceMappingURL=style.css.map */

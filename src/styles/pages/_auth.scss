@@ -41,6 +41,6 @@
   }
 
   a {
-    @include components.button('tertiary');
+    @include components.button('tertiary', 'sm');
   }
 }
