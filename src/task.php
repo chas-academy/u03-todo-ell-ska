@@ -66,7 +66,7 @@ ob_start();
         ?>
       </div>
       <div class="actions">
-        <button type="button" class="delete">Delete</button>
+        <button type="submit" class="delete" name="action" value="delete">Delete</button>
         <button type="submit" class="save" name="action" value="edit">Save</button>
       </div>
     </form>
