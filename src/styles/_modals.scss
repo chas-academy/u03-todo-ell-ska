@@ -57,32 +57,8 @@
   flex-direction: column;
   justify-content: space-between;
 
-  label {
-    @include utils.sr-only;
-  }
-
   .content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding: 0.5rem;
-
-    input,
-    textarea {
-      @include components.input('invisible');
-      width: 100%;
-    }
-
-    textarea[name='note'] {
-      @include typography.small;
-      height: 100%;
-      resize: none;
-    }
-
-    div:last-of-type {
-      flex-grow: 1;
-    }
+    @include components.task-content;
   }
 
   .tools {
@@ -93,59 +69,7 @@
     padding-left: 0.5rem;
 
     .options {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      overflow-x: scroll;
-
-      button {
-        @include components.button('tertiary', 'icon');
-        padding-inline: 0.5rem;
-        height: 2rem;
-        color: variables.$color-zinc-400;
-
-        span {
-          @include typography.small;
-          color: variables.$color-zinc-800;
-
-          &.hidden {
-            display: none;
-          }
-
-          &.visible {
-            display: inline;
-          }
-        }
-
-        svg .fill {
-          display: none;
-        }
-      }
-
-      .dropdown,
-      .date-picker {
-        position: relative;
-
-        select,
-        input {
-          opacity: 0;
-          position: absolute;
-          inset: 0;
-          border: none;
-          cursor: pointer;
-
-          &:hover ~ button {
-            background-color: variables.$color-zinc-100;
-          }
-        }
-
-        input::-webkit-calendar-picker-indicator {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          cursor: pointer;
-        }
-      }
+      @include components.task-options;
     }
 
     button[type='submit'] {

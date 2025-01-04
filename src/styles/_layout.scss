@@ -57,6 +57,7 @@ aside {
   }
 
   button {
+    @include components.button('tertiary', 'sm', 'icon');
     color: variables.$color-zinc-400;
 
     span {
@@ -75,6 +76,32 @@ aside {
 
     h1 {
       @include typography.heading();
+    }
+  }
+}
+
+main.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-inline: 1rem;
+
+  @include utils.breakpoint('lg') {
+    margin-inline: 4rem;
+  }
+
+  & > div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    max-width: 64rem;
+    width: 100%;
+
+    @include utils.breakpoint('md') {
+      gap: 2rem;
+      margin-block: 5rem;
     }
   }
 }

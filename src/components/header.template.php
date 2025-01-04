@@ -1,12 +1,23 @@
 <header class="header">
   <div>
+    <?php if ($this->back) : ?>
+      <button class="back">
+        <span>go back</span>
+        <?php
+        $icon = new Icon('chevron-left', 24);
+        $icon->render();
+        ?>
+      </button>
+    <?php endif; ?>
     <?php
     if (isset($this->icon)) {
       $icon = new Icon($this->icon, 24);
       $icon->render();
     }
     ?>
-    <h1><?= $this->list ?></h1>
+    <?php if (isset($this->list)) : ?>
+      <h1><?= $this->list ?></h1>
+    <?php endif; ?>
   </div>
   <button>
     <span>open menu</span>

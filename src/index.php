@@ -23,7 +23,7 @@ ob_start();
 ?>
 
 <?php require_once __DIR__ . '/components/sidebar.php' ?>
-<main class="list">
+<main class="list container">
   <div>
     <?php
     require_once __DIR__ . '/components/header.php';

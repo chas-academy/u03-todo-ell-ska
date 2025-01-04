@@ -1,0 +1,32 @@
+@use '../components';
+
+.details {
+  form {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .content {
+      @include components.task-content;
+    }
+
+    .options {
+      @include components.task-options;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .delete {
+        @include components.button('secondary');
+      }
+
+      .save {
+        @include components.button;
+      }
+    }
+  }
+}

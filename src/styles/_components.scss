@@ -46,7 +46,7 @@
   }
 }
 
-@mixin button($variant: 'primary', $type: 'label') {
+@mixin button($variant: 'primary', $size: 'md', $type: 'label') {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -54,7 +54,7 @@
   white-space: nowrap;
   transition: background-color variables.$transition;
 
-  @if $variant == 'primary' {
+  @if $size == 'md' {
     @if $type == 'label' {
       padding: 0.5rem 1.5rem;
     } @else if $type == 'icon' {
@@ -62,14 +62,7 @@
     }
 
     @include typography.medium(700);
-    border-radius: 999px;
-    background-color: variables.$color-primary;
-    color: variables.$color-white;
-
-    &:hover {
-      background-color: variables.$color-primary-darker;
-    }
-  } @else if $variant == 'tertiary' {
+  } @else if $size == 'sm' {
     @if $type == 'label' {
       padding: 0.25rem 0.5rem;
     } @else if $type == 'icon' {
@@ -77,6 +70,26 @@
     }
 
     @include typography.small;
+  }
+
+  @if $variant == 'primary' {
+    border-radius: 999px;
+    background-color: variables.$color-primary;
+    color: variables.$color-white;
+
+    &:hover {
+      background-color: variables.$color-primary-darker;
+    }
+  } @else if $variant == 'secondary' {
+    border-radius: 999px;
+
+    background-color: variables.$color-zinc-800;
+    color: variables.$color-white;
+
+    &:hover {
+      background-color: variables.$color-zinc-900;
+    }
+  } @else if $variant == 'tertiary' {
     border-radius: 0.25rem;
     background-color: transparent;
     color: variables.$color-zinc-600;
@@ -183,6 +196,95 @@
     time,
     svg {
       color: variables.$color-danger;
+    }
+  }
+}
+
+@mixin task-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem;
+
+  label {
+    @include utils.sr-only;
+  }
+
+  input,
+  textarea {
+    @include input('invisible');
+    width: 100%;
+  }
+
+  textarea[name='note'] {
+    @include typography.small;
+    height: 100%;
+    color: variables.$color-zinc-600;
+    resize: none;
+  }
+
+  div:last-of-type {
+    flex-grow: 1;
+  }
+}
+
+@mixin task-options {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: scroll;
+
+  label {
+    @include utils.sr-only;
+  }
+
+  button {
+    @include button('tertiary', 'sm', 'icon');
+    padding-inline: 0.5rem;
+    height: 2rem;
+    color: variables.$color-zinc-400;
+
+    span {
+      @include typography.small;
+      color: variables.$color-zinc-800;
+
+      &.hidden {
+        display: none;
+      }
+
+      &.visible {
+        display: inline;
+      }
+    }
+
+    svg .fill {
+      display: none;
+    }
+  }
+
+  .dropdown,
+  .date-picker {
+    position: relative;
+
+    select,
+    input {
+      opacity: 0;
+      position: absolute;
+      inset: 0;
+      border: none;
+      cursor: pointer;
+
+      &:hover ~ button {
+        background-color: variables.$color-zinc-100;
+      }
+    }
+
+    input::-webkit-calendar-picker-indicator {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
     }
   }
 }

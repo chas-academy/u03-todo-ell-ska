@@ -17,7 +17,16 @@ try {
 
   $db = Database::getInstance();
 
-  $query = $db->prepare("SELECT * FROM tasks WHERE id = :taskId AND user_id = :userId");
+  $query = $db->prepare("SELECT
+      tasks.name,
+      tasks.note,
+      tasks.scheduled,
+      tasks.deadline,
+      tasks.list_id,
+      lists.name AS list_name
+    FROM tasks
+    LEFT JOIN lists ON tasks.list_id = lists.id
+    WHERE tasks.id = :taskId AND tasks.user_id = :userId");
   $query->execute(['taskId' => $_GET['id'], 'userId' => $user['id']]);
   $task = $query->fetch();
 
@@ -33,9 +42,33 @@ ob_start();
 ?>
 
 <?php require_once __DIR__ . '/components/sidebar.php' ?>
-<main class="details">
+<main class="details container">
   <div>
-    <?= $task['name'] ?>
+    <?php
+    require_once __DIR__ . '/components/header.php';
+
+    $header = new Header(null, null, true);
+    $header->render();
+    ?>
+    <form action="">
+      <div>
+        <?php
+        require_once __DIR__ . '/components/task-form-content.php';
+
+        $taskFormContent = new TaskFormContent($task);
+        $taskFormContent->render();
+
+        require_once __DIR__ . '/components/task-form-options.php';
+
+        $taskFormOptions = new TaskFormOptions($task);
+        $taskFormOptions->render();
+        ?>
+      </div>
+      <div class="actions">
+        <button class="delete">Delete</button>
+        <button type="submit" class="save">Save</button>
+      </div>
+    </form>
   </div>
 </main>
 
