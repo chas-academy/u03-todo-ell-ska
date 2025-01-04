@@ -50,7 +50,8 @@ ob_start();
     $header = new Header(null, null, true);
     $header->render();
     ?>
-    <form action="">
+    <form action="/actions/tasks/edit.php" method="post">
+      <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
       <div class="main">
         <?php
         require_once __DIR__ . '/components/task-form-content.php';
@@ -65,7 +66,7 @@ ob_start();
         ?>
       </div>
       <div class="actions">
-        <button class="delete">Delete</button>
+        <button type="button" class="delete">Delete</button>
         <button type="submit" class="save">Save</button>
       </div>
     </form>

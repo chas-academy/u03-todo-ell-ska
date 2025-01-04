@@ -30,7 +30,7 @@ $lists = $query->fetchAll();
   </div>
   <div class="date-picker">
     <label for="scheduled">Scheduled date</label>
-    <input type="date" name="scheduled" id="scheduled">
+    <input type="date" name="scheduled" id="scheduled" value="<?= isset($this->task['scheduled']) ? $this->task['scheduled'] : '' ?>">
     <button type="button">
       <?php
       $icon = new Icon('calendar', 16);
@@ -41,7 +41,7 @@ $lists = $query->fetchAll();
   </div>
   <div class="date-picker">
     <label for="deadline">Deadline</label>
-    <input type="date" name="deadline" id="deadline">
+    <input type="date" name="deadline" id="deadline" value="<?= isset($this->task['deadline']) ? $this->task['deadline'] : '' ?>">
     <button type="button">
       <?php
       $icon = new Icon('flag', 16);
