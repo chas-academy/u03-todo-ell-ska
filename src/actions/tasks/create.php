@@ -4,12 +4,12 @@ require_once __DIR__ . '/../../lib/auth.php';
 require_once __DIR__ . '/../../utils/redirect.php';
 require_once __DIR__ . '/../../utils/validation.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $name = validateString($_POST['name'], true, 'Task name is required');
-  $note = validateString($_POST['note']);
-  $deadline = validateString($_POST['deadline']);
-  $scheduled = validateString($_POST['scheduled']);
-  $listId = validateString($_POST['list']);
+function createTask($name, $note, $deadline, $scheduled, $listId) {
+  $name = validateString($name, true, 'Task name is required');
+  $note = validateString($note);
+  $deadline = validateString($deadline);;
+  $scheduled = validateString($scheduled);
+  $listId = validateString($listId);
 
   $db = Database::getInstance();
   $user = Auth::getUser();
