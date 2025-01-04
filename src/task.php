@@ -51,7 +51,7 @@ ob_start();
     $header->render();
     ?>
     <form action="">
-      <div>
+      <div class="main">
         <?php
         require_once __DIR__ . '/components/task-form-content.php';
 

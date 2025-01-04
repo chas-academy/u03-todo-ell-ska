@@ -219,6 +219,7 @@
 
   textarea[name='note'] {
     @include typography.small;
+    min-height: 5rem;
     height: 100%;
     color: variables.$color-zinc-600;
     resize: none;

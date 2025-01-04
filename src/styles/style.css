@@ -321,6 +321,7 @@ main.container > div {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
+  min-height: 5rem;
   height: 100%;
   color: #53535b;
   resize: none;
@@ -689,11 +690,27 @@ main.container > div {
   }
 }
 
+@media (min-width: 768px) {
+  .details .header {
+    display: none;
+  }
+}
 .details form {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.details form .main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (min-width: 1024px) {
+  .details form .main {
+    flex-direction: row;
+    align-items: start;
+  }
 }
 .details form .content {
   flex-grow: 1;
@@ -735,6 +752,7 @@ main.container > div {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
+  min-height: 5rem;
   height: 100%;
   color: #53535b;
   resize: none;
@@ -828,6 +846,12 @@ main.container > div {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+@media (min-width: 768px) {
+  .details form .actions {
+    flex-direction: row;
+    justify-content: end;
+  }
 }
 .details form .actions .delete {
   display: inline-flex;
