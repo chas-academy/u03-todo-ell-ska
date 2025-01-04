@@ -50,7 +50,7 @@ ob_start();
     $header = new Header(null, null, true);
     $header->render();
     ?>
-    <form action="/actions/tasks/edit.php" method="post">
+    <form action="/actions/tasks/handler.php" method="post">
       <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
       <div class="main">
         <?php
@@ -67,7 +67,7 @@ ob_start();
       </div>
       <div class="actions">
         <button type="button" class="delete">Delete</button>
-        <button type="submit" class="save">Save</button>
+        <button type="submit" class="save" name="action" value="edit">Save</button>
       </div>
     </form>
   </div>
