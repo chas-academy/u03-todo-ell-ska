@@ -1,3 +1,5 @@
+@use '../variables';
+@use '../typography';
 @use '../components';
 @use '../utils';
 
@@ -6,10 +8,27 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-  }
 
-  .task a {
-    @include components.task;
+    .separator {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      div {
+        width: 100%;
+        height: 1px;
+        background-color: variables.$color-zinc-200;
+      }
+
+      p {
+        @include typography.small;
+        color: variables.$color-zinc-600;
+      }
+    }
+
+    .task a {
+      @include components.task;
+    }
   }
 
   #open-add-task-modal {
