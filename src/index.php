@@ -72,12 +72,9 @@ ob_start();
       <?php endforeach; ?>
     </ul>
 
-    <button id="open-add-task-modal">
-      <?php
-      $icon = new Icon('plus', 24);
-      $icon->render();
-      ?>
-    </button>
+    <?php
+    require_once __DIR__ . '/components/open-add-task-modal.php';
+    ?>
   </div>
 </main>
 

@@ -21,5 +21,9 @@
     @include utils.breakpoint('md') {
       right: 1rem;
     }
+
+    span {
+      @include utils.sr-only;
+    }
   }
 }
