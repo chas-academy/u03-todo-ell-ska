@@ -3,7 +3,7 @@ const registerModal = (modalId, openButtonId, overlayId) => {
   const openButton = document.getElementById(openButtonId)
   const overlay = document.getElementById(overlayId)
 
-  openButton.addEventListener('click', () => {
+  openButton?.addEventListener('click', () => {
     modal.classList.remove('hidden')
     modal.classList.add('visible')
 
@@ -11,7 +11,7 @@ const registerModal = (modalId, openButtonId, overlayId) => {
     overlay.classList.add('visible')
   })
 
-  overlay.addEventListener('click', () => {
+  overlay?.addEventListener('click', () => {
     modal.classList.remove('visible')
     modal.classList.add('hidden')
 
