@@ -2,6 +2,7 @@
 require_once __DIR__ . '/create.php';
 require_once __DIR__ . '/edit.php';
 require_once __DIR__ . '/delete.php';
+require_once __DIR__ . '/toggle-done.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (!isset($_POST['action'])) {
@@ -17,6 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       break;
     case 'delete':
       deleteTask($_POST['id']);
+      break;
+    case 'toggle-done':
+      toggleDone($_POST['id']);
       break;
   }
 }
