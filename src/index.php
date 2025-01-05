@@ -14,7 +14,24 @@ if (!$user) {
 
 $db = Database::getInstance();
 
-$query = $db->prepare("SELECT * FROM tasks WHERE user_id = :id AND list_id IS NULL");
+$query = $db->prepare("
+  SELECT *
+  FROM tasks
+  WHERE user_id = :id
+    AND list_id IS NULL
+    AND done = 0
+  ORDER BY
+    CASE 
+      WHEN deadline IS NULL THEN 1 
+      ELSE 0 
+    END ASC, 
+    deadline ASC,
+    CASE 
+      WHEN scheduled IS NULL THEN 1 
+      ELSE 0 
+    END ASC, 
+    scheduled ASC
+");
 $query->execute(['id' => $user['id']]);
 $tasks = $query->fetchAll();
 
