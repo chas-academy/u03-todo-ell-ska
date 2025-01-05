@@ -19,7 +19,7 @@
       <h1><?= $this->list ?></h1>
     <?php endif; ?>
   </div>
-  <button>
+  <button id="open-sidebar">
     <span>open menu</span>
     <?php
     $icon = new Icon('menu', 24);

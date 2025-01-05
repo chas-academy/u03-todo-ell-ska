@@ -22,12 +22,20 @@ $staticMenuItems = [
 ]
 ?>
 
-<aside class="sidebar">
+<aside id="sidebar" class="sidebar hidden">
   <div class="main">
     <header>
       <?php
       require_once __DIR__ . '/logo.php';
       ?>
+
+      <button id="close-sidebar">
+        <span>close menu</span>
+        <?php
+        $icon = new Icon('x', 24);
+        $icon->render();
+        ?>
+      </button>
     </header>
     <nav>
       <div class="static-menu-items">
