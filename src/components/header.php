@@ -6,7 +6,7 @@ class Header {
   private ?string $icon;
   private ?bool $back;
 
-  public function __construct(?string $list, ?string $icon, ?bool $back = false) {
+  public function __construct(?string $list, ?string $icon = null, ?bool $back = false) {
     $this->list = $list;
     $this->icon = $icon;
     $this->back = $back;
