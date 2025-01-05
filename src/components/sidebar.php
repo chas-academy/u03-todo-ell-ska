@@ -22,22 +22,29 @@ $staticMenuItems = [
 ]
 ?>
 
-<aside>
-  <nav>
-    <div class="static-menu-items">
+<aside class="sidebar">
+  <div class="main">
+    <header>
       <?php
-      foreach ($staticMenuItems as $item) {
-        $item->render();
-      }
+      require_once __DIR__ . '/logo.php';
       ?>
-    </div>
-    <div class="separator"></div>
-    <div class="dynamic-menu-items">
-      <?php
-      foreach ($dynamicMenuItems as $item) {
-        $item->render();
-      }
-      ?>
-    </div>
-  </nav>
+    </header>
+    <nav>
+      <div class="static-menu-items">
+        <?php
+        foreach ($staticMenuItems as $item) {
+          $item->render();
+        }
+        ?>
+      </div>
+      <div class="separator"></div>
+      <div class="dynamic-menu-items">
+        <?php
+        foreach ($dynamicMenuItems as $item) {
+          $item->render();
+        }
+        ?>
+      </div>
+    </nav>
+  </div>
 </aside>
