@@ -78,44 +78,62 @@ body {
   line-height: 1.5rem;
 }
 
-aside {
+.sidebar {
   display: none;
   flex-grow: 1;
-  padding-top: 6rem;
 }
 @media (min-width: 768px) {
-  aside {
+  .sidebar {
     display: block;
     max-width: 20rem;
     width: 100%;
     border-right: 1px solid #e4e4e7;
   }
 }
-aside nav {
+.sidebar .main {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
-aside .static-menu-items,
-aside .dynamic-menu-items {
+.sidebar .main header {
+  padding: 1.5rem 1rem;
+}
+@media (min-width: 768px) {
+  .sidebar .main header {
+    padding-inline: 1.5rem;
+  }
+}
+.sidebar .main nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.sidebar .main .static-menu-items,
+.sidebar .main .dynamic-menu-items {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   padding-inline: 1rem;
 }
-aside .separator {
+@media (min-width: 768px) {
+  .sidebar .main .static-menu-items,
+  .sidebar .main .dynamic-menu-items {
+    padding-inline: 1.5rem;
+  }
+}
+.sidebar .main .separator {
   width: calc(100% - 2rem);
   height: 1px;
   margin-inline: 1rem;
   background-color: #e4e4e7;
 }
 @media (min-width: 768px) {
-  aside .separator {
+  .sidebar .main .separator {
     width: 100%;
     margin: 0;
   }
 }
-aside .menu-item {
+.sidebar .main .menu-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -124,7 +142,7 @@ aside .menu-item {
   font-size: 1rem;
   line-height: 1.5rem;
 }
-aside .menu-item span {
+.sidebar .main .menu-item span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
