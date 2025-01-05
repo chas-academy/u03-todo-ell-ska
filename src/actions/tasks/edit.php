@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../../db.php';
 require_once __DIR__ . '/../../lib/auth.php';
-require_once __DIR__ . '/../../utils/redirect.php';
+require_once __DIR__ . '/../../utils/navigation.php';
 require_once __DIR__ . '/../../utils/validation.php';
 
 function editTask($id, $name, $note, $deadline, $scheduled, $listId) {
@@ -30,7 +30,7 @@ function editTask($id, $name, $note, $deadline, $scheduled, $listId) {
       WHERE id = :id AND user_id = :userId');
     $query->execute(['name' => $name, 'note' => $note, 'deadline' => $deadline, 'scheduled' => $scheduled, 'listId' => $listId, 'id' => $id, 'userId' => $user['id']]);
 
-    redirect("/task.php?id=$id");
+    refresh();
   } catch (PDOException $error) {
     die($error->getMessage());
   }
