@@ -16,9 +16,9 @@ foreach ($lists as $list) {
 }
 
 $staticMenuItems = [
-  new MenuItem('Inbox', '/inbox', 'inbox'),
-  new MenuItem('Today', '/today', 'calendar'),
-  new MenuItem('Done', '/done', 'check')
+  new MenuItem('Inbox', '/', 'inbox'),
+  new MenuItem('Today', '/today.php', 'calendar'),
+  new MenuItem('Done', '/done.php', 'check')
 ]
 ?>
 
