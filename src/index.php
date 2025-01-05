@@ -40,7 +40,7 @@ ob_start();
               <form action="/actions/tasks/handler.php" method="post">
                 <input type="hidden" name="id" value="<?= $task['id'] ?>">
                 <button type="submit" name="action" value="toggle-done" class="checkbox" data-checked="<?= $task['done'] ? 'true' : 'false' ?>">
-                  <span>task finished</span>
+                  <span>mark task as <?= $task['done'] ? 'not done' : 'done' ?></span>
                   <?php
                   $icon = new Icon('check', 12);
                   $icon->render();
