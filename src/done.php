@@ -17,25 +17,13 @@ $query = $db->prepare("
   SELECT *
   FROM tasks
   WHERE user_id = :id
-    AND list_id IS NULL
-    AND done = 0
-  ORDER BY
-    CASE 
-      WHEN deadline IS NULL THEN 1 
-      ELSE 0 
-    END ASC, 
-    deadline ASC,
-    CASE 
-      WHEN scheduled IS NULL THEN 1 
-      ELSE 0 
-    END ASC, 
-    scheduled ASC,
-    created_at DESC
+    AND done = 1
+  ORDER BY created_at DESC
 ");
 $query->execute(['id' => $user['id']]);
 $tasks = $query->fetchAll();
 
-$title = 'Inbox';
+$title = 'Done';
 ob_start();
 ?>
 
@@ -45,7 +33,7 @@ ob_start();
     <?php
     require_once __DIR__ . '/components/header.php';
 
-    $header = new Header('Inbox', 'inbox');
+    $header = new Header('Done', 'check');
     $header->render();
 
     require_once __DIR__ . '/components/task-list.php';
