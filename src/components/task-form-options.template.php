@@ -17,7 +17,7 @@ $lists = $query->fetchAll();
     <select name="list" id="list">
       <option value="">No list</option>
       <?php foreach ($lists as $list) : ?>
-        <option value="<?= $list['id'] ?>" <?= $list['id'] === $this->task['list_id'] ? 'selected' : '' ?>><?= $list['name'] ?></option>
+        <option value="<?= $list['id'] ?>" <?= isset($this->task['list_id']) && $list['id'] === $this->task['list_id'] ? 'selected' : '' ?>><?= $list['name'] ?></option>
       <?php endforeach; ?>
     </select>
     <button>
