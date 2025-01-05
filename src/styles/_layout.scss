@@ -4,8 +4,22 @@
 @use 'utils';
 
 .sidebar {
-  display: none;
   flex-grow: 1;
+
+  @include utils.breakpoint('md', 'max') {
+    position: absolute;
+    z-index: 800;
+    inset: 0;
+    background-color: variables.$color-zinc-50;
+
+    &.hidden {
+      display: none;
+    }
+
+    &.visible {
+      display: block;
+    }
+  }
 
   @include utils.breakpoint('md') {
     display: block;
@@ -20,7 +34,23 @@
     gap: 2rem;
 
     header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 1.5rem 1rem;
+
+      button {
+        @include components.button('tertiary', 'sm', 'icon');
+        color: variables.$color-zinc-400;
+
+        @include utils.breakpoint('md') {
+          display: none;
+        }
+
+        span {
+          @include utils.sr-only;
+        }
+      }
 
       @include utils.breakpoint('md') {
         padding-inline: 1.5rem;
