@@ -12,7 +12,7 @@ $lists = $query->fetchAll();
 
 $dynamicMenuItems = [];
 foreach ($lists as $list) {
-  array_push($dynamicMenuItems, new MenuItem($list['name'], "/" . strtolower($list['name']), null));
+  array_push($dynamicMenuItems, new MenuItem($list['name'], '/list.php?id=' . $list['id'], null));
 }
 
 $staticMenuItems = [
