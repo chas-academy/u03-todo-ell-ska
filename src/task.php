@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/db.php';
 require_once __DIR__ . '/lib/auth.php';
-require_once __DIR__ . '/utils/redirect.php';
+require_once __DIR__ . '/utils/navigation.php';
 require_once __DIR__ . '/utils/validation.php';
 
 try {

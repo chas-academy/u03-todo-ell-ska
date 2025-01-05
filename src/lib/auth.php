@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../db.php';
-require_once __DIR__ . '/../utils/redirect.php';
+require_once __DIR__ . '/../utils/navigation.php';
 require_once __DIR__ . '/../utils/session-start-unless-started.php';
 
 class Auth {

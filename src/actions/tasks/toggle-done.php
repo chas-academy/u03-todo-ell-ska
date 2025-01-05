@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../../db.php';
 require_once __DIR__ . '/../../lib/auth.php';
-require_once __DIR__ . '/../../utils/redirect.php';
+require_once __DIR__ . '/../../utils/navigation.php';
 require_once __DIR__ . '/../../utils/validation.php';
 
 function toggleDone($id) {
@@ -18,7 +18,7 @@ function toggleDone($id) {
     $query = $db->prepare('UPDATE tasks SET done = !done WHERE id = :id AND user_id = :userId');
     $query->execute(['id' => $id, 'userId' => $user['id']]);
 
-    redirect('/');
+    refresh();
   } catch (PDOException $error) {
     die($error->getMessage());
   }

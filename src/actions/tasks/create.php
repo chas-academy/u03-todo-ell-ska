@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../../db.php';
 require_once __DIR__ . '/../../lib/auth.php';
-require_once __DIR__ . '/../../utils/redirect.php';
+require_once __DIR__ . '/../../utils/navigation.php';
 require_once __DIR__ . '/../../utils/validation.php';
 
 function createTask($name, $note, $deadline, $scheduled, $listId) {
@@ -22,7 +22,7 @@ function createTask($name, $note, $deadline, $scheduled, $listId) {
     $query = $db->prepare('INSERT INTO tasks (name, note, deadline, scheduled, list_id, user_id) VALUES (:name, :note, :deadline, :scheduled, :listId, :userId)');
     $query->execute(['name' => $name, 'note' => $note, 'deadline' => $deadline, 'scheduled' => $scheduled, 'listId' => $listId, 'userId' => $user['id']]);
 
-    redirect('/');
+    refresh();
   } catch (PDOException $error) {
     die($error->getMessage());
   }
