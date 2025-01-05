@@ -37,14 +37,16 @@ ob_start();
         <li class="task">
           <a href="/task.php?id=<?= $task['id'] ?>">
             <div class="main">
-              <div class="checkbox">
-                <label for="done">task finished</label>
-                <input type="checkbox" name="done" id="done" <?= $task['done'] ? 'checked' : '' ?>>
-                <?php
-                $icon = new Icon('check', 12);
-                $icon->render();
-                ?>
-              </div>
+              <form action="/actions/tasks/handler.php" method="post">
+                <input type="hidden" name="id" value="<?= $task['id'] ?>">
+                <button type="submit" name="action" value="toggle-done" class="checkbox" data-checked="<?= $task['done'] ? 'true' : 'false' ?>">
+                  <span>task finished</span>
+                  <?php
+                  $icon = new Icon('check', 12);
+                  $icon->render();
+                  ?>
+                </button>
+              </form>
               <div class="text">
                 <?php if (isset($task['scheduled'])) : ?>
                   <time><?= $task['scheduled'] ?></time>

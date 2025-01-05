@@ -597,8 +597,23 @@ main.container > div {
 }
 .list .task a .checkbox {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #e4e4e7;
+  border-radius: 0.25rem;
+  background-color: #fff;
 }
-.list .task a .checkbox label {
+.list .task a .checkbox[data-checked=true] {
+  background-color: #74c476;
+  border-color: #74c476;
+}
+.list .task a .checkbox[data-checked=true] svg {
+  transform: scale(1) translate(-50%, -50%);
+}
+.list .task a .checkbox span {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -608,27 +623,6 @@ main.container > div {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
-}
-.list .task a .checkbox input {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1rem;
-  height: 1rem;
-  border: 1px solid #e4e4e7;
-  border-radius: 0.25rem;
-  background-color: #fff;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  cursor: pointer;
-}
-.list .task a .checkbox input:checked {
-  background-color: #74c476;
-  border-color: #74c476;
-}
-.list .task a .checkbox input:checked ~ svg {
-  transform: scale(1) translate(-50%, -50%);
 }
 .list .task a .checkbox svg {
   color: #fff;

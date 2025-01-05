@@ -146,31 +146,26 @@
 
   .checkbox {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid variables.$color-zinc-200;
+    border-radius: 0.25rem;
+    background-color: variables.$color-white;
 
-    label {
-      @include utils.sr-only;
+    &[data-checked='true'] {
+      background-color: variables.$color-success;
+      border-color: variables.$color-success;
+
+      svg {
+        transform: scale(1) translate(-50%, -50%);
+      }
     }
 
-    input {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 1rem;
-      height: 1rem;
-      border: 1px solid variables.$color-zinc-200;
-      border-radius: 0.25rem;
-      background-color: variables.$color-white;
-      appearance: none;
-      cursor: pointer;
-
-      &:checked {
-        background-color: variables.$color-success;
-        border-color: variables.$color-success;
-
-        & ~ svg {
-          transform: scale(1) translate(-50%, -50%);
-        }
-      }
+    span {
+      @include utils.sr-only;
     }
 
     svg {
