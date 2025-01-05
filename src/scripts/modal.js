@@ -30,4 +30,5 @@ const registerModal = (modalId, openButtonId, closeButtonId, overlayId) => {
 }
 
 registerModal('add-task-modal', 'open-add-task-modal', null, 'add-task-overlay')
+registerModal('add-list-modal', 'open-add-list-modal', null, 'add-list-overlay')
 registerModal('sidebar', 'open-sidebar', 'close-sidebar', null)

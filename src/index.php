@@ -59,7 +59,5 @@ ob_start();
 </main>
 
 <?php
-require_once __DIR__ . '/components/add-task-modal.php';
-
 $content = ob_get_clean();
 require_once __DIR__ . '/layout.php';
