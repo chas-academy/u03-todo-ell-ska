@@ -50,7 +50,7 @@ ob_start();
 
     require_once __DIR__ . '/components/task-list.php';
 
-    $taskList = new TaskList($tasks);
+    $taskList = new TaskList($tasks, true);
     $taskList->render();
 
     require_once __DIR__ . '/components/open-add-task-modal.php';
