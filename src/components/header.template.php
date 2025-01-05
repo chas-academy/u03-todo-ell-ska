@@ -1,7 +1,7 @@
 <header class="header">
   <div>
     <?php if ($this->back) : ?>
-      <button class="back">
+      <button id="back" class="back">
         <span>go back</span>
         <?php
         $icon = new Icon('chevron-left', 24);
