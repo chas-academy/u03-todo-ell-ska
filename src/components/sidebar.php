@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../lib/auth.php';
 require_once __DIR__ . '/menu-item.php';
+require_once __DIR__ . '/icon.php';
 
 $db = Database::getInstance();
 $user = Auth::getUser();
@@ -55,4 +56,11 @@ $staticMenuItems = [
       </div>
     </nav>
   </div>
+  <button id="open-add-list-modal">
+    <?php
+    $icon = new Icon('plus', 16);
+    $icon->render();
+    ?>
+    <span>New list</span>
+  </button>
 </aside>

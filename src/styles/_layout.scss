@@ -5,6 +5,9 @@
 
 .sidebar {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @include utils.breakpoint('md', 'max') {
     position: absolute;
@@ -17,12 +20,12 @@
     }
 
     &.visible {
-      display: block;
+      display: flex;
     }
   }
 
   @include utils.breakpoint('md') {
-    display: block;
+    display: flex;
     max-width: 20rem;
     width: 100%;
     border-right: 1px solid variables.$color-zinc-200;
@@ -90,6 +93,16 @@
     .menu-item {
       @include components.menu-item;
       @include typography.medium(700);
+    }
+  }
+
+  #open-add-list-modal {
+    @include components.button('tertiary', 'sm');
+    align-self: start;
+    margin: 0 1rem 1.5rem;
+
+    svg {
+      color: variables.$color-zinc-400;
     }
   }
 }
