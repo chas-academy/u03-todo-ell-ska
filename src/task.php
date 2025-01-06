@@ -3,6 +3,7 @@ require_once __DIR__ . '/db.php';
 require_once __DIR__ . '/lib/auth.php';
 require_once __DIR__ . '/utils/navigation.php';
 require_once __DIR__ . '/utils/validation.php';
+require_once __DIR__ . '/components/header.php';
 
 try {
   if (!isset($_GET['id']) || !validateString($_GET['id'])) {
@@ -49,12 +50,7 @@ $sidebar->render();
 ?>
 <main class="details container">
   <div>
-    <?php
-    require_once __DIR__ . '/components/header.php';
-
-    $header = new Header(null, null, true);
-    $header->render();
-    ?>
+    <?php Header::render(null, null, true) ?>
     <form action="/actions/tasks/handler.php" method="post">
       <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
       <div class="main">

@@ -3,6 +3,7 @@ require_once __DIR__ . '/db.php';
 require_once __DIR__ . '/lib/auth.php';
 require_once __DIR__ . '/utils/navigation.php';
 require_once __DIR__ . '/utils/session-start-unless-started.php';
+require_once __DIR__ . '/components/header.php';
 require_once __DIR__ . '/components/icon.php';
 
 $user = Auth::getUser();
@@ -36,10 +37,7 @@ $sidebar->render();
 <main class="list container">
   <div>
     <?php
-    require_once __DIR__ . '/components/header.php';
-
-    $header = new Header('Done', 'check');
-    $header->render();
+    Header::render('Done', 'check');
 
     require_once __DIR__ . '/components/task-list.php';
 
