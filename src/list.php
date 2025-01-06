@@ -6,6 +6,7 @@ require_once __DIR__ . '/utils/session-start-unless-started.php';
 require_once __DIR__ . '/utils/validation.php';
 require_once __DIR__ . '/components/sidebar.php';
 require_once __DIR__ . '/components/header.php';
+require_once __DIR__ . '/components/task-list.php';
 require_once __DIR__ . '/components/icon.php';
 
 try {
@@ -63,11 +64,7 @@ ob_start();
   <div>
     <?php
     Header::render($list['name']);
-
-    require_once __DIR__ . '/components/task-list.php';
-
-    $taskList = new TaskList($tasks);
-    $taskList->render();
+    TaskList::render($tasks);
 
     require_once __DIR__ . '/components/open-add-task-modal.php';
     ?>

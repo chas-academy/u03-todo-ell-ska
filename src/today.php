@@ -5,6 +5,7 @@ require_once __DIR__ . '/utils/navigation.php';
 require_once __DIR__ . '/utils/session-start-unless-started.php';
 require_once __DIR__ . '/components/sidebar.php';
 require_once __DIR__ . '/components/header.php';
+require_once __DIR__ . '/components/task-list.php';
 require_once __DIR__ . '/components/icon.php';
 
 $user = Auth::getUser();
@@ -46,11 +47,7 @@ ob_start();
   <div>
     <?php
     Header::render('Today', 'calendar');
-
-    require_once __DIR__ . '/components/task-list.php';
-
-    $taskList = new TaskList($tasks, true);
-    $taskList->render();
+    TaskList::render($tasks, true);
 
     require_once __DIR__ . '/components/open-add-task-modal.php';
     ?>
