@@ -25,7 +25,11 @@ class Sidebar {
     ];
   }
 
-  public function render() {
+  private function getTemplate() {
     require __DIR__ . '/sidebar.template.php';
+  }
+
+  public static function render() {
+    (new self())->getTemplate();
   }
 }

@@ -3,6 +3,7 @@ require_once __DIR__ . '/db.php';
 require_once __DIR__ . '/lib/auth.php';
 require_once __DIR__ . '/utils/navigation.php';
 require_once __DIR__ . '/utils/validation.php';
+require_once __DIR__ . '/components/sidebar.php';
 require_once __DIR__ . '/components/header.php';
 
 try {
@@ -42,12 +43,7 @@ $title = $task['name'];
 ob_start();
 ?>
 
-<?php
-require_once __DIR__ . '/components/sidebar.php';
-
-$sidebar = new Sidebar();
-$sidebar->render();
-?>
+<?php Sidebar::render() ?>
 <main class="details container">
   <div>
     <?php Header::render(null, null, true) ?>

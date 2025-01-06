@@ -4,6 +4,7 @@ require_once __DIR__ . '/lib/auth.php';
 require_once __DIR__ . '/utils/navigation.php';
 require_once __DIR__ . '/utils/session-start-unless-started.php';
 require_once __DIR__ . '/utils/validation.php';
+require_once __DIR__ . '/components/sidebar.php';
 require_once __DIR__ . '/components/header.php';
 require_once __DIR__ . '/components/icon.php';
 
@@ -57,12 +58,7 @@ $title = $list['name'];
 ob_start();
 ?>
 
-<?php
-require_once __DIR__ . '/components/sidebar.php';
-
-$sidebar = new Sidebar();
-$sidebar->render();
-?>
+<?php Sidebar::render() ?>
 <main class="list container">
   <div>
     <?php
