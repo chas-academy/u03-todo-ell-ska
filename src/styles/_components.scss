@@ -111,12 +111,14 @@
   border-radius: 0.25rem;
   background-color: variables.$color-zinc-200;
   color: variables.$color-zinc-600;
+  white-space: nowrap;
 }
 
 @mixin task {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
   padding: 0.125rem 0.25rem;
   border-radius: 0.5rem;
 
@@ -128,11 +130,13 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    overflow: hidden;
 
     .text {
       display: flex;
       align-items: center;
       gap: 0.25rem;
+      overflow: hidden;
 
       time {
         @include tag;
@@ -141,6 +145,7 @@
 
       h2 {
         @include typography.medium;
+        @include utils.truncate;
       }
 
       span {
@@ -197,6 +202,7 @@
     time,
     svg {
       color: variables.$color-danger;
+      white-space: nowrap;
     }
   }
 }
