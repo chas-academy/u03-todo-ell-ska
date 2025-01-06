@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../lib/auth.php';
+require_once __DIR__ . '/../utils/date.php';
 require_once __DIR__ . '/icon.php';
 
 $db = Database::getInstance();
@@ -30,7 +31,7 @@ $lists = $query->fetchAll();
     <input type="date" name="scheduled" id="scheduled" value="<?= isset($this->task['scheduled']) ? $this->task['scheduled'] : '' ?>">
     <button type="button">
       <?php Icon::render('calendar', 16) ?>
-      <span id="scheduled-preview" class="<?= isset($this->task['scheduled']) ? 'visible' : 'hidden' ?>"><?= isset($this->task['scheduled']) ? $this->task['scheduled'] : '' ?></span>
+      <span id="scheduled-preview" class="<?= isset($this->task['scheduled']) ? 'visible' : 'hidden' ?>"><?= isset($this->task['scheduled']) ? getRelativeDate($this->task['scheduled']) : '' ?></span>
     </button>
   </div>
   <div class="date-picker">
@@ -38,7 +39,7 @@ $lists = $query->fetchAll();
     <input type="date" name="deadline" id="deadline" value="<?= isset($this->task['deadline']) ? $this->task['deadline'] : '' ?>">
     <button type="button">
       <?php Icon::render('flag', 16) ?>
-      <span id="deadline-preview" class="<?= isset($this->task['deadline']) ? 'visible' : 'hidden' ?>"><?= isset($this->task['deadline']) ? $this->task['deadline'] : '' ?></span>
+      <span id="deadline-preview" class="<?= isset($this->task['deadline']) ? 'visible' : 'hidden' ?>"><?= isset($this->task['deadline']) ? getRelativeDate($this->task['deadline']) : '' ?></span>
     </button>
   </div>
 </div>

@@ -1,3 +1,5 @@
+<?php require_once __DIR__ . '/../utils/date.php' ?>
+
 <li class="task">
   <a href="/task.php?id=<?= $task['id'] ?>">
     <div class="main">
@@ -10,7 +12,7 @@
       </form>
       <div class="text">
         <?php if (isset($task['scheduled'])) : ?>
-          <time><?= $task['scheduled'] ?></time>
+          <time><?= getRelativeDate($task['scheduled']) ?></time>
         <?php endif ?>
         <h2><?= $task['name'] ?></h2>
         <?php if (isset($task['list'])) : ?>
@@ -22,7 +24,7 @@
       <div class="deadline">
         <?php Icon::render('flag', 12) ?>
         <span>due:</span>
-        <time><?= $task['deadline'] ?></time>
+        <time><?= getRelativeDate($task['deadline']) ?></time>
       </div>
     <?php endif ?>
   </a>
