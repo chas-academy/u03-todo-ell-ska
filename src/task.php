@@ -5,6 +5,7 @@ require_once __DIR__ . '/utils/navigation.php';
 require_once __DIR__ . '/utils/validation.php';
 require_once __DIR__ . '/components/sidebar.php';
 require_once __DIR__ . '/components/header.php';
+require_once __DIR__ . '/components/task-form-content.php';
 
 try {
   if (!isset($_GET['id']) || !validateString($_GET['id'])) {
@@ -51,10 +52,7 @@ ob_start();
       <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
       <div class="main">
         <?php
-        require_once __DIR__ . '/components/task-form-content.php';
-
-        $taskFormContent = new TaskFormContent($task);
-        $taskFormContent->render();
+        TaskFormContent::render($task);
 
         require_once __DIR__ . '/components/task-form-options.php';
 
