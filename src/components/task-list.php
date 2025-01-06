@@ -1,7 +1,7 @@
 <?php
 class TaskList {
-  private $tasks;
-  private $overdueTasks;
+  private $tasks = [];
+  private $overdueTasks = [];
 
   public function __construct($tasks, bool $separateOverdueTasks = false) {
     if ($separateOverdueTasks) {
