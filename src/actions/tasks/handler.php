@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       createTask($_POST['name'], $_POST['note'], $_POST['deadline'], $_POST['scheduled'], $_POST['list']);
       break;
     case 'edit':
-      editTask($_POST['id'], $_POST['name'], $_POST['note'], $_POST['deadline'], $_POST['scheduled'], $_POST['list']);
+      editTask($_POST['id'], $_POST['name'], $_POST['note'], $_POST['deadline'], $_POST['scheduled'], $_POST['list'], $_POST['callback']);
       break;
     case 'delete':
       deleteTask($_POST['id']);
