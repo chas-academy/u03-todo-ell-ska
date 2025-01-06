@@ -8,6 +8,8 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    overflow-y: scroll;
+    padding-inline: 1rem;
 
     .separator {
       display: flex;
@@ -34,11 +36,12 @@
   #open-add-task-modal {
     @include components.button($type: 'icon');
     position: absolute;
-    right: 0;
+    right: 1rem;
     bottom: 1rem;
 
     @include utils.breakpoint('md') {
-      right: 1rem;
+      right: 2rem;
+      bottom: 4rem;
     }
 
     span {
