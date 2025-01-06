@@ -14,7 +14,6 @@ html {
 }
 
 body {
-  min-height: 100svh;
   line-height: 1.5;
 }
 
@@ -69,6 +68,8 @@ li {
 
 body {
   display: flex;
+  height: 100dvh;
+  overflow: hidden;
   background-color: #fafafa;
   color: #27272a;
   font-family: "Albert Sans", sans-serif;
@@ -231,6 +232,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding-block: 1.5rem;
+  margin-inline: 1rem;
 }
 @media (min-width: 768px) {
   .header {
@@ -289,7 +291,6 @@ main.container {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-inline: 1rem;
 }
 @media (min-width: 1024px) {
   main.container {
@@ -308,7 +309,8 @@ main.container > div {
 @media (min-width: 768px) {
   main.container > div {
     gap: 2rem;
-    margin-block: 5rem;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -710,6 +712,8 @@ main.container > div {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  overflow-y: scroll;
+  padding-inline: 1rem;
 }
 .list ul .separator {
   display: flex;
@@ -848,7 +852,7 @@ main.container > div {
   background-color: #2837fa;
   color: #fff;
   position: absolute;
-  right: 0;
+  right: 1rem;
   bottom: 1rem;
 }
 .list #open-add-task-modal:hover {
@@ -856,7 +860,8 @@ main.container > div {
 }
 @media (min-width: 768px) {
   .list #open-add-task-modal {
-    right: 1rem;
+    right: 2rem;
+    bottom: 4rem;
   }
 }
 .list #open-add-task-modal span {
@@ -881,6 +886,7 @@ main.container > div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-inline: 1rem;
 }
 .details form .main {
   display: flex;
