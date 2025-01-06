@@ -84,6 +84,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 2rem;
 }
 @media (max-width: 768px) {
   .sidebar {
@@ -111,6 +112,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  overflow: hidden;
 }
 .sidebar .main header {
   display: flex;
@@ -163,6 +165,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  overflow: hidden;
 }
 .sidebar .main .static-menu-items,
 .sidebar .main .dynamic-menu-items {
@@ -176,6 +179,9 @@ body {
   .sidebar .main .dynamic-menu-items {
     padding-inline: 1.5rem;
   }
+}
+.sidebar .main .dynamic-menu-items {
+  overflow-y: scroll;
 }
 .sidebar .main .separator {
   width: calc(100% - 2rem);
