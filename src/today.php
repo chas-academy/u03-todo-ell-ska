@@ -21,8 +21,10 @@ $query = $db->prepare("
   FROM tasks
   WHERE user_id = :id
     AND done = 0
-    AND (deadline IS NOT NULL AND deadline <= CURRENT_DATE)
-    OR (scheduled IS NOT NULL AND scheduled <= CURRENT_DATE)
+    AND (
+          (deadline IS NOT NULL AND deadline <= CURRENT_DATE)
+          OR (scheduled IS NOT NULL AND scheduled <= CURRENT_DATE)
+        )
   ORDER BY
     CASE 
       WHEN deadline IS NULL THEN 1 
