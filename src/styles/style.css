@@ -723,7 +723,7 @@ main.container > div {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  overflow-y: scroll;
+  overflow: hidden scroll;
   padding-inline: 1rem;
 }
 .list ul .separator {
@@ -747,6 +747,7 @@ main.container > div {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
   padding: 0.125rem 0.25rem;
   border-radius: 0.5rem;
 }
@@ -757,17 +758,20 @@ main.container > div {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  overflow: hidden;
 }
 .list ul .task a .main .text {
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  overflow: hidden;
 }
 .list ul .task a .main .text time {
   padding-inline: 0.25rem;
   border-radius: 0.25rem;
   background-color: #e4e4e7;
   color: #53535b;
+  white-space: nowrap;
   font-style: normal;
   font-weight: 500;
   font-size: 0.75rem;
@@ -778,6 +782,9 @@ main.container > div {
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .list ul .task a .main .text span {
   font-style: normal;
@@ -846,6 +853,7 @@ main.container > div {
 .list ul .task a .deadline time,
 .list ul .task a .deadline svg {
   color: #e71d36;
+  white-space: nowrap;
 }
 .list #open-add-task-modal {
   display: inline-flex;
