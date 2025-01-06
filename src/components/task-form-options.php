@@ -6,7 +6,11 @@ class TaskFormOptions {
     $this->task = $task;
   }
 
-  public function render() {
+  private function getTemplate() {
     require __DIR__ . '/task-form-options.template.php';
+  }
+
+  public static function render($task = null) {
+    (new self($task))->getTemplate();
   }
 }

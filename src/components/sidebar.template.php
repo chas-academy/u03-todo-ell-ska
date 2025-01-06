@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/menu-item.php';
 require_once __DIR__ . '/icon.php';
 ?>
 
@@ -11,17 +12,14 @@ require_once __DIR__ . '/icon.php';
 
       <button id="close-sidebar">
         <span>close menu</span>
-        <?php
-        $icon = new Icon('x', 24);
-        $icon->render();
-        ?>
+        <?php Icon::render('x', 24) ?>
       </button>
     </header>
     <nav>
       <div class="static-menu-items">
         <?php
         foreach ($this->staticMenuItems as $item) {
-          $item->render();
+          MenuItem::render($item[0], $item[1], $item[2]);
         }
         ?>
       </div>
@@ -29,17 +27,14 @@ require_once __DIR__ . '/icon.php';
       <div class="dynamic-menu-items">
         <?php
         foreach ($this->dynamicMenuItems as $item) {
-          $item->render();
+          MenuItem::render($item[0], $item[1], $item[2]);
         }
         ?>
       </div>
     </nav>
   </div>
   <button id="open-add-list-modal">
-    <?php
-    $icon = new Icon('plus', 16);
-    $icon->render();
-    ?>
+    <?php Icon::render('plus', 16) ?>
     <span>New list</span>
   </button>
 </aside>

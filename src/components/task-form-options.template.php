@@ -21,10 +21,7 @@ $lists = $query->fetchAll();
       <?php endforeach; ?>
     </select>
     <button>
-      <?php
-      $icon = new Icon('list', 16);
-      $icon->render();
-      ?>
+      <?php Icon::render('list', 16) ?>
       <span id="list-preview" class="<?= isset($this->task['list_name']) ? 'visible' : 'hidden' ?>"><?= isset($this->task['list_name']) ? $this->task['list_name'] : '' ?></span>
     </button>
   </div>
@@ -32,10 +29,7 @@ $lists = $query->fetchAll();
     <label for="scheduled">Scheduled date</label>
     <input type="date" name="scheduled" id="scheduled" value="<?= isset($this->task['scheduled']) ? $this->task['scheduled'] : '' ?>">
     <button type="button">
-      <?php
-      $icon = new Icon('calendar', 16);
-      $icon->render();
-      ?>
+      <?php Icon::render('calendar', 16) ?>
       <span id="scheduled-preview" class="<?= isset($this->task['scheduled']) ? 'visible' : 'hidden' ?>"><?= isset($this->task['scheduled']) ? $this->task['scheduled'] : '' ?></span>
     </button>
   </div>
@@ -43,10 +37,7 @@ $lists = $query->fetchAll();
     <label for="deadline">Deadline</label>
     <input type="date" name="deadline" id="deadline" value="<?= isset($this->task['deadline']) ? $this->task['deadline'] : '' ?>">
     <button type="button">
-      <?php
-      $icon = new Icon('flag', 16);
-      $icon->render();
-      ?>
+      <?php Icon::render('flag', 16) ?>
       <span id="deadline-preview" class="<?= isset($this->task['deadline']) ? 'visible' : 'hidden' ?>"><?= isset($this->task['deadline']) ? $this->task['deadline'] : '' ?></span>
     </button>
   </div>

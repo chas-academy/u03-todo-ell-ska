@@ -12,7 +12,11 @@ class Header {
     $this->back = $back;
   }
 
-  public function render() {
+  private function getTemplate() {
     require_once __DIR__ . '/header.template.php';
+  }
+
+  public static function render(?string $list, ?string $icon = null, ?bool $back = false) {
+    (new self($list, $icon, $back))->getTemplate();
   }
 }

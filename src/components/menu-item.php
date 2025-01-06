@@ -12,7 +12,11 @@ class MenuItem {
     $this->icon = $icon;
   }
 
-  public function render() {
+  private function getTemplate() {
     require __DIR__ . '/menu-item.template.php';
+  }
+
+  public static function render(string $name, string $href, ?string $icon) {
+    (new self($name, $href, $icon))->getTemplate();
   }
 }

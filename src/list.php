@@ -4,6 +4,9 @@ require_once __DIR__ . '/lib/auth.php';
 require_once __DIR__ . '/utils/navigation.php';
 require_once __DIR__ . '/utils/session-start-unless-started.php';
 require_once __DIR__ . '/utils/validation.php';
+require_once __DIR__ . '/components/sidebar.php';
+require_once __DIR__ . '/components/header.php';
+require_once __DIR__ . '/components/task-list.php';
 require_once __DIR__ . '/components/icon.php';
 
 try {
@@ -56,24 +59,12 @@ $title = $list['name'];
 ob_start();
 ?>
 
-<?php
-require_once __DIR__ . '/components/sidebar.php';
-
-$sidebar = new Sidebar();
-$sidebar->render();
-?>
+<?php Sidebar::render() ?>
 <main class="list container">
   <div>
     <?php
-    require_once __DIR__ . '/components/header.php';
-
-    $header = new Header($list['name']);
-    $header->render();
-
-    require_once __DIR__ . '/components/task-list.php';
-
-    $taskList = new TaskList($tasks);
-    $taskList->render();
+    Header::render($list['name']);
+    TaskList::render($tasks);
 
     require_once __DIR__ . '/components/open-add-task-modal.php';
     ?>

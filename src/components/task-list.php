@@ -19,7 +19,11 @@ class TaskList {
     }
   }
 
-  public function render() {
+  private function getTemplate() {
     require __DIR__ . '/task-list.template.php';
+  }
+
+  public static function render($tasks, bool $separateOverdueTasks = false) {
+    (new self($tasks, $separateOverdueTasks))->getTemplate();
   }
 }

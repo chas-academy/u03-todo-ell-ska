@@ -14,8 +14,11 @@ class Icon {
     return __DIR__ . "/icons/$this->type.template.php";
   }
 
-  public function render() {
-    $path = $this->getPath();
-    require $path;
+  private function getTemplate() {
+    require $this->getPath();
+  }
+
+  public static function render(string $type, int $size) {
+    (new self($type, $size))->getTemplate();
   }
 }

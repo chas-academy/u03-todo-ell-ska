@@ -3,6 +3,9 @@ require_once __DIR__ . '/db.php';
 require_once __DIR__ . '/lib/auth.php';
 require_once __DIR__ . '/utils/navigation.php';
 require_once __DIR__ . '/utils/session-start-unless-started.php';
+require_once __DIR__ . '/components/sidebar.php';
+require_once __DIR__ . '/components/header.php';
+require_once __DIR__ . '/components/task-list.php';
 require_once __DIR__ . '/components/icon.php';
 
 $user = Auth::getUser();
@@ -39,24 +42,12 @@ $title = 'Inbox';
 ob_start();
 ?>
 
-<?php
-require_once __DIR__ . '/components/sidebar.php';
-
-$sidebar = new Sidebar();
-$sidebar->render();
-?>
+<?php Sidebar::render() ?>
 <main class="list container">
   <div>
     <?php
-    require_once __DIR__ . '/components/header.php';
-
-    $header = new Header('Inbox', 'inbox');
-    $header->render();
-
-    require_once __DIR__ . '/components/task-list.php';
-
-    $taskList = new TaskList($tasks);
-    $taskList->render();
+    Header::render('Inbox', 'inbox');
+    TaskList::render($tasks);
 
     require_once __DIR__ . '/components/open-add-task-modal.php';
     ?>

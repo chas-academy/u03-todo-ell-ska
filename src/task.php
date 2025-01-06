@@ -3,6 +3,10 @@ require_once __DIR__ . '/db.php';
 require_once __DIR__ . '/lib/auth.php';
 require_once __DIR__ . '/utils/navigation.php';
 require_once __DIR__ . '/utils/validation.php';
+require_once __DIR__ . '/components/sidebar.php';
+require_once __DIR__ . '/components/header.php';
+require_once __DIR__ . '/components/task-form-content.php';
+require_once __DIR__ . '/components/task-form-options.php';
 
 try {
   if (!isset($_GET['id']) || !validateString($_GET['id'])) {
@@ -41,33 +45,16 @@ $title = $task['name'];
 ob_start();
 ?>
 
-<?php
-require_once __DIR__ . '/components/sidebar.php';
-
-$sidebar = new Sidebar();
-$sidebar->render();
-?>
+<?php Sidebar::render() ?>
 <main class="details container">
   <div>
-    <?php
-    require_once __DIR__ . '/components/header.php';
-
-    $header = new Header(null, null, true);
-    $header->render();
-    ?>
+    <?php Header::render(null, null, true) ?>
     <form action="/actions/tasks/handler.php" method="post">
       <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
       <div class="main">
         <?php
-        require_once __DIR__ . '/components/task-form-content.php';
-
-        $taskFormContent = new TaskFormContent($task);
-        $taskFormContent->render();
-
-        require_once __DIR__ . '/components/task-form-options.php';
-
-        $taskFormOptions = new TaskFormOptions($task);
-        $taskFormOptions->render();
+        TaskFormContent::render($task);
+        TaskFormOptions::render($task);
         ?>
       </div>
       <div class="actions">

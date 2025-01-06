@@ -3,16 +3,12 @@
     <?php if ($this->back) : ?>
       <button id="back" class="back">
         <span>go back</span>
-        <?php
-        $icon = new Icon('chevron-left', 24);
-        $icon->render();
-        ?>
+        <?php Icon::render('chevron-left', 24) ?>
       </button>
     <?php endif; ?>
     <?php
     if (isset($this->icon)) {
-      $icon = new Icon($this->icon, 24);
-      $icon->render();
+      Icon::render($this->icon, 24);
     }
     ?>
     <?php if (isset($this->list)) : ?>
@@ -21,9 +17,6 @@
   </div>
   <button id="open-sidebar">
     <span>open menu</span>
-    <?php
-    $icon = new Icon('menu', 24);
-    $icon->render();
-    ?>
+    <?php Icon::render('menu', 24) ?>
   </button>
 </header>
