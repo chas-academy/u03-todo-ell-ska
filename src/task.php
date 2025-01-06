@@ -51,6 +51,7 @@ ob_start();
     <?php Header::render(null, null, true) ?>
     <form action="/actions/tasks/handler.php" method="post">
       <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
+      <input type="hidden" name="callback" value="<?= $_SERVER['HTTP_REFERER'] ?>">
       <div class="main">
         <?php
         TaskFormContent::render($task);
