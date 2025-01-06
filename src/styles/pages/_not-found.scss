@@ -1,0 +1,30 @@
+@use '../typography';
+@use '../components';
+
+.not-found {
+  display: grid;
+  place-items: center;
+  padding-inline: 1rem;
+  width: 100%;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    max-width: 22rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  h1 {
+    @include typography.display;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    margin-bottom: 2rem;
+  }
+
+  a {
+    @include components.button;
+  }
+}
