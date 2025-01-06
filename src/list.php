@@ -56,7 +56,12 @@ $title = $list['name'];
 ob_start();
 ?>
 
-<?php require_once __DIR__ . '/components/sidebar.php' ?>
+<?php
+require_once __DIR__ . '/components/sidebar.php';
+
+$sidebar = new Sidebar();
+$sidebar->render();
+?>
 <main class="list container">
   <div>
     <?php
