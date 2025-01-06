@@ -6,6 +6,7 @@ require_once __DIR__ . '/utils/validation.php';
 require_once __DIR__ . '/components/sidebar.php';
 require_once __DIR__ . '/components/header.php';
 require_once __DIR__ . '/components/task-form-content.php';
+require_once __DIR__ . '/components/task-form-options.php';
 
 try {
   if (!isset($_GET['id']) || !validateString($_GET['id'])) {
@@ -53,11 +54,7 @@ ob_start();
       <div class="main">
         <?php
         TaskFormContent::render($task);
-
-        require_once __DIR__ . '/components/task-form-options.php';
-
-        $taskFormOptions = new TaskFormOptions($task);
-        $taskFormOptions->render();
+        TaskFormOptions::render($task);
         ?>
       </div>
       <div class="actions">
