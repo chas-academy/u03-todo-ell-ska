@@ -1,9 +1,12 @@
 <?php
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../lib/auth.php';
-require_once __DIR__ . '/menu-item.php';
 class Sidebar {
-  private $staticMenuItems;
+  private $staticMenuItems = [
+    ['Inbox', '/', 'inbox'],
+    ['Today', '/today.php', 'calendar'],
+    ['Done', '/done.php', 'check']
+  ];
   private $dynamicMenuItems = [];
 
   public function __construct() {
@@ -15,14 +18,8 @@ class Sidebar {
     $lists = $query->fetchAll();
 
     foreach ($lists as $list) {
-      $this->dynamicMenuItems[] = new MenuItem($list['name'], '/list.php?id=' . $list['id'], null);
+      $this->dynamicMenuItems[] = [$list['name'], '/list.php?id=' . $list['id'], null];
     }
-
-    $this->staticMenuItems = [
-      new MenuItem('Inbox', '/', 'inbox'),
-      new MenuItem('Today', '/today.php', 'calendar'),
-      new MenuItem('Done', '/done.php', 'check')
-    ];
   }
 
   private function getTemplate() {
