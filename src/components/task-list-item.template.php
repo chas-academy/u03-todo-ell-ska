@@ -5,10 +5,7 @@
         <input type="hidden" name="id" value="<?= $task['id'] ?>">
         <button type="submit" name="action" value="toggle-done" class="checkbox" data-checked="<?= $task['done'] ? 'true' : 'false' ?>">
           <span>mark task as <?= $task['done'] ? 'not done' : 'done' ?></span>
-          <?php
-          $icon = new Icon('check', 12);
-          $icon->render();
-          ?>
+          <?php Icon::render('check', 12) ?>
         </button>
       </form>
       <div class="text">
@@ -23,10 +20,7 @@
     </div>
     <?php if (isset($task['deadline'])) : ?>
       <div class="deadline">
-        <?php
-        $icon = new Icon('flag', 12);
-        $icon->render();
-        ?>
+        <?php Icon::render('flag', 12) ?>
         <span>due:</span>
         <time><?= $task['deadline'] ?></time>
       </div>

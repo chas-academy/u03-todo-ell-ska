@@ -14,10 +14,7 @@
       ?>
       <button type="submit" name="action" value="create">
         <span>Add task</span>
-        <?php
-        $icon = new Icon('check', 24);
-        $icon->render();
-        ?>
+        <?php Icon::render('check', 24) ?>
       </button>
     </div>
   </form>

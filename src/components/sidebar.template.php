@@ -11,10 +11,7 @@ require_once __DIR__ . '/icon.php';
 
       <button id="close-sidebar">
         <span>close menu</span>
-        <?php
-        $icon = new Icon('x', 24);
-        $icon->render();
-        ?>
+        <?php Icon::render('x', 24) ?>
       </button>
     </header>
     <nav>
@@ -36,10 +33,7 @@ require_once __DIR__ . '/icon.php';
     </nav>
   </div>
   <button id="open-add-list-modal">
-    <?php
-    $icon = new Icon('plus', 16);
-    $icon->render();
-    ?>
+    <?php Icon::render('plus', 16) ?>
     <span>New list</span>
   </button>
 </aside>
