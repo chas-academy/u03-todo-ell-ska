@@ -10,6 +10,39 @@ $user = Auth::getUser();
 $query = $db->prepare("SELECT name, id FROM lists WHERE user_id = :id");
 $query->execute(['id' => $user['id']]);
 $lists = $query->fetchAll();
+
+function prefillToday(string|null $date, bool $relative = false) {
+  if (isset($date)) {
+    return $date;
+  }
+
+  if (str_contains($_SERVER['REQUEST_URI'], 'today.php')) {
+    return $relative ? getRelativeDate(date('Y-m-d')) : date('Y-m-d');
+  }
+
+  return '';
+}
+
+function prefillListId(string|null $listId, string|null $taskListId) {
+  if ((isset($taskListId) && $listId === $taskListId) || str_contains($_SERVER['REQUEST_URI'], $listId)) {
+    return 'selected';
+  }
+
+  return '';
+}
+
+function prefillListName(string|null $taskListName, $lists) {
+  if ($taskListName) {
+    return $taskListName;
+  }
+
+  if (str_contains($_SERVER['REQUEST_URI'], 'list.php') && isset($_GET['id'])) {
+    $list = array_search($_GET['id'], array_column($lists, 'id'));
+    return $lists[$list]['name'];
+  }
+
+  return '';
+}
 ?>
 
 <div class="options">
@@ -18,20 +51,36 @@ $lists = $query->fetchAll();
     <select name="list" id="list">
       <option value="">No list</option>
       <?php foreach ($lists as $list) : ?>
-        <option value="<?= $list['id'] ?>" <?= isset($this->task['list_id']) && $list['id'] === $this->task['list_id'] ? 'selected' : '' ?>><?= $list['name'] ?></option>
+        <option
+          value="<?= $list['id'] ?>"
+          <?= prefillListId($list['id'] ?? null, $task['list_id'] ?? null) ?>>
+          <?= $list['name'] ?>
+        </option>
       <?php endforeach; ?>
     </select>
     <button>
       <?php Icon::render('list', 16) ?>
-      <span id="list-preview" class="<?= isset($this->task['list_name']) ? 'visible' : 'hidden' ?>"><?= isset($this->task['list_name']) ? $this->task['list_name'] : '' ?></span>
+      <span
+        id="list-preview"
+        class="<?= prefillListName($task['list_name'] ?? null, $lists) ? 'visible' : 'hidden' ?>">
+        <?= prefillListName($task['list_name'] ?? null, $lists) ?>
+      </span>
     </button>
   </div>
   <div class="date-picker">
     <label for="scheduled">Scheduled date</label>
-    <input type="date" name="scheduled" id="scheduled" value="<?= isset($this->task['scheduled']) ? $this->task['scheduled'] : '' ?>">
+    <input
+      type="date"
+      name="scheduled"
+      id="scheduled"
+      value="<?= prefillToday($this->task['scheduled'] ?? null) ?>">
     <button type="button">
       <?php Icon::render('calendar', 16) ?>
-      <span id="scheduled-preview" class="<?= isset($this->task['scheduled']) ? 'visible' : 'hidden' ?>"><?= isset($this->task['scheduled']) ? getRelativeDate($this->task['scheduled']) : '' ?></span>
+      <span
+        id="scheduled-preview"
+        class="<?= prefillToday($this->task['scheduled'] ?? null) ? 'visible' : 'hidden' ?>">
+        <?= prefillToday($this->task['scheduled'] ?? null, true) ?>
+      </span>
     </button>
   </div>
   <div class="date-picker">
