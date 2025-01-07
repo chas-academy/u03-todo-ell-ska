@@ -6,10 +6,11 @@ require_once __DIR__ . '/task-form-options.php';
 <div id="add-task-overlay" class="overlay hidden"></div>
 <div id="add-task-modal" class="task-modal modal hidden">
   <form action="/actions/tasks/handler.php" method="post">
+    <input type="hidden" name="action" value="create">
     <?php TaskFormContent::render() ?>
     <div class="tools">
       <?php TaskFormOptions::render() ?>
-      <button type="submit" name="action" value="create">
+      <button type="submit">
         <span>Add task</span>
         <?php Icon::render('check', 24) ?>
       </button>
