@@ -4,6 +4,8 @@
 @use '../utils';
 
 .list {
+  position: relative;
+
   ul {
     display: flex;
     flex-direction: column;
@@ -30,6 +32,27 @@
 
     .task a {
       @include components.task;
+    }
+  }
+
+  .empty {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+      @include typography.medium(700);
+    }
+
+    div {
+      @include typography.small;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: variables.$color-zinc-600;
     }
   }
 

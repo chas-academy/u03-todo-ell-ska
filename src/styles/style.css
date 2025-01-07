@@ -719,6 +719,9 @@ main.container > div {
   background-color: #f4f4f5;
 }
 
+.list {
+  position: relative;
+}
 .list ul {
   display: flex;
   flex-direction: column;
@@ -854,6 +857,30 @@ main.container > div {
 .list ul .task a .deadline svg {
   color: #e71d36;
   white-space: nowrap;
+}
+.list .empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.list .empty h2 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.list .empty div {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #53535b;
 }
 .list #open-add-task-modal {
   display: inline-flex;
