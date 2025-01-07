@@ -52,6 +52,8 @@ ob_start();
     <form action="/actions/tasks/handler.php" method="post">
       <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
       <input type="hidden" name="callback" value="<?= $_SERVER['HTTP_REFERER'] ?>">
+      <!-- set default action to edit, this will be triggered on enter -->
+      <input type="hidden" name="action" value="edit">
       <div class="main">
         <?php
         TaskFormContent::render($task);
@@ -60,7 +62,7 @@ ob_start();
       </div>
       <div class="actions">
         <button type="submit" class="delete" name="action" value="delete">Delete</button>
-        <button type="submit" class="save" name="action" value="edit">Save</button>
+        <button type="submit" class="save">Save</button>
       </div>
     </form>
   </div>

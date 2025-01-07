@@ -5,7 +5,8 @@
     <div class="main">
       <form action="/actions/tasks/handler.php" method="post">
         <input type="hidden" name="id" value="<?= $task['id'] ?>">
-        <button type="submit" name="action" value="toggle-done" class="checkbox" data-checked="<?= $task['done'] ? 'true' : 'false' ?>">
+        <input type="hidden" name="action" value="toggle-done">
+        <button type="submit" class="checkbox" data-checked="<?= $task['done'] ? 'true' : 'false' ?>">
           <span>mark task as <?= $task['done'] ? 'not done' : 'done' ?></span>
           <?php Icon::render('check', 12) ?>
         </button>
