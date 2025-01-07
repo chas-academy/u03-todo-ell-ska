@@ -359,6 +359,7 @@ main.container > div {
   z-index: 901;
   inset-inline: 0;
   bottom: 0;
+  justify-content: center;
 }
 @media (min-width: 768px) {
   .modal {

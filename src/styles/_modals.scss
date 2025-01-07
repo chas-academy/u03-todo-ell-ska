@@ -24,6 +24,7 @@
   z-index: 901;
   inset-inline: 0;
   bottom: 0;
+  justify-content: center;
 
   @include utils.breakpoint('md') {
     left: 50%;
