@@ -91,6 +91,8 @@ class Auth {
       $query = $db->prepare('DELETE FROM users WHERE id = :id');
       $query->execute(['id' => $user['id']]);
 
+      self::logOut();
+
       redirect('/sign-up.php');
     } catch (PDOException $error) {
       die($error->getMessage());
