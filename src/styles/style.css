@@ -600,6 +600,7 @@ main.container > div {
   flex-direction: column;
   justify-content: space-between;
   gap: 1.5rem;
+  padding: 1.5rem;
 }
 @media (min-width: 768px) {
   #add-list-modal form {

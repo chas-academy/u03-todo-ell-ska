@@ -1,4 +1,3 @@
-<div id="add-list-overlay" class="overlay hidden"></div>
 <div id="add-list-modal" class="modal hidden">
   <form action="/actions/lists/handler.php" method="post">
     <input type="hidden" name="action" value="create">
