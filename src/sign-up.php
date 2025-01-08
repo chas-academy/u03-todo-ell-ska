@@ -1,10 +1,4 @@
 <?php
-require_once __DIR__ . '/lib/auth.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  Auth::register($_POST['username'], $_POST['password']);
-}
-
 $title = 'Sign up';
 ob_start();
 ?>
@@ -12,7 +6,8 @@ ob_start();
 <main class="auth">
   <section>
     <h1>Welcome to Ordna!</h1>
-    <form method="post">
+    <form action="/actions/auth.php" method="post">
+      <input type="hidden" name="action" value="sign-up">
       <div>
         <label for="username">Username</label>
         <input type="text" name="username" id="username" placeholder="Enter your username" required>
