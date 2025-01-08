@@ -1,10 +1,5 @@
 <?php
-require_once __DIR__ . '/lib/auth.php';
 require_once __DIR__ . '/utils/handle-error.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  Auth::login($_POST['username'], $_POST['password']);
-}
 
 $title = 'Log in';
 ob_start();
@@ -13,7 +8,8 @@ ob_start();
 <main class="auth">
   <section>
     <h1>Welcome back!</h1>
-    <form method="post">
+    <form action="/actions/auth.php" method="post">
+      <input type="hidden" name="action" value="log-in">
       <div>
         <label for="username">Username</label>
         <input type="text" name="username" id="username" placeholder="Enter your username">

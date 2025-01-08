@@ -57,6 +57,15 @@ class Auth {
     }
   }
 
+  public static function logOut() {
+    sessionStartUnlessStarted();
+
+    unset($_SESSION['user_id']);
+    unset($_SESSION['username']);
+
+    redirect('/log-in.php');
+  }
+
   public static function getUser() {
     sessionStartUnlessStarted();
 
@@ -68,5 +77,23 @@ class Auth {
     }
 
     return ["id" => $id, "username" => $username];
+  }
+
+  public static function deleteUser() {
+    $db = Database::getInstance();
+    $user = self::getUser();
+
+    if (!$user['id']) {
+      redirect('/log-in.php');
+    }
+
+    try {
+      $query = $db->prepare('DELETE FROM users WHERE id = :id');
+      $query->execute(['id' => $user['id']]);
+
+      redirect('/sign-up.php');
+    } catch (PDOException $error) {
+      die($error->getMessage());
+    }
   }
 }
