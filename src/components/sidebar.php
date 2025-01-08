@@ -10,8 +10,8 @@ class Sidebar {
   private $dynamicMenuItems = [];
 
   public function __construct() {
-    $db = Database::getInstance();
     $user = Auth::getUser();
+    $db = Database::getInstance();
 
     $query = $db->prepare("SELECT * FROM lists WHERE user_id = :id");
     $query->execute(['id' => $user['id']]);

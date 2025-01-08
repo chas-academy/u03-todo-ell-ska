@@ -15,11 +15,6 @@ try {
   }
 
   $user = Auth::getUser();
-
-  if (!$user) {
-    redirect('/log-in.php');
-  }
-
   $db = Database::getInstance();
 
   $listQuery = $db->prepare("SELECT (name) FROM lists WHERE id = :id AND user_id = :userId");

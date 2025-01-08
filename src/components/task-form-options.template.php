@@ -4,8 +4,8 @@ require_once __DIR__ . '/../lib/auth.php';
 require_once __DIR__ . '/../utils/date.php';
 require_once __DIR__ . '/icon.php';
 
-$db = Database::getInstance();
 $user = Auth::getUser();
+$db = Database::getInstance();
 
 $query = $db->prepare("SELECT name, id FROM lists WHERE user_id = :id");
 $query->execute(['id' => $user['id']]);

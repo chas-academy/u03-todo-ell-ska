@@ -9,11 +9,6 @@ require_once __DIR__ . '/components/task-list.php';
 require_once __DIR__ . '/components/icon.php';
 
 $user = Auth::getUser();
-
-if (!$user) {
-  redirect('/log-in.php');
-}
-
 $db = Database::getInstance();
 
 $query = $db->prepare("

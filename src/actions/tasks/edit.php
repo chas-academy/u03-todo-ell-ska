@@ -13,12 +13,8 @@ function editTask($id, $name, $note, $deadline, $scheduled, $listId, $callback =
   $listId = validateString($listId);
   $callback = validateString($callback);
 
-  $db = Database::getInstance();
   $user = Auth::getUser();
-
-  if (!$user['id']) {
-    redirect('/log-in.php');
-  }
+  $db = Database::getInstance();
 
   try {
     $query = $db->prepare('UPDATE tasks
