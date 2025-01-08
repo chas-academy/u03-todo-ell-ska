@@ -20,7 +20,7 @@ class Auth {
       $query = $db->prepare('INSERT INTO users (username, password) VALUES (:username, :password)');
       $query->execute(['username' => $username, 'password' => $hashedPassword]);
 
-      redirect('/log-in.php');
+      self::login($username, $password);
     } catch (PDOException $error) {
       die($error->getMessage());
     }
