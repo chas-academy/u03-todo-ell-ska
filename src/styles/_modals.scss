@@ -107,13 +107,43 @@
 }
 
 .profile-menu-container {
+  position: relative;
+
   .profile-menu {
+    position: absolute;
+    z-index: 901;
+    bottom: calc(100% + 0.5rem);
+    right: 0;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    background-color: variables.$color-white;
+
+    @include utils.breakpoint('md') {
+      bottom: unset;
+      top: calc(100% + 0.5rem);
+    }
+
     &.hidden {
       display: none;
     }
 
     &.visible {
       display: block;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    button {
+      @include components.button('tertiary', 'sm');
+      justify-content: start;
+
+      svg {
+        color: variables.$color-zinc-400;
+      }
     }
   }
 }

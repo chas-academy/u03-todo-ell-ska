@@ -655,11 +655,57 @@ main.container > div {
   background-color: #1d29cb;
 }
 
+.profile-menu-container {
+  position: relative;
+}
+.profile-menu-container .profile-menu {
+  position: absolute;
+  z-index: 901;
+  bottom: calc(100% + 0.5rem);
+  right: 0;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .profile-menu-container .profile-menu {
+    bottom: unset;
+    top: calc(100% + 0.5rem);
+  }
+}
 .profile-menu-container .profile-menu.hidden {
   display: none;
 }
 .profile-menu-container .profile-menu.visible {
   display: block;
+}
+.profile-menu-container .profile-menu form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.profile-menu-container .profile-menu button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.25rem 0.5rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: #53535b;
+  justify-content: start;
+}
+.profile-menu-container .profile-menu button:hover {
+  background-color: #f4f4f5;
+}
+.profile-menu-container .profile-menu button svg {
+  color: #a1a1aa;
 }
 
 .auth {
