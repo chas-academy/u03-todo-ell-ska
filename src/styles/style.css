@@ -244,7 +244,7 @@ body {
   color: #a1a1aa;
 }
 @media (min-width: 768px) {
-  .sidebar .buttons .open-profile-menu {
+  .sidebar .buttons .profile-menu-container {
     display: none;
   }
 }
@@ -308,11 +308,22 @@ body {
   }
 }
 @media (max-width: 768px) {
-  .header .open-profile-menu {
+  .header .profile-menu-container {
     display: none;
   }
 }
 
+.open-profile-menu span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
 .open-profile-menu .background {
   transition: fill 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -642,6 +653,13 @@ main.container > div {
 }
 #add-list-modal form button:hover {
   background-color: #1d29cb;
+}
+
+.profile-menu-container .profile-menu.hidden {
+  display: none;
+}
+.profile-menu-container .profile-menu.visible {
+  display: block;
 }
 
 .auth {

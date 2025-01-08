@@ -105,3 +105,15 @@
     }
   }
 }
+
+.profile-menu-container {
+  .profile-menu {
+    &.hidden {
+      display: none;
+    }
+
+    &.visible {
+      display: block;
+    }
+  }
+}

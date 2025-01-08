@@ -1,3 +1,5 @@
+<?php require_once __DIR__ . '/open-profile-menu.php' ?>
+
 <header class="header">
   <div>
     <?php if ($this->back) : ?>
@@ -19,5 +21,5 @@
     <span>open menu</span>
     <?php Icon::render('menu', 24) ?>
   </button>
-  <?php require __DIR__ . '/open-profile-menu.php' ?>
+  <?php OpenProfileMenu::render(Location::HEADER) ?>
 </header>

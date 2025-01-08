@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/open-profile-menu.php';
 require_once __DIR__ . '/menu-item.php';
 require_once __DIR__ . '/icon.php';
 ?>
@@ -35,6 +36,6 @@ require_once __DIR__ . '/icon.php';
       <?php Icon::render('plus', 16) ?>
       <span>New list</span>
     </button>
-    <?php require __DIR__ . '/open-profile-menu.php' ?>
+    <?php OpenProfileMenu::render(Location::SIDEBAR) ?>
   </div>
 </aside>

@@ -118,7 +118,7 @@
       }
     }
 
-    .open-profile-menu {
+    .profile-menu-container {
       @include utils.breakpoint('md') {
         display: none;
       }
@@ -159,7 +159,7 @@
     }
   }
 
-  .open-profile-menu {
+  .profile-menu-container {
     @include utils.breakpoint('md', 'max') {
       display: none;
     }
@@ -167,6 +167,10 @@
 }
 
 .open-profile-menu {
+  span {
+    @include utils.sr-only;
+  }
+
   .background {
     transition: fill variables.$transition;
   }
