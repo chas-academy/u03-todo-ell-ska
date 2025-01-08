@@ -103,13 +103,25 @@
     }
   }
 
-  #open-add-list-modal {
-    @include components.button('tertiary', 'sm');
-    align-self: start;
-    margin: 0 1rem 1.5rem;
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 1rem 1rem;
 
-    svg {
-      color: variables.$color-zinc-400;
+    #open-add-list-modal {
+      @include components.button('tertiary', 'sm');
+      align-self: start;
+
+      svg {
+        color: variables.$color-zinc-400;
+      }
+    }
+
+    .profile-menu-container {
+      @include utils.breakpoint('md') {
+        display: none;
+      }
     }
   }
 }
@@ -124,7 +136,17 @@
     padding-block: 0;
   }
 
-  button {
+  div {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    h1 {
+      @include typography.heading();
+    }
+  }
+
+  #open-sidebar {
     @include components.button('tertiary', 'sm', 'icon');
     color: variables.$color-zinc-400;
 
@@ -137,14 +159,24 @@
     }
   }
 
-  div {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-
-    h1 {
-      @include typography.heading();
+  .profile-menu-container {
+    @include utils.breakpoint('md', 'max') {
+      display: none;
     }
+  }
+}
+
+.open-profile-menu {
+  span {
+    @include utils.sr-only;
+  }
+
+  .background {
+    transition: fill variables.$transition;
+  }
+
+  &:hover .background {
+    fill: variables.$color-zinc-100;
   }
 }
 

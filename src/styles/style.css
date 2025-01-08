@@ -214,7 +214,13 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.sidebar #open-add-list-modal {
+.sidebar .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 1rem 1rem;
+}
+.sidebar .buttons #open-add-list-modal {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -230,13 +236,17 @@ body {
   background-color: transparent;
   color: #53535b;
   align-self: start;
-  margin: 0 1rem 1.5rem;
 }
-.sidebar #open-add-list-modal:hover {
+.sidebar .buttons #open-add-list-modal:hover {
   background-color: #f4f4f5;
 }
-.sidebar #open-add-list-modal svg {
+.sidebar .buttons #open-add-list-modal svg {
   color: #a1a1aa;
+}
+@media (min-width: 768px) {
+  .sidebar .buttons .profile-menu-container {
+    display: none;
+  }
 }
 
 .header {
@@ -250,7 +260,18 @@ body {
     padding-block: 0;
   }
 }
-.header button {
+.header div {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.header div h1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.header #open-sidebar {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -267,10 +288,10 @@ body {
   color: #53535b;
   color: #a1a1aa;
 }
-.header button:hover {
+.header #open-sidebar:hover {
   background-color: #f4f4f5;
 }
-.header button span {
+.header #open-sidebar span {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -282,20 +303,32 @@ body {
   border-width: 0;
 }
 @media (min-width: 768px) {
-  .header button {
+  .header #open-sidebar {
     display: none;
   }
 }
-.header div {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+@media (max-width: 768px) {
+  .header .profile-menu-container {
+    display: none;
+  }
 }
-.header div h1 {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 1.5rem;
-  line-height: 2rem;
+
+.open-profile-menu span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.open-profile-menu .background {
+  transition: fill 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.open-profile-menu:hover .background {
+  fill: #f4f4f5;
 }
 
 main.container {
@@ -620,6 +653,59 @@ main.container > div {
 }
 #add-list-modal form button:hover {
   background-color: #1d29cb;
+}
+
+.profile-menu-container {
+  position: relative;
+}
+.profile-menu-container .profile-menu {
+  position: absolute;
+  z-index: 901;
+  bottom: calc(100% + 0.5rem);
+  right: 0;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .profile-menu-container .profile-menu {
+    bottom: unset;
+    top: calc(100% + 0.5rem);
+  }
+}
+.profile-menu-container .profile-menu.hidden {
+  display: none;
+}
+.profile-menu-container .profile-menu.visible {
+  display: block;
+}
+.profile-menu-container .profile-menu form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.profile-menu-container .profile-menu button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.25rem 0.5rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: #53535b;
+  justify-content: start;
+}
+.profile-menu-container .profile-menu button:hover {
+  background-color: #f4f4f5;
+}
+.profile-menu-container .profile-menu button svg {
+  color: #a1a1aa;
 }
 
 .auth {
