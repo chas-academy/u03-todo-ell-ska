@@ -17,11 +17,19 @@ if (!$user) {
 $db = Database::getInstance();
 
 $query = $db->prepare("
-  SELECT *
+  SELECT
+    tasks.id,
+    tasks.name,
+    tasks.note,
+    tasks.done,
+    tasks.scheduled,
+    tasks.deadline,
+    lists.name AS list
   FROM tasks
-  WHERE user_id = :id
+  LEFT JOIN lists ON tasks.list_id = lists.id
+  WHERE tasks.user_id = :id
     AND done = 1
-  ORDER BY created_at DESC
+  ORDER BY tasks.created_at DESC
 ");
 $query->execute(['id' => $user['id']]);
 $tasks = $query->fetchAll();
