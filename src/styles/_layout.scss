@@ -146,6 +146,7 @@
     }
   }
 
+  .back,
   #open-sidebar {
     @include components.button('tertiary', 'sm', 'icon');
     color: variables.$color-zinc-400;

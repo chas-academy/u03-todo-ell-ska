@@ -271,6 +271,7 @@ body {
   font-size: 1.5rem;
   line-height: 2rem;
 }
+.header .back,
 .header #open-sidebar {
   display: inline-flex;
   align-items: center;
@@ -288,9 +289,11 @@ body {
   color: #53535b;
   color: #a1a1aa;
 }
+.header .back:hover,
 .header #open-sidebar:hover {
   background-color: #f4f4f5;
 }
+.header .back span,
 .header #open-sidebar span {
   position: absolute;
   width: 1px;
@@ -303,6 +306,7 @@ body {
   border-width: 0;
 }
 @media (min-width: 768px) {
+  .header .back,
   .header #open-sidebar {
     display: none;
   }
