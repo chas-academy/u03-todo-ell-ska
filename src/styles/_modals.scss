@@ -91,6 +91,7 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 1.5rem;
+    padding: 1.5rem;
 
     @include utils.breakpoint('md') {
       min-height: 0;
