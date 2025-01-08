@@ -19,4 +19,5 @@
     <span>open menu</span>
     <?php Icon::render('menu', 24) ?>
   </button>
+  <?php require __DIR__ . '/open-profile-menu.php' ?>
 </header>

@@ -6,10 +6,7 @@ require_once __DIR__ . '/icon.php';
 <aside id="sidebar" class="sidebar hidden">
   <div class="main">
     <header>
-      <?php
-      require_once __DIR__ . '/logo.php';
-      ?>
-
+      <?php require_once __DIR__ . '/logo.php' ?>
       <button id="close-sidebar">
         <span>close menu</span>
         <?php Icon::render('x', 24) ?>
@@ -33,8 +30,11 @@ require_once __DIR__ . '/icon.php';
       </div>
     </nav>
   </div>
-  <button id="open-add-list-modal">
-    <?php Icon::render('plus', 16) ?>
-    <span>New list</span>
-  </button>
+  <div class="buttons">
+    <button id="open-add-list-modal">
+      <?php Icon::render('plus', 16) ?>
+      <span>New list</span>
+    </button>
+    <?php require __DIR__ . '/open-profile-menu.php' ?>
+  </div>
 </aside>
