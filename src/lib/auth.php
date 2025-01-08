@@ -1,12 +1,13 @@
 <?php
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../utils/navigation.php';
+require_once __DIR__ . '/../utils/validation.php';
 require_once __DIR__ . '/../utils/session-start-unless-started.php';
 
 class Auth {
   public static function register(string $username, string $password) {
-    $username = htmlspecialchars(trim($username));
-    $password = htmlspecialchars(trim($password));
+    $username = validateString($username, true, 'Username is required');
+    $password = validateString($password, true, 'Password is required');
 
     if (empty($username) || empty($password)) {
       die('Username and password are required');
@@ -20,15 +21,15 @@ class Auth {
       $query = $db->prepare('INSERT INTO users (username, password) VALUES (:username, :password)');
       $query->execute(['username' => $username, 'password' => $hashedPassword]);
 
-      self::login($username, $password);
+      self::logIn($username, $password);
     } catch (PDOException $error) {
       die($error->getMessage());
     }
   }
 
-  public static function login(string $username, string $password) {
-    $username = htmlspecialchars(trim($username));
-    $password = htmlspecialchars(trim($password));
+  public static function logIn(string $username, string $password) {
+    $username = validateString($username, true, 'Username is required');
+    $password = validateString($password, true, 'Password is required');
 
     if (empty($username) || empty($password)) {
       die('Username and password are required');
