@@ -866,6 +866,7 @@ main.container > div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  pointer-events: none;
 }
 .list .empty h2 {
   font-style: normal;

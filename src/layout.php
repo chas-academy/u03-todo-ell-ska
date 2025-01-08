@@ -13,9 +13,9 @@
 </head>
 
 <body>
+  <?php echo $content ?? '' ?>
+  <div id="overlay" class="overlay hidden"></div>
   <?php
-  echo $content ?? '';
-
   require_once __DIR__ . '/components/add-task-modal.php';
   require_once __DIR__ . '/components/add-list-modal.php';
   ?>
