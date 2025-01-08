@@ -67,18 +67,14 @@ class Auth {
     redirect('/log-in.php');
   }
 
-  public static function getUser(bool $redirectOnError = true) {
+  public static function getUser() {
     sessionStartUnlessStarted();
 
     $id = $_SESSION['user_id'] ?? null;
     $username = $_SESSION['username'] ?? null;
 
     if (!$id || !$username) {
-      if ($redirectOnError) {
-        redirect('/log-in.php');
-      } else {
-        return null;
-      }
+      redirect('/log-in.php');
     }
 
     return ["id" => $id, "username" => $username];
