@@ -1,11 +1,11 @@
-const registerModal = (modalId, openButtonId, closeButtonId, overlayId) => {
+const registerModal = (modalId, openButtonId, closeButtonId, showOverlay) => {
   const modal = document.getElementById(modalId)
   const openButton = document.getElementById(openButtonId)
 
   if (!modal || !openButton) return
 
   const closeButton = document.getElementById(closeButtonId)
-  const overlay = document.getElementById(overlayId)
+  const overlay = showOverlay ? document.getElementById('overlay') : null
 
   const open = () => {
     modal.classList.remove('hidden')
@@ -29,6 +29,6 @@ const registerModal = (modalId, openButtonId, closeButtonId, overlayId) => {
   closeButton?.addEventListener('click', close)
 }
 
-registerModal('add-task-modal', 'open-add-task-modal', null, 'add-task-overlay')
-registerModal('add-list-modal', 'open-add-list-modal', null, 'add-list-overlay')
-registerModal('sidebar', 'open-sidebar', 'close-sidebar', null)
+registerModal('add-task-modal', 'open-add-task-modal', null, true)
+registerModal('add-list-modal', 'open-add-list-modal', null, true)
+registerModal('sidebar', 'open-sidebar', 'close-sidebar', false)
