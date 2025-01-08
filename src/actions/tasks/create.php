@@ -12,12 +12,8 @@ function createTask($name, $note, $deadline, $scheduled, $listId, $done) {
   $listId = validateString($listId);
   $done = validateString($done) ?? '0';
 
-  $db = Database::getInstance();
   $user = Auth::getUser();
-
-  if (!$user['id']) {
-    redirect('/log-in.php');
-  }
+  $db = Database::getInstance();
 
   try {
     $query = $db->prepare('INSERT INTO tasks (name, note, deadline, scheduled, done, list_id, user_id) VALUES (:name, :note, :deadline, :scheduled, :done, :listId, :userId)');

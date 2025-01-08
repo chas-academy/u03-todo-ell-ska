@@ -14,11 +14,6 @@ try {
   }
 
   $user = Auth::getUser();
-
-  if (!$user) {
-    redirect('/log-in.php');
-  }
-
   $db = Database::getInstance();
 
   $query = $db->prepare("SELECT
