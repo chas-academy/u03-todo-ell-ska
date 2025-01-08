@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       Auth::register($_POST['username'], $_POST['password']);
       break;
     case 'log-in':
-      Auth::login($_POST['username'], $_POST['password']);
+      Auth::logIn($_POST['username'], $_POST['password']);
       break;
     case 'log-out':
       Auth::logOut();
