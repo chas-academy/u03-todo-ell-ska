@@ -4,7 +4,7 @@ require_once __DIR__ . '/task-form-options.php';
 ?>
 
 <div id="add-task-modal" class="task-modal modal hidden">
-  <form action="/actions/tasks/handler.php" method="post">
+  <form action="/actions/tasks.php" method="post">
     <input type="hidden" name="action" value="create">
     <input type="hidden" name="done" value="<?= str_contains($_SERVER['REQUEST_URI'], 'done.php') ?>">
     <?php TaskFormContent::render() ?>
