@@ -4,6 +4,7 @@ enum Location {
   case HEADER;
   case SIDEBAR;
 }
+
 class OpenProfileMenu {
   private $location;
 

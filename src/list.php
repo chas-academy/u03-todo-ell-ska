@@ -28,9 +28,13 @@ ob_start();
     <?php
     Header::render($name);
     TaskList::render($tasks);
-
-    require_once __DIR__ . '/components/open-add-task-modal.php';
     ?>
+    <div class="actions">
+      <?php
+      require __DIR__ . '/components/delete-list.php';
+      require_once __DIR__ . '/components/open-add-task-modal.php';
+      ?>
+    </div>
   </div>
 </main>
 

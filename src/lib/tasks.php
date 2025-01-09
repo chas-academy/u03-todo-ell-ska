@@ -24,6 +24,7 @@ class Tasks {
         INSERT INTO tasks (name, note, deadline, scheduled, done, list_id, user_id)
         VALUES (:name, :note, :deadline, :scheduled, :done, :listId, :userId)
       ');
+
       $query->execute([
         'name' => $name,
         'note' => $note,
@@ -52,6 +53,7 @@ class Tasks {
         WHERE id = :id
           AND user_id = :userId
       ');
+
       $query->execute([
         'id' => $id,
         'userId' => $user['id']
@@ -117,6 +119,7 @@ class Tasks {
         WHERE id = :id
           AND user_id = :userId
       ');
+
       $query->execute([
         'id' => $id,
         'userId' => $user['id']
