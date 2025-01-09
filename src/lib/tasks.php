@@ -4,7 +4,7 @@ require_once __DIR__ . '/../lib/auth.php';
 require_once __DIR__ . '/../utils/navigation.php';
 require_once __DIR__ . '/../utils/validation.php';
 
-class Task {
+class Tasks {
   private static function setup() {
     return [Auth::getUser(), Database::getInstance()];
   }

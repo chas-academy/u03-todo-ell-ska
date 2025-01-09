@@ -1,11 +1,11 @@
 <?php
-require_once __DIR__ . '/lib/task.php';
+require_once __DIR__ . '/lib/tasks.php';
 require_once __DIR__ . '/components/sidebar.php';
 require_once __DIR__ . '/components/header.php';
 require_once __DIR__ . '/components/task-list.php';
 require_once __DIR__ . '/components/icon.php';
 
-$tasks = Task::getToday();
+$tasks = Tasks::getToday();
 
 $title = 'Today';
 ob_start();
