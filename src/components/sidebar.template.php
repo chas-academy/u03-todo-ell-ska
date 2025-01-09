@@ -17,7 +17,7 @@ require_once __DIR__ . '/icon.php';
       <div class="static-menu-items">
         <?php
         foreach ($this->staticMenuItems as $item) {
-          MenuItem::render($item[0], $item[1], $item[2]);
+          MenuItem::render($item);
         }
         ?>
       </div>
@@ -25,7 +25,7 @@ require_once __DIR__ . '/icon.php';
       <div class="dynamic-menu-items">
         <?php
         foreach ($this->dynamicMenuItems as $item) {
-          MenuItem::render($item[0], $item[1], $item[2]);
+          MenuItem::render($item);
         }
         ?>
       </div>

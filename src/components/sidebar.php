@@ -2,9 +2,9 @@
 require_once __DIR__ . '/../lib/lists.php';
 class Sidebar {
   private $staticMenuItems = [
-    ['Inbox', '/', 'inbox'],
-    ['Today', '/today.php', 'calendar'],
-    ['Done', '/done.php', 'check']
+    ['name' => 'Inbox', 'href' => '/', 'icon' => 'inbox'],
+    ['name' => 'Today', 'href' => '/today.php', 'icon' => 'calendar'],
+    ['name' => 'Done', 'href' => '/done.php', 'icon' => 'check']
   ];
   private $dynamicMenuItems = [];
 
@@ -12,7 +12,7 @@ class Sidebar {
     $lists = Lists::getAll();
 
     foreach ($lists as $list) {
-      $this->dynamicMenuItems[] = [$list['name'], '/list.php?id=' . $list['id'], null];
+      $this->dynamicMenuItems[] = ['name' => $list['name'], 'href' => '/list.php?id=' . $list['id'], 'icon' => null];
     }
   }
 

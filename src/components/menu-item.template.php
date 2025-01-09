@@ -1,3 +1,5 @@
+<?php require_once __DIR__ . '/icon.php' ?>
+
 <a class="menu-item" href="<?= $this->href ?>">
   <?php
   if (isset($this->icon)) {
