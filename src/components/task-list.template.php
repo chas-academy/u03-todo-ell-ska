@@ -26,7 +26,7 @@
     <h2>All done!</h2>
     <div>
       <p>Enjoy your day</p>
-      <?php Icon::render('smile', 16) ?>
+      <?php Icon::render(['type' => 'smile', 'size' => 16]) ?>
     </div>
   </div>
 <?php endif ?>

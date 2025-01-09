@@ -1,24 +1,17 @@
 <?php
+require_once __DIR__ . '/base-component.php';
 
-class Icon {
-  private string $type;
-  private int $size;
-  private int $strokeWidth = 2;
+class Icon extends BaseComponent {
+  public string $type;
+  public int $size;
+  public int $strokeWidth = 2;
 
-  public function __construct(string $type, int $size) {
-    $this->type = $type;
-    $this->size = $size;
+  public function __construct(array $props) {
+    $this->type = $props['type'];
+    $this->size = $props['size'];
   }
 
-  private function getPath() {
-    return __DIR__ . "/icons/$this->type.template.php";
-  }
-
-  private function getTemplate() {
-    require $this->getPath();
-  }
-
-  public static function render(string $type, int $size) {
-    (new self($type, $size))->getTemplate();
+  protected function getName(): string {
+    return "/icons/$this->type";
   }
 }

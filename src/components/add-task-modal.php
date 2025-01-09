@@ -12,7 +12,7 @@ require_once __DIR__ . '/task-form-options.php';
       <?php TaskFormOptions::render() ?>
       <button type="submit">
         <span>Add task</span>
-        <?php Icon::render('check', 24) ?>
+        <?php Icon::render(['type' => 'check', 'size' => 24]) ?>
       </button>
     </div>
   </form>

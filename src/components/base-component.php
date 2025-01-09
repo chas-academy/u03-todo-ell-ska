@@ -5,7 +5,7 @@ abstract class BaseComponent {
 
   protected function getTemplate() {
     $name = $this->getName();
-    require_once __DIR__ . "/$name.template.php";
+    require $_SERVER['DOCUMENT_ROOT'] . "/components/$name.template.php";
   }
 
   public static function render(array $params) {
