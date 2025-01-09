@@ -1,4 +1,7 @@
-<?php require_once __DIR__ . '/open-profile-menu.php' ?>
+<?php
+require_once __DIR__ . '/open-profile-menu.php';
+require_once __DIR__ . '/icon.php';
+?>
 
 <header class="header">
   <div class="start">
@@ -13,8 +16,8 @@
       Icon::render($this->icon, 24);
     }
     ?>
-    <?php if (isset($this->list)) : ?>
-      <h1><?= $this->list ?></h1>
+    <?php if (isset($this->title)) : ?>
+      <h1><?= $this->title ?></h1>
     <?php endif; ?>
   </div>
   <button id="open-sidebar">

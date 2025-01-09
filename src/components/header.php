@@ -1,22 +1,18 @@
 <?php
-require_once __DIR__ . '/icon.php';
+require_once __DIR__ . '/base-component.php';
 
-class Header {
-  private ?string $list;
-  private ?string $icon;
-  private ?bool $back;
+class Header extends BaseComponent {
+  public ?string $title;
+  public ?string $icon;
+  public ?bool $back;
 
-  public function __construct(?string $list, ?string $icon = null, ?bool $back = false) {
-    $this->list = $list;
-    $this->icon = $icon;
-    $this->back = $back;
+  public function __construct(array $props) {
+    $this->title = $props['title'] ?? null;
+    $this->icon = $props['icon'] ?? null;
+    $this->back = $props['back'] ?? false;
   }
 
-  private function getTemplate() {
-    require_once __DIR__ . '/header.template.php';
-  }
-
-  public static function render(?string $list, ?string $icon = null, ?bool $back = false) {
-    (new self($list, $icon, $back))->getTemplate();
+  protected function getName(): string {
+    return 'header';
   }
 }

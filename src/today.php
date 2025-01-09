@@ -15,7 +15,7 @@ ob_start();
 <main class="list container">
   <div>
     <?php
-    Header::render('Today', 'calendar');
+    Header::render(['title' => 'Today', 'icon' => 'calendar']);
     TaskList::render($tasks, true);
 
     require_once __DIR__ . '/components/open-add-task-modal.php';
