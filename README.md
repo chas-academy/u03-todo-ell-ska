@@ -2,6 +2,8 @@
 
 This is my U03 assignment for the backend course at Chas Academy. Ordna is a task management app designed to help you track and organize your tasks efficiently. There are both custom and smart lists to categorize your tasks. Each task includes detailed information such as a deadline, a scheduled date, and notes. The app also supports user authentication with a username and password to keep your data secure.
 
+![screenshot](/assets/screenshot.png)
+
 ## Table of contents
 
 - [Getting started](#getting-started)
@@ -45,7 +47,7 @@ All routes, like `index.php` and `today.php` are kept at the root of the `/src` 
 
 ### /actions
 
-Handles mutations like creating and managing tasks and lists. Subdirectories organize actions by resource type. Each resource has a `handler.php` that decides what type of CRUD action is to be used.
+Handles mutations like creating and managing tasks and lists. Each file represents a resource that decides what type of CRUD action is to be used.
 
 ### /components
 
