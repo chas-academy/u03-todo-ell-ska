@@ -52,7 +52,7 @@ ob_start();
       <div class="main">
         <?php
         TaskFormContent::render(['task' => $task]);
-        TaskFormOptions::render($task);
+        TaskFormOptions::render(['task' => $task]);
         ?>
       </div>
       <div class="actions">
