@@ -27,6 +27,12 @@ This will start three services:
 
 The first time you build the container the database structure will be set up according to [seed.sql](/entrypoint/seed.sql).
 
+Once the docker container is up and running you can run PHP_CodeSniffer to check the code against the PSR-12 standard with:
+
+```bash
+docker compose exec php phpcs /var/www/html
+```
+
 ## Resources
 
 [Entity relationship diagram](https://drawsql.app/teams/ellska/diagrams/todo)
