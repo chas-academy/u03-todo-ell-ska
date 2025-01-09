@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../lib/lists.php';
+require_once __DIR__ . '/../utils/date.php';
 require_once __DIR__ . '/icon.php';
 
 $lists = Lists::getAll();
@@ -78,10 +79,18 @@ function prefillListName(string|null $taskListName, $lists) {
   </div>
   <div class="date-picker">
     <label for="deadline">Deadline</label>
-    <input type="date" name="deadline" id="deadline" value="<?= isset($this->task['deadline']) ? $this->task['deadline'] : '' ?>">
+    <input
+      type="date"
+      name="deadline"
+      id="deadline"
+      value="<?= isset($this->task['deadline']) ? $this->task['deadline'] : '' ?>">
     <button type="button">
       <?php Icon::render('flag', 16) ?>
-      <span id="deadline-preview" class="<?= isset($this->task['deadline']) ? 'visible' : 'hidden' ?>"><?= isset($this->task['deadline']) ? getRelativeDate($this->task['deadline']) : '' ?></span>
+      <span
+        id="deadline-preview"
+        class="<?= isset($this->task['deadline']) ? 'visible' : 'hidden' ?>">
+        <?= isset($this->task['deadline']) ? getRelativeDate($this->task['deadline']) : '' ?>
+      </span>
     </button>
   </div>
 </div>
