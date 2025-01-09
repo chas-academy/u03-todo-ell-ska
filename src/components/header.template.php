@@ -1,25 +1,28 @@
-<?php require_once __DIR__ . '/open-profile-menu.php' ?>
+<?php
+require_once __DIR__ . '/open-profile-menu.php';
+require_once __DIR__ . '/icon.php';
+?>
 
 <header class="header">
   <div class="start">
     <?php if ($this->back) : ?>
       <button id="back" class="back">
         <span>go back</span>
-        <?php Icon::render('chevron-left', 24) ?>
+        <?php Icon::render(['type' => 'chevron-left', 'size' => 24]) ?>
       </button>
     <?php endif; ?>
     <?php
     if (isset($this->icon)) {
-      Icon::render($this->icon, 24);
+      Icon::render(['type' => $this->icon, 'size' => 24]);
     }
     ?>
-    <?php if (isset($this->list)) : ?>
-      <h1><?= $this->list ?></h1>
+    <?php if (isset($this->title)) : ?>
+      <h1><?= $this->title ?></h1>
     <?php endif; ?>
   </div>
   <button id="open-sidebar">
     <span>open menu</span>
-    <?php Icon::render('menu', 24) ?>
+    <?php Icon::render(['type' => 'menu', 'size' => 24]) ?>
   </button>
   <div class="end">
     <?php
@@ -27,7 +30,7 @@
       require __DIR__ . '/delete-list.php';
     }
 
-    OpenProfileMenu::render(Location::HEADER);
+    OpenProfileMenu::render(['location' => Location::HEADER]);
     ?>
   </div>
 </header>

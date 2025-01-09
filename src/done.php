@@ -15,8 +15,8 @@ ob_start();
 <main class="list container">
   <div>
     <?php
-    Header::render('Done', 'check');
-    TaskList::render($tasks);
+    Header::render(['title' => 'Done', 'icon' => 'check']);
+    TaskList::render(['tasks' => $tasks]);
 
     require_once __DIR__ . '/components/open-add-task-modal.php';
     ?>

@@ -26,8 +26,8 @@ ob_start();
 <main class="list container">
   <div>
     <?php
-    Header::render($name);
-    TaskList::render($tasks);
+    Header::render(['title' => $name]);
+    TaskList::render(['tasks' => $tasks]);
     ?>
     <div class="actions">
       <?php

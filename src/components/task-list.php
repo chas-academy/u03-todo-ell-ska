@@ -1,11 +1,13 @@
 <?php
-class TaskList {
-  private $tasks = [];
-  private $overdueTasks = [];
+require_once __DIR__ . '/base-component.php';
 
-  public function __construct($tasks, bool $separateOverdueTasks = false) {
-    if ($separateOverdueTasks) {
-      foreach ($tasks as $task) {
+class TaskList extends BaseComponent {
+  public $tasks = [];
+  public $overdueTasks = [];
+
+  public function __construct(array $props) {
+    if ($props['separate-overdue-tasks'] ?? false) {
+      foreach ($props['tasks'] as $task) {
         $today = date('Y-m-d');
 
         if ($task['deadline'] === $today || $task['scheduled'] === $today) {
@@ -15,15 +17,11 @@ class TaskList {
         }
       }
     } else {
-      $this->tasks = $tasks;
+      $this->tasks = $props['tasks'];
     }
   }
 
-  private function getTemplate() {
-    require __DIR__ . '/task-list.template.php';
-  }
-
-  public static function render($tasks, bool $separateOverdueTasks = false) {
-    (new self($tasks, $separateOverdueTasks))->getTemplate();
+  protected function getName(): string {
+    return 'task-list';
   }
 }

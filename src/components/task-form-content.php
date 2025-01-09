@@ -1,16 +1,14 @@
 <?php
-class TaskFormContent {
-  private $task;
+require_once __DIR__ . '/base-component.php';
 
-  public function __construct($task = null) {
-    $this->task = $task;
+class TaskFormContent extends BaseComponent {
+  public $task;
+
+  public function __construct(array|null $props) {
+    $this->task = $props['task'] ?? null;
   }
 
-  private function getTemplate() {
-    require __DIR__ . '/task-form-content.template.php';
-  }
-
-  public static function render($task = null) {
-    (new self($task))->getTemplate();
+  protected function getName(): string {
+    return 'task-form-content';
   }
 }

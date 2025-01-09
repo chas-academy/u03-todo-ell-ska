@@ -53,7 +53,7 @@ function prefillListName(string|null $taskListName, $lists) {
       <?php endforeach; ?>
     </select>
     <button>
-      <?php Icon::render('list', 16) ?>
+      <?php Icon::render(['type' => 'list', 'size' => 16]) ?>
       <span
         id="list-preview"
         class="<?= prefillListName($this->task['list_name'] ?? null, $lists) ? 'visible' : 'hidden' ?>">
@@ -69,7 +69,7 @@ function prefillListName(string|null $taskListName, $lists) {
       id="scheduled"
       value="<?= prefillToday($this->task['scheduled'] ?? null) ?>">
     <button type="button">
-      <?php Icon::render('calendar', 16) ?>
+      <?php Icon::render(['type' => 'calendar', 'size' => 16]) ?>
       <span
         id="scheduled-preview"
         class="<?= prefillToday($this->task['scheduled'] ?? null) ? 'visible' : 'hidden' ?>">
@@ -85,7 +85,7 @@ function prefillListName(string|null $taskListName, $lists) {
       id="deadline"
       value="<?= isset($this->task['deadline']) ? $this->task['deadline'] : '' ?>">
     <button type="button">
-      <?php Icon::render('flag', 16) ?>
+      <?php Icon::render(['type' => 'flag', 'size' => 16]) ?>
       <span
         id="deadline-preview"
         class="<?= isset($this->task['deadline']) ? 'visible' : 'hidden' ?>">

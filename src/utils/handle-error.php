@@ -9,7 +9,7 @@ unset($_SESSION['error']);
 if ($error) :
 ?>
   <div class="error">
-    <?php Icon::render('circle-alert', 16) ?>
+    <?php Icon::render(['type' => 'circle-alert', 'size' => 16]) ?>
     <p><?= $error ?></p>
   </div>
 <?php endif ?>

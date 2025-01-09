@@ -1,4 +1,4 @@
 <button id="open-add-task-modal">
   <span>open add task modal</span>
-  <?php Icon::render('plus', 24) ?>
+  <?php Icon::render(['type' => 'plus', 'size' => 24]) ?>
 </button>

@@ -43,7 +43,7 @@ ob_start();
 <?php Sidebar::render() ?>
 <main class="details container">
   <div>
-    <?php Header::render(null, null, true) ?>
+    <?php Header::render(['back' => true]) ?>
     <form action="/actions/tasks.php" method="post">
       <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
       <input type="hidden" name="callback" value="<?= $_SERVER['HTTP_REFERER'] ?>">
@@ -51,8 +51,8 @@ ob_start();
       <input type="hidden" name="action" value="edit">
       <div class="main">
         <?php
-        TaskFormContent::render($task);
-        TaskFormOptions::render($task);
+        TaskFormContent::render(['task' => $task]);
+        TaskFormOptions::render(['task' => $task]);
         ?>
       </div>
       <div class="actions">

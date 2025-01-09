@@ -15,8 +15,8 @@ ob_start();
 <main class="list container">
   <div>
     <?php
-    Header::render('Inbox', 'inbox');
-    TaskList::render($tasks);
+    Header::render(['title' => 'Inbox', 'icon' => 'inbox']);
+    TaskList::render(['tasks' => $tasks]);
 
     require_once __DIR__ . '/components/open-add-task-modal.php';
     ?>
