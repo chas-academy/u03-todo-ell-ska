@@ -20,8 +20,19 @@ class Task {
     [$user, $db] = self::setup();
 
     try {
-      $query = $db->prepare('INSERT INTO tasks (name, note, deadline, scheduled, done, list_id, user_id) VALUES (:name, :note, :deadline, :scheduled, :done, :listId, :userId)');
-      $query->execute(['name' => $name, 'note' => $note, 'deadline' => $deadline, 'scheduled' => $scheduled, 'done' => $done, 'listId' => $listId, 'userId' => $user['id']]);
+      $query = $db->prepare('
+        INSERT INTO tasks (name, note, deadline, scheduled, done, list_id, user_id)
+        VALUES (:name, :note, :deadline, :scheduled, :done, :listId, :userId)
+      ');
+      $query->execute([
+        'name' => $name,
+        'note' => $note,
+        'deadline' => $deadline,
+        'scheduled' => $scheduled,
+        'done' => $done,
+        'listId' => $listId,
+        'userId' => $user['id']
+      ]);
 
       refresh();
     } catch (PDOException $error) {
@@ -35,8 +46,16 @@ class Task {
     [$user, $db] = self::setup();
 
     try {
-      $query = $db->prepare('UPDATE tasks SET done = !done WHERE id = :id AND user_id = :userId');
-      $query->execute(['id' => $id, 'userId' => $user['id']]);
+      $query = $db->prepare('
+        UPDATE tasks
+        SET done = !done
+        WHERE id = :id
+          AND user_id = :userId
+      ');
+      $query->execute([
+        'id' => $id,
+        'userId' => $user['id']
+      ]);
 
       refresh();
     } catch (PDOException $error) {
@@ -56,15 +75,25 @@ class Task {
     [$user, $db] = self::setup();
 
     try {
-      $query = $db->prepare('UPDATE tasks
-        SET
-          name = :name,
-          note = :note,
-          deadline = :deadline,
-          scheduled = :scheduled,
-          list_id = :listId
-        WHERE id = :id AND user_id = :userId');
-      $query->execute(['name' => $name, 'note' => $note, 'deadline' => $deadline, 'scheduled' => $scheduled, 'listId' => $listId, 'id' => $id, 'userId' => $user['id']]);
+      $query = $db->prepare('
+        UPDATE tasks
+        SET name = :name,
+            note = :note,
+            deadline = :deadline,
+            scheduled = :scheduled,
+            list_id = :listId
+        WHERE id = :id
+          AND user_id = :userId
+      ');
+      $query->execute([
+        'name' => $name,
+        'note' => $note,
+        'deadline' => $deadline,
+        'scheduled' => $scheduled,
+        'listId' => $listId,
+        'id' => $id,
+        'userId' => $user['id']
+      ]);
 
       if ($callback) {
         redirect($callback);
@@ -82,8 +111,16 @@ class Task {
     [$user, $db] = self::setup();
 
     try {
-      $query = $db->prepare('DELETE FROM tasks WHERE id = :id AND user_id = :userId');
-      $query->execute(['id' => $id, 'userId' => $user['id']]);
+      $query = $db->prepare('
+        DELETE
+        FROM tasks
+        WHERE id = :id
+          AND user_id = :userId
+      ');
+      $query->execute([
+        'id' => $id,
+        'userId' => $user['id']
+      ]);
 
       redirect('/');
     } catch (PDOException $error) {
