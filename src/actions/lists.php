@@ -10,5 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     case 'create':
       Lists::create($_POST['name']);
       break;
+    case 'delete':
+      Lists::delete($_POST['id']);
+      break;
   }
 }

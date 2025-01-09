@@ -33,6 +33,30 @@ class Lists {
     }
   }
 
+  public static function delete($id) {
+    $id = validateString($id, true, 'Id is required');
+
+    [$user, $db] = self::setup();
+
+    try {
+      $query = $db->prepare('
+        DELETE
+        FROM lists
+        WHERE id = :id
+          AND user_id = :userId
+      ');
+
+      $query->execute([
+        'id' => $id,
+        'userId' => $user['id']
+      ]);
+
+      redirect('/');
+    } catch (PDOException $error) {
+      die($error->getMessage());
+    }
+  }
+
   public static function getAll() {
     [$user, $db] = self::setup();
 
