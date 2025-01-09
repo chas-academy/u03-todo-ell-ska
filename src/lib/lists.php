@@ -32,4 +32,42 @@ class Lists {
       die($error->getMessage());
     }
   }
+
+  public static function getAll() {
+    [$user, $db] = self::setup();
+
+    $query = $db->prepare("
+      SELECT name, id
+      FROM lists
+      WHERE user_id = :id
+    ");
+
+    $query->execute([
+      'id' => $user['id']
+    ]);
+
+    return $query->fetchAll();
+  }
+
+  public static function getName($id) {
+    if (!isset($id) || !validateString($id)) {
+      throw new Exception('id is invalid');
+    }
+
+    [$user, $db] = self::setup();
+
+    $query = $db->prepare("
+      SELECT (name)
+      FROM lists
+      WHERE id = :id
+        AND user_id = :userId
+    ");
+
+    $query->execute([
+      'id' => $id,
+      'userId' => $user['id']
+    ]);
+
+    return $query->fetchColumn();
+  }
 }
