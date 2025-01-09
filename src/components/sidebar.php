@@ -1,12 +1,13 @@
 <?php
+require_once __DIR__ . '/base-component.php';
 require_once __DIR__ . '/../lib/lists.php';
-class Sidebar {
-  private $staticMenuItems = [
+class Sidebar extends BaseComponent {
+  public $staticMenuItems = [
     ['name' => 'Inbox', 'href' => '/', 'icon' => 'inbox'],
     ['name' => 'Today', 'href' => '/today.php', 'icon' => 'calendar'],
     ['name' => 'Done', 'href' => '/done.php', 'icon' => 'check']
   ];
-  private $dynamicMenuItems = [];
+  public $dynamicMenuItems = [];
 
   public function __construct() {
     $lists = Lists::getAll();
@@ -16,11 +17,7 @@ class Sidebar {
     }
   }
 
-  private function getTemplate() {
-    require __DIR__ . '/sidebar.template.php';
-  }
-
-  public static function render() {
-    (new self())->getTemplate();
+  protected function getName(): string {
+    return 'sidebar';
   }
 }

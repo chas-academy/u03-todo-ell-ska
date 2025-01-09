@@ -8,7 +8,7 @@ abstract class BaseComponent {
     require $_SERVER['DOCUMENT_ROOT'] . "/components/$name.template.php";
   }
 
-  public static function render(array $params) {
+  public static function render(?array $params = null) {
     $class = get_called_class();
     $instance = new $class($params);
     $instance->getTemplate();
