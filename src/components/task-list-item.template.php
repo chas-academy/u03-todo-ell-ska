@@ -3,7 +3,7 @@
 <li class="task">
   <a href="/task.php?id=<?= $task['id'] ?>">
     <div class="main">
-      <form action="/actions/tasks/handler.php" method="post">
+      <form action="/actions/tasks.php" method="post">
         <input type="hidden" name="id" value="<?= $task['id'] ?>">
         <input type="hidden" name="action" value="toggle-done">
         <button type="submit" class="checkbox" data-checked="<?= $task['done'] ? 'true' : 'false' ?>">
