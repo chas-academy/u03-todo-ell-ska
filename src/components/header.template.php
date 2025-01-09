@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . '/open-profile-menu.php' ?>
 
 <header class="header">
-  <div>
+  <div class="start">
     <?php if ($this->back) : ?>
       <button id="back" class="back">
         <span>go back</span>
@@ -21,5 +21,13 @@
     <span>open menu</span>
     <?php Icon::render('menu', 24) ?>
   </button>
-  <?php OpenProfileMenu::render(Location::HEADER) ?>
+  <div class="end">
+    <?php
+    if (str_contains($_SERVER['REQUEST_URI'], 'list.php')) {
+      require __DIR__ . '/delete-list.php';
+    }
+
+    OpenProfileMenu::render(Location::HEADER);
+    ?>
+  </div>
 </header>
