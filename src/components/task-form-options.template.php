@@ -47,7 +47,7 @@ function prefillListName(string|null $taskListName, $lists) {
       <?php foreach ($lists as $list) : ?>
         <option
           value="<?= $list['id'] ?>"
-          <?= prefillListId($list['id'] ?? null, $task['list_id'] ?? null) ?>>
+          <?= prefillListId($list['id'] ?? null, $this->task['list_id'] ?? null) ?>>
           <?= $list['name'] ?>
         </option>
       <?php endforeach; ?>
@@ -56,8 +56,8 @@ function prefillListName(string|null $taskListName, $lists) {
       <?php Icon::render('list', 16) ?>
       <span
         id="list-preview"
-        class="<?= prefillListName($task['list_name'] ?? null, $lists) ? 'visible' : 'hidden' ?>">
-        <?= prefillListName($task['list_name'] ?? null, $lists) ?>
+        class="<?= prefillListName($this->task['list_name'] ?? null, $lists) ? 'visible' : 'hidden' ?>">
+        <?= prefillListName($this->task['list_name'] ?? null, $lists) ?>
       </span>
     </button>
   </div>
