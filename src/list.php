@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/lib/task.php';
+require_once __DIR__ . '/lib/tasks.php';
 require_once __DIR__ . '/lib/lists.php';
 require_once __DIR__ . '/components/sidebar.php';
 require_once __DIR__ . '/components/header.php';
@@ -13,7 +13,7 @@ try {
     throw new Exception('list not found');
   }
 
-  $tasks = Task::geList($_GET['id']);
+  $tasks = Tasks::geList($_GET['id']);
 } catch (Exception $e) {
   redirect('/not-found.php');
 }
