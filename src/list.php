@@ -1,24 +1,15 @@
 <?php
-require_once __DIR__ . '/db.php';
 require_once __DIR__ . '/lib/task.php';
-require_once __DIR__ . '/lib/auth.php';
-require_once __DIR__ . '/utils/navigation.php';
-require_once __DIR__ . '/utils/session-start-unless-started.php';
-require_once __DIR__ . '/utils/validation.php';
+require_once __DIR__ . '/lib/lists.php';
 require_once __DIR__ . '/components/sidebar.php';
 require_once __DIR__ . '/components/header.php';
 require_once __DIR__ . '/components/task-list.php';
 require_once __DIR__ . '/components/icon.php';
 
 try {
-  $user = Auth::getUser();
-  $db = Database::getInstance();
+  $name = Lists::getName($_GET['id']);
 
-  $listQuery = $db->prepare("SELECT (name) FROM lists WHERE id = :id AND user_id = :userId");
-  $listQuery->execute(['id' => $_GET['id'], 'userId' => $user['id']]);
-  $list = $listQuery->fetch();
-
-  if (!$list) {
+  if (!$name) {
     throw new Exception('list not found');
   }
 
@@ -27,7 +18,7 @@ try {
   redirect('/not-found.php');
 }
 
-$title = $list['name'];
+$title = $name;
 ob_start();
 ?>
 
@@ -35,7 +26,7 @@ ob_start();
 <main class="list container">
   <div>
     <?php
-    Header::render($list['name']);
+    Header::render($name);
     TaskList::render($tasks);
 
     require_once __DIR__ . '/components/open-add-task-modal.php';

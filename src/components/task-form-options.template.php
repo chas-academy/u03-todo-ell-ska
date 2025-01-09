@@ -1,15 +1,8 @@
 <?php
-require_once __DIR__ . '/../db.php';
-require_once __DIR__ . '/../lib/auth.php';
-require_once __DIR__ . '/../utils/date.php';
+require_once __DIR__ . '/../lib/lists.php';
 require_once __DIR__ . '/icon.php';
 
-$user = Auth::getUser();
-$db = Database::getInstance();
-
-$query = $db->prepare("SELECT name, id FROM lists WHERE user_id = :id");
-$query->execute(['id' => $user['id']]);
-$lists = $query->fetchAll();
+$lists = Lists::getAll();
 
 function prefillToday(string|null $date, bool $relative = false) {
   if (isset($date)) {

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/create.php';
+require_once __DIR__ . '/../lib/lists.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (!isset($_POST['action'])) {
@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   switch ($_POST['action']) {
     case 'create':
-      createList($_POST['name']);
+      Lists::create($_POST['name']);
       break;
   }
 }
