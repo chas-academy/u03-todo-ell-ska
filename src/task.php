@@ -9,14 +9,14 @@ require_once __DIR__ . '/components/task-form-content.php';
 require_once __DIR__ . '/components/task-form-options.php';
 
 try {
-  if (!isset($_GET['id']) || !validateString($_GET['id'])) {
-    throw new Exception('id is invalid');
-  }
+    if (!isset($_GET['id']) || !validateString($_GET['id'])) {
+        throw new Exception('id is invalid');
+    }
 
-  $user = Auth::getUser();
-  $db = Database::getInstance();
+    $user = Auth::getUser();
+    $db = Database::getInstance();
 
-  $query = $db->prepare("SELECT
+    $query = $db->prepare("SELECT
       tasks.name,
       tasks.note,
       tasks.scheduled,
@@ -26,14 +26,14 @@ try {
     FROM tasks
     LEFT JOIN lists ON tasks.list_id = lists.id
     WHERE tasks.id = :taskId AND tasks.user_id = :userId");
-  $query->execute(['taskId' => $_GET['id'], 'userId' => $user['id']]);
-  $task = $query->fetch();
+    $query->execute(['taskId' => $_GET['id'], 'userId' => $user['id']]);
+    $task = $query->fetch();
 
-  if (!$task) {
-    throw new Exception('task not found');
-  }
+    if (!$task) {
+        throw new Exception('task not found');
+    }
 } catch (Exception $e) {
-  redirect('/not-found.php');
+    redirect('/not-found.php');
 }
 
 $title = $task['name'];

@@ -7,15 +7,15 @@ require_once __DIR__ . '/components/task-list.php';
 require_once __DIR__ . '/components/icon.php';
 
 try {
-  $name = Lists::getName($_GET['id']);
+    $name = Lists::getName($_GET['id']);
 
-  if (!$name) {
-    throw new Exception('list not found');
-  }
+    if (!$name) {
+        throw new Exception('list not found');
+    }
 
-  $tasks = Tasks::geList($_GET['id']);
+    $tasks = Tasks::geList($_GET['id']);
 } catch (Exception $e) {
-  redirect('/not-found.php');
+    redirect('/not-found.php');
 }
 
 $title = $name;
@@ -31,9 +31,9 @@ ob_start();
     ?>
     <div class="actions">
       <?php
-      require __DIR__ . '/components/delete-list.php';
-      require_once __DIR__ . '/components/open-add-task-modal.php';
-      ?>
+        require __DIR__ . '/components/delete-list.php';
+        require_once __DIR__ . '/components/open-add-task-modal.php';
+        ?>
     </div>
   </div>
 </main>

@@ -13,7 +13,7 @@ require_once __DIR__ . '/icon.php';
     <?php endif; ?>
     <?php
     if (isset($this->icon)) {
-      Icon::render(['type' => $this->icon, 'size' => 24]);
+        Icon::render(['type' => $this->icon, 'size' => 24]);
     }
     ?>
     <?php if (isset($this->title)) : ?>
@@ -27,7 +27,7 @@ require_once __DIR__ . '/icon.php';
   <div class="end">
     <?php
     if (str_contains($_SERVER['REQUEST_URI'], 'list.php')) {
-      require __DIR__ . '/delete-list.php';
+        require __DIR__ . '/delete-list.php';
     }
 
     OpenProfileMenu::render(['location' => Location::HEADER]);

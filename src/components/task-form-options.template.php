@@ -5,37 +5,40 @@ require_once __DIR__ . '/icon.php';
 
 $lists = Lists::getAll();
 
-function prefillToday(string|null $date, bool $relative = false) {
-  if (isset($date)) {
-    return $date;
-  }
+function prefillToday(string|null $date, bool $relative = false)
+{
+    if (isset($date)) {
+        return $date;
+    }
 
-  if (str_contains($_SERVER['REQUEST_URI'], 'today.php')) {
-    return $relative ? getRelativeDate(date('Y-m-d')) : date('Y-m-d');
-  }
+    if (str_contains($_SERVER['REQUEST_URI'], 'today.php')) {
+        return $relative ? getRelativeDate(date('Y-m-d')) : date('Y-m-d');
+    }
 
-  return '';
+    return '';
 }
 
-function prefillListId(string|null $listId, string|null $taskListId) {
-  if ((isset($taskListId) && $listId === $taskListId) || str_contains($_SERVER['REQUEST_URI'], $listId)) {
-    return 'selected';
-  }
+function prefillListId(string|null $listId, string|null $taskListId)
+{
+    if ((isset($taskListId) && $listId === $taskListId) || str_contains($_SERVER['REQUEST_URI'], $listId)) {
+        return 'selected';
+    }
 
-  return '';
+    return '';
 }
 
-function prefillListName(string|null $taskListName, $lists) {
-  if ($taskListName) {
-    return $taskListName;
-  }
+function prefillListName(string|null $taskListName, $lists)
+{
+    if ($taskListName) {
+        return $taskListName;
+    }
 
-  if (str_contains($_SERVER['REQUEST_URI'], 'list.php') && isset($_GET['id'])) {
-    $list = array_search($_GET['id'], array_column($lists, 'id'));
-    return $lists[$list]['name'];
-  }
+    if (str_contains($_SERVER['REQUEST_URI'], 'list.php') && isset($_GET['id'])) {
+        $list = array_search($_GET['id'], array_column($lists, 'id'));
+        return $lists[$list]['name'];
+    }
 
-  return '';
+    return '';
 }
 ?>
 
@@ -47,8 +50,8 @@ function prefillListName(string|null $taskListName, $lists) {
       <?php foreach ($lists as $list) : ?>
         <option
           value="<?= $list['id'] ?>"
-          <?= prefillListId($list['id'] ?? null, $this->task['list_id'] ?? null) ?>>
-          <?= $list['name'] ?>
+            <?= prefillListId($list['id'] ?? null, $this->task['list_id'] ?? null) ?>>
+            <?= $list['name'] ?>
         </option>
       <?php endforeach; ?>
     </select>
