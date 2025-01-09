@@ -51,7 +51,7 @@ ob_start();
       <input type="hidden" name="action" value="edit">
       <div class="main">
         <?php
-        TaskFormContent::render($task);
+        TaskFormContent::render(['task' => $task]);
         TaskFormOptions::render($task);
         ?>
       </div>
