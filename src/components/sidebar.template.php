@@ -36,6 +36,6 @@ require_once __DIR__ . '/icon.php';
       <?php Icon::render(['type' => 'plus', 'size' => 16]) ?>
       <span>New list</span>
     </button>
-    <?php OpenProfileMenu::render(Location::SIDEBAR) ?>
+    <?php OpenProfileMenu::render(['location' => Location::SIDEBAR]) ?>
   </div>
 </aside>

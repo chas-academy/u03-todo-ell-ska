@@ -1,22 +1,19 @@
 <?php
+require_once __DIR__ . '/base-component.php';
 
 enum Location {
   case HEADER;
   case SIDEBAR;
 }
 
-class OpenProfileMenu {
-  private $location;
+class OpenProfileMenu extends BaseComponent {
+  public $location;
 
-  public function __construct(Location $location) {
-    $this->location = $location === Location::HEADER ? 'header' : 'sidebar';
+  public function __construct(array $props) {
+    $this->location = $props['location'] === Location::HEADER ? 'header' : 'sidebar';
   }
 
-  private function getTemplate() {
-    require __DIR__ . '/open-profile-menu.template.php';
-  }
-
-  public static function render(Location $location) {
-    (new self($location))->getTemplate();
+  protected function getName(): string {
+    return 'open-profile-menu';
   }
 }
