@@ -27,7 +27,7 @@ ob_start();
   <div>
     <?php
     Header::render(['title' => $name]);
-    TaskList::render($tasks);
+    TaskList::render(['tasks' => $tasks]);
     ?>
     <div class="actions">
       <?php
