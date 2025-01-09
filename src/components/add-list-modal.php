@@ -1,5 +1,5 @@
 <div id="add-list-modal" class="modal hidden">
-  <form action="/actions/lists/handler.php" method="post">
+  <form action="/actions/lists.php" method="post">
     <input type="hidden" name="action" value="create">
     <div>
       <label for="list">New list</label>
