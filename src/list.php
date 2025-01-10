@@ -24,18 +24,18 @@ ob_start();
 
 <?php Sidebar::render() ?>
 <main class="list container">
-  <div>
-    <?php
-    Header::render(['title' => $name]);
-    TaskList::render(['tasks' => $tasks]);
-    ?>
-    <div class="actions">
-      <?php
-        require __DIR__ . '/components/delete-list.php';
-        require_once __DIR__ . '/components/open-add-task-modal.php';
+    <div>
+        <?php
+        Header::render(['title' => $name]);
+        TaskList::render(['tasks' => $tasks]);
         ?>
+        <div class="actions">
+            <?php
+            require __DIR__ . '/components/delete-list.php';
+            require_once __DIR__ . '/components/open-add-task-modal.php';
+            ?>
+        </div>
     </div>
-  </div>
 </main>
 
 <?php

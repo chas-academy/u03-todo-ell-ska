@@ -1,31 +1,31 @@
 <?php require_once __DIR__ . '/icon.php' ?>
 
 <?php if ((isset($this->tasks) && count($this->tasks) !== 0) || (isset($this->overdueTasks) && count($this->overdueTasks))) : ?>
-  <ul>
-    <?php
-    foreach ($this->tasks as $task) {
-        require __DIR__ . '/task-list-item.template.php';
-    }
-    ?>
-    <?php if ($this->overdueTasks) : ?>
-      <div class="separator">
-        <div></div>
-        <p>Overdue</p>
-        <div></div>
-      </div>
+    <ul>
         <?php
-        foreach ($this->overdueTasks as $task) {
+        foreach ($this->tasks as $task) {
             require __DIR__ . '/task-list-item.template.php';
         }
-    endif;
-    ?>
-  </ul>
+        ?>
+        <?php if ($this->overdueTasks) : ?>
+            <div class="separator">
+                <div></div>
+                <p>Overdue</p>
+                <div></div>
+            </div>
+        <?php
+            foreach ($this->overdueTasks as $task) {
+                require __DIR__ . '/task-list-item.template.php';
+            }
+        endif;
+        ?>
+    </ul>
 <?php else :  ?>
-  <div class="empty">
-    <h2>All done!</h2>
-    <div>
-      <p>Enjoy your day</p>
-      <?php Icon::render(['type' => 'smile', 'size' => 16]) ?>
+    <div class="empty">
+        <h2>All done!</h2>
+        <div>
+            <p>Enjoy your day</p>
+            <?php Icon::render(['type' => 'smile', 'size' => 16]) ?>
+        </div>
     </div>
-  </div>
 <?php endif ?>

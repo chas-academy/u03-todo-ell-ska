@@ -13,14 +13,14 @@ ob_start();
 
 <?php Sidebar::render() ?>
 <main class="list container">
-  <div>
-    <?php
-    Header::render(['title' => 'Today', 'icon' => 'calendar']);
-    TaskList::render(['tasks' => $tasks, 'separate-overdue-tasks' => true]);
+    <div>
+        <?php
+        Header::render(['title' => 'Today', 'icon' => 'calendar']);
+        TaskList::render(['tasks' => $tasks, 'separate-overdue-tasks' => true]);
 
-    require_once __DIR__ . '/components/open-add-task-modal.php';
-    ?>
-  </div>
+        require_once __DIR__ . '/components/open-add-task-modal.php';
+        ?>
+    </div>
 </main>
 
 <?php
