@@ -1,4 +1,8 @@
-<?php require_once __DIR__ . '/icon.php' ?>
+<?php
+
+use App\Components\Icon;
+
+?>
 
 <div id="<?= $this->location ?>-profile-menu" class="profile-menu hidden">
     <form action="/actions/auth.php" method="post">

@@ -1,12 +1,8 @@
 <?php
 
-require_once __DIR__ . '/base-component.php';
+namespace App\Components;
 
-enum Location
-{
-    case HEADER;
-    case SIDEBAR;
-}
+use Exception;
 
 class OpenProfileMenu extends BaseComponent
 {
@@ -14,7 +10,11 @@ class OpenProfileMenu extends BaseComponent
 
     public function __construct(array $props)
     {
-        $this->location = $props['location'] === Location::HEADER ? 'header' : 'sidebar';
+        $location = $props['location'];
+        if ($location !== 'header' && $location !== 'sidebar') {
+            throw new Exception("$location is not a valid location");
+        }
+        $this->location = $location;
     }
 
     protected function getName(): string

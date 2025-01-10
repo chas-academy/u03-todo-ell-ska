@@ -1,4 +1,8 @@
-<?php require_once __DIR__ . '/icon.php' ?>
+<?php
+
+use App\Components\Icon;
+
+?>
 
 <a class="menu-item" href="<?= $this->href ?>">
     <?php

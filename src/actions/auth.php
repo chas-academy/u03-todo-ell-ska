@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../lib/auth.php';
+use App\Controllers\Auth;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($_POST['action'])) {

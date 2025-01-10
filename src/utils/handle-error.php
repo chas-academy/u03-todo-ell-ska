@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/session-start-unless-started.php';
-require_once __DIR__ . '/../components/icon.php';
+
+use App\Components\Icon;
 
 sessionStartUnlessStarted();
 $error = $_SESSION['error'] ?? null;

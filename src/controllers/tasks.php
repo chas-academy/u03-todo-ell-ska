@@ -1,7 +1,12 @@
 <?php
 
-require_once __DIR__ . '/../db.php';
-require_once __DIR__ . '/../lib/auth.php';
+namespace App\Controllers;
+
+use App\Database;
+
+use Exception;
+use PDOException;
+
 require_once __DIR__ . '/../utils/navigation.php';
 require_once __DIR__ . '/../utils/validation.php';
 
@@ -16,8 +21,7 @@ class Tasks
     {
         $name = validateString($name, true, 'Task name is required');
         $note = validateString($note);
-        $deadline = validateString($deadline);
-        ;
+        $deadline = validateString($deadline);;
         $scheduled = validateString($scheduled);
         $done = validateString($done) ?? '0';
         $listId = validateString($listId);
@@ -31,13 +35,13 @@ class Tasks
       ');
 
             $query->execute([
-            'name' => $name,
-            'note' => $note,
-            'deadline' => $deadline,
-            'scheduled' => $scheduled,
-            'done' => $done,
-            'listId' => $listId,
-            'userId' => $user['id']
+                'name' => $name,
+                'note' => $note,
+                'deadline' => $deadline,
+                'scheduled' => $scheduled,
+                'done' => $done,
+                'listId' => $listId,
+                'userId' => $user['id']
             ]);
 
             refresh();
@@ -61,8 +65,8 @@ class Tasks
       ');
 
             $query->execute([
-            'id' => $id,
-            'userId' => $user['id']
+                'id' => $id,
+                'userId' => $user['id']
             ]);
 
             refresh();
@@ -95,17 +99,17 @@ class Tasks
           AND user_id = :userId
       ');
             $query->execute([
-            'name' => $name,
-            'note' => $note,
-            'deadline' => $deadline,
-            'scheduled' => $scheduled,
-            'listId' => $listId,
-            'id' => $id,
-            'userId' => $user['id']
+                'name' => $name,
+                'note' => $note,
+                'deadline' => $deadline,
+                'scheduled' => $scheduled,
+                'listId' => $listId,
+                'id' => $id,
+                'userId' => $user['id']
             ]);
 
             if ($callback) {
-                  redirect($callback);
+                redirect($callback);
             } else {
                 redirect('/');
             }
@@ -129,8 +133,8 @@ class Tasks
       ');
 
             $query->execute([
-            'id' => $id,
-            'userId' => $user['id']
+                'id' => $id,
+                'userId' => $user['id']
             ]);
 
             redirect('/');
@@ -161,7 +165,7 @@ class Tasks
     ");
 
         $query->execute([
-        'id' => $user['id']
+            'id' => $user['id']
         ]);
 
         return $query->fetchAll();
@@ -198,7 +202,7 @@ class Tasks
     ");
 
         $query->execute([
-        'id' => $user['id']
+            'id' => $user['id']
         ]);
 
         return $query->fetchAll();
@@ -224,7 +228,7 @@ class Tasks
     ");
 
         $query->execute([
-        'id' => $user['id']
+            'id' => $user['id']
         ]);
 
         return $query->fetchAll();
@@ -256,8 +260,8 @@ class Tasks
     ");
 
         $query->execute([
-        'userId' => $user['id'],
-        'listId' => $id
+            'userId' => $user['id'],
+            'listId' => $id
         ]);
 
         return $query->fetchAll();

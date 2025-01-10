@@ -1,12 +1,13 @@
 <?php
-require_once __DIR__ . '/db.php';
-require_once __DIR__ . '/lib/auth.php';
 require_once __DIR__ . '/utils/navigation.php';
 require_once __DIR__ . '/utils/validation.php';
-require_once __DIR__ . '/components/sidebar.php';
-require_once __DIR__ . '/components/header.php';
-require_once __DIR__ . '/components/task-form-content.php';
-require_once __DIR__ . '/components/task-form-options.php';
+
+use App\Database;
+use App\Controllers\Auth;
+use App\Components\Sidebar;
+use App\Components\Header;
+use App\Components\TaskFormContent;
+use App\Components\TaskFormOptions;
 
 try {
     if (!isset($_GET['id']) || !validateString($_GET['id'])) {

@@ -1,6 +1,8 @@
 <?php
-require_once __DIR__ . '/open-profile-menu.php';
-require_once __DIR__ . '/icon.php';
+
+use App\Components\OpenProfileMenu;
+use App\Components\Icon;
+
 ?>
 
 <header class="header">
@@ -30,7 +32,7 @@ require_once __DIR__ . '/icon.php';
             require __DIR__ . '/delete-list.php';
         }
 
-        OpenProfileMenu::render(['location' => Location::HEADER]);
+        OpenProfileMenu::render(['location' => 'header']);
         ?>
     </div>
 </header>

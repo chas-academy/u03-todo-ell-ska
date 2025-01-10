@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/base-component.php';
+namespace App\Components;
 
 class TaskList extends BaseComponent
 {

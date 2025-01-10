@@ -1,4 +1,8 @@
-<?php require_once __DIR__ . '/icon.php' ?>
+<?php
+
+use App\Components\Icon;
+
+?>
 
 <?php if ((isset($this->tasks) && count($this->tasks) !== 0) || (isset($this->overdueTasks) && count($this->overdueTasks))) : ?>
     <ul>

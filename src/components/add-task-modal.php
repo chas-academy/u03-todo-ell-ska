@@ -1,6 +1,9 @@
 <?php
-require_once __DIR__ . '/task-form-content.php';
-require_once __DIR__ . '/task-form-options.php';
+
+use App\Components\TaskFormContent;
+use App\Components\TaskFormOptions;
+use App\Components\Icon;
+
 ?>
 
 <div id="add-task-modal" class="task-modal modal hidden">

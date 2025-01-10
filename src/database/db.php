@@ -1,5 +1,10 @@
 <?php
 
+namespace App;
+
+use PDO;
+use PDOException;
+
 class Database
 {
     private static ?PDO $instance = null;
@@ -13,8 +18,8 @@ class Database
             $password = 'mariadb';
 
             $options = [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
             ];
 
             try {

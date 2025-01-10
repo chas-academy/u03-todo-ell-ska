@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../lib/lists.php';
+use App\Controllers\Lists;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($_POST['action'])) {

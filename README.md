@@ -30,7 +30,7 @@ The first time you build the container the database structure will be set up acc
 Once the docker container is up and running you can run PHP_CodeSniffer to check the code against the PSR-12 standard with:
 
 ```bash
-docker compose exec php phpcs --extensions=php /var/www/html/
+docker compose exec php phpcs --ignore=/vendor --extensions=php /var/www/html/
 ```
 
 ## Resources

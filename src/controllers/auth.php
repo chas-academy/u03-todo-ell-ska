@@ -1,6 +1,10 @@
 <?php
 
-require_once __DIR__ . '/../db.php';
+namespace App\Controllers;
+
+use App\Database;
+use PDOException;
+
 require_once __DIR__ . '/../utils/navigation.php';
 require_once __DIR__ . '/../utils/validation.php';
 require_once __DIR__ . '/../utils/session-start-unless-started.php';

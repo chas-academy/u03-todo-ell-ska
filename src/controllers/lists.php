@@ -1,7 +1,12 @@
 <?php
 
-require_once __DIR__ . '/../db.php';
-require_once __DIR__ . '/../lib/auth.php';
+namespace App\Controllers;
+
+use App\Database;
+
+use PDOException;
+use Exception;
+
 require_once __DIR__ . '/../utils/navigation.php';
 require_once __DIR__ . '/../utils/validation.php';
 
@@ -25,8 +30,8 @@ class Lists
       ');
 
             $query->execute([
-            'name' => $name,
-            'userId' => $user['id']
+                'name' => $name,
+                'userId' => $user['id']
             ]);
 
             $id = $query->fetchColumn();
@@ -52,8 +57,8 @@ class Lists
       ');
 
             $query->execute([
-            'id' => $id,
-            'userId' => $user['id']
+                'id' => $id,
+                'userId' => $user['id']
             ]);
 
             redirect('/');
@@ -73,7 +78,7 @@ class Lists
     ");
 
         $query->execute([
-        'id' => $user['id']
+            'id' => $user['id']
         ]);
 
         return $query->fetchAll();
@@ -95,8 +100,8 @@ class Lists
     ");
 
         $query->execute([
-        'id' => $id,
-        'userId' => $user['id']
+            'id' => $id,
+            'userId' => $user['id']
         ]);
 
         return $query->fetchColumn();
