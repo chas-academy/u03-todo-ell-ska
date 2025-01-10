@@ -13,7 +13,7 @@
                 <p>Overdue</p>
                 <div></div>
             </div>
-        <?php
+            <?php
             foreach ($this->overdueTasks as $task) {
                 require __DIR__ . '/task-list-item.template.php';
             }
