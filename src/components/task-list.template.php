@@ -1,4 +1,10 @@
-<?php require_once __DIR__ . '/icon.php' ?>
+<?php 
+
+use App\Components\Icon;
+
+require_once __DIR__ . '/icon.php';
+
+?>
 
 <?php
 $hasTasks = isset($this->tasks) && count($this->tasks) !== 0;

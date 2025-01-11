@@ -1,4 +1,7 @@
 <?php
+
+use App\Components\Icon;
+
 require_once __DIR__ . '/session-start-unless-started.php';
 require_once __DIR__ . '/../components/icon.php';
 

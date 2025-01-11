@@ -1,6 +1,6 @@
 <?php
 
-use App\Components\BaseComponent;
+namespace App\Components;
 
 require_once __DIR__ . '/base-component.php';
 

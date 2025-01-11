@@ -1,4 +1,7 @@
 <?php
+
+use App\Components\Icon;
+
 require_once __DIR__ . '/../lib/lists.php';
 require_once __DIR__ . '/../utils/date.php';
 require_once __DIR__ . '/icon.php';

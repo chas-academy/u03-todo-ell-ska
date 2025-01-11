@@ -1,4 +1,7 @@
 <?php
+
+use App\Components\Icon;
+
 require_once __DIR__ . '/open-profile-menu.php';
 require_once __DIR__ . '/menu-item.php';
 require_once __DIR__ . '/icon.php';

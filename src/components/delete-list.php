@@ -1,4 +1,10 @@
-<?php require_once __DIR__ . '/icon.php' ?>
+<?php
+
+use App\Components\Icon;
+
+require_once __DIR__ . '/icon.php' 
+
+?>
 
 <form action="/actions/lists.php" method="post">
     <input type="hidden" name="id" value="<?= $_GET['id'] ?>">

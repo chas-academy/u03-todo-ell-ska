@@ -1,4 +1,11 @@
-<?php require_once __DIR__ . '/../utils/date.php' ?>
+<?php
+
+use App\Components\Icon;
+
+require_once __DIR__ . '/../utils/date.php';
+require_once __DIR__ . '/icon.php';
+
+?>
 
 <li class="task">
     <a href="/task.php?id=<?= $task['id'] ?>">
