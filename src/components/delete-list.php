@@ -2,7 +2,7 @@
 
 use App\Components\Icon;
 
-require_once __DIR__ . '/icon.php' 
+require_once __DIR__ . '/icon.php'
 
 ?>
 
