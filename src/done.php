@@ -1,4 +1,7 @@
 <?php
+
+use App\Components\Header;
+
 require_once __DIR__ . '/lib/tasks.php';
 require_once __DIR__ . '/components/sidebar.php';
 require_once __DIR__ . '/components/header.php';
