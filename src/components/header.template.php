@@ -30,7 +30,7 @@ require_once __DIR__ . '/icon.php';
             require __DIR__ . '/delete-list.php';
         }
 
-        OpenProfileMenu::render(['location' => Location::HEADER]);
+        OpenProfileMenu::render(['location' => 'header']);
         ?>
     </div>
 </header>
