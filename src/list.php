@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\Lists;
 use App\Components\Header;
 use App\Components\TaskList;
 

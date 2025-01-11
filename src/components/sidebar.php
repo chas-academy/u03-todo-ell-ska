@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\Lists;
 use App\Components\BaseComponent;
 
 require_once __DIR__ . '/base-component.php';
