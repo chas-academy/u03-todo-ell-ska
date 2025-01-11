@@ -1,5 +1,6 @@
 <?php
 
+use App\Components\TaskFormContent;
 use App\Components\TaskFormOptions;
 use App\Components\Icon;
 

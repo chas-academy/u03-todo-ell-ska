@@ -1,6 +1,7 @@
 <?php
 
 use App\Components\Header;
+use App\Components\TaskFormContent;
 use App\Components\TaskFormOptions;
 
 require_once __DIR__ . '/lib/tasks.php';
