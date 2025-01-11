@@ -1,33 +1,13 @@
 <?php
-require_once __DIR__ . '/db.php';
-require_once __DIR__ . '/lib/auth.php';
+require_once __DIR__ . '/lib/tasks.php';
 require_once __DIR__ . '/utils/navigation.php';
-require_once __DIR__ . '/utils/validation.php';
 require_once __DIR__ . '/components/sidebar.php';
 require_once __DIR__ . '/components/header.php';
 require_once __DIR__ . '/components/task-form-content.php';
 require_once __DIR__ . '/components/task-form-options.php';
 
 try {
-    if (!isset($_GET['id']) || !validateString($_GET['id'])) {
-        throw new Exception('id is invalid');
-    }
-
-    $user = Auth::getUser();
-    $db = Database::getInstance();
-
-    $query = $db->prepare("SELECT
-      tasks.name,
-      tasks.note,
-      tasks.scheduled,
-      tasks.deadline,
-      tasks.list_id,
-      lists.name AS list_name
-    FROM tasks
-    LEFT JOIN lists ON tasks.list_id = lists.id
-    WHERE tasks.id = :taskId AND tasks.user_id = :userId");
-    $query->execute(['taskId' => $_GET['id'], 'userId' => $user['id']]);
-    $task = $query->fetch();
+    $task = Tasks::getById($_GET['id']);
 
     if (!$task) {
         throw new Exception('task not found');

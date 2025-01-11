@@ -21,7 +21,11 @@ class Auth
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         try {
-            $query = $db->prepare('INSERT INTO users (username, password) VALUES (:username, :password)');
+            $query = $db->prepare('
+                INSERT INTO users (username, password)
+                VALUES (:username, :password)
+            ');
+
             $query->execute(['username' => $username, 'password' => $hashedPassword]);
 
             self::logIn($username, $password);
@@ -42,7 +46,14 @@ class Auth
         $db = Database::getInstance();
 
         try {
-            $query = $db->prepare('SELECT id, username, password FROM users WHERE username = :username');
+            $query = $db->prepare('
+                SELECT id,
+                       username,
+                       password
+                FROM users
+                WHERE username = :username
+            ');
+
             $query->execute(['username' => $username]);
             $user = $query->fetch();
 
@@ -96,7 +107,11 @@ class Auth
         }
 
         try {
-            $query = $db->prepare('DELETE FROM users WHERE id = :id');
+            $query = $db->prepare('
+                DELETE FROM users
+                WHERE id = :id
+            ');
+
             $query->execute(['id' => $user['id']]);
 
             self::logOut();

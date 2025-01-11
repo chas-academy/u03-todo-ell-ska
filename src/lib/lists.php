@@ -20,9 +20,9 @@ class Lists
 
         try {
             $query = $db->prepare('
-        INSERT INTO lists (name, user_id)
-        VALUES (:name, :userId) RETURNING id
-      ');
+                INSERT INTO lists (name, user_id)
+                VALUES (:name, :userId) RETURNING id
+            ');
 
             $query->execute([
             'name' => $name,
@@ -45,11 +45,11 @@ class Lists
 
         try {
             $query = $db->prepare('
-        DELETE
-        FROM lists
-        WHERE id = :id
-          AND user_id = :userId
-      ');
+                DELETE
+                FROM lists
+                WHERE id = :id
+                AND user_id = :userId
+            ');
 
             $query->execute([
             'id' => $id,
@@ -66,11 +66,11 @@ class Lists
     {
         [$user, $db] = self::setup();
 
-        $query = $db->prepare("
-      SELECT name, id
-      FROM lists
-      WHERE user_id = :id
-    ");
+        $query = $db->prepare('
+            SELECT name, id
+            FROM lists
+            WHERE user_id = :id
+        ');
 
         $query->execute([
         'id' => $user['id']
@@ -87,12 +87,12 @@ class Lists
 
         [$user, $db] = self::setup();
 
-        $query = $db->prepare("
-      SELECT (name)
-      FROM lists
-      WHERE id = :id
-        AND user_id = :userId
-    ");
+        $query = $db->prepare('
+            SELECT (name)
+            FROM lists
+            WHERE id = :id
+                AND user_id = :userId
+        ');
 
         $query->execute([
         'id' => $id,
