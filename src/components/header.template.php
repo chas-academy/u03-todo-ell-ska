@@ -1,5 +1,6 @@
 <?php
 
+use App\Components\OpenProfileMenu;
 use App\Components\Icon;
 
 require_once __DIR__ . '/open-profile-menu.php';

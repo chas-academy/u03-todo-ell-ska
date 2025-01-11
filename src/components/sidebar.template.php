@@ -1,5 +1,6 @@
 <?php
 
+use App\Components\OpenProfileMenu;
 use App\Components\MenuItem;
 use App\Components\Icon;
 

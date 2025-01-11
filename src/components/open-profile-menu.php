@@ -1,6 +1,8 @@
 <?php
 
-use App\Components\BaseComponent;
+namespace App\Components;
+
+use Exception;
 
 require_once __DIR__ . '/base-component.php';
 
