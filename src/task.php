@@ -1,4 +1,7 @@
 <?php
+
+use App\Components\TaskFormOptions;
+
 require_once __DIR__ . '/lib/tasks.php';
 require_once __DIR__ . '/utils/navigation.php';
 require_once __DIR__ . '/components/sidebar.php';

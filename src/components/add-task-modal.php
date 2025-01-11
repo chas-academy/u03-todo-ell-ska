@@ -1,5 +1,6 @@
 <?php
 
+use App\Components\TaskFormOptions;
 use App\Components\Icon;
 
 require_once __DIR__ . '/task-form-content.php';
