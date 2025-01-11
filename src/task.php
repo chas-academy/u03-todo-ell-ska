@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\Tasks;
 use App\Components\Header;
 use App\Components\TaskFormContent;
 use App\Components\TaskFormOptions;

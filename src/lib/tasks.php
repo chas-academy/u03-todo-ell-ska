@@ -1,7 +1,11 @@
 <?php
 
+namespace App\Controllers;
+
 use App\Database;
 use App\Controllers\Auth;
+use PDOException;
+use Exception;
 
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../lib/auth.php';

@@ -1,5 +1,7 @@
 <?php
 
+use App\Controllers\Tasks;
+
 require_once __DIR__ . '/../lib/tasks.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
