@@ -16,7 +16,11 @@ class Sidebar extends BaseComponent
         $lists = Lists::getAll();
 
         foreach ($lists as $list) {
-            $this->dynamicMenuItems[] = ['name' => $list['name'], 'href' => '/list.php?id=' . $list['id'], 'icon' => null];
+            $this->dynamicMenuItems[] = [
+                'name' => $list['name'],
+                'href' => '/list.php?id=' . $list['id'],
+                'icon' => null
+            ];
         }
     }
 
