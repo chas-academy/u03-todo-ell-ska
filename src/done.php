@@ -1,6 +1,7 @@
 <?php
 
 use App\Controllers\Tasks;
+use App\Components\Sidebar;
 use App\Components\Header;
 use App\Components\TaskList;
 

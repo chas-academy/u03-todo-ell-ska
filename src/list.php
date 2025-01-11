@@ -2,6 +2,7 @@
 
 use App\Controllers\Tasks;
 use App\Controllers\Lists;
+use App\Components\Sidebar;
 use App\Components\Header;
 use App\Components\TaskList;
 
