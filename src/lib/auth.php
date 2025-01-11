@@ -1,6 +1,9 @@
 <?php
 
+namespace App\Controllers;
+
 use App\Database;
+use PDOException;
 
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../utils/navigation.php';

@@ -1,6 +1,7 @@
 <?php
 
 use App\Database;
+use App\Controllers\Auth;
 
 require_once __DIR__ . '/../db.php';
 require_once __DIR__ . '/../lib/auth.php';
