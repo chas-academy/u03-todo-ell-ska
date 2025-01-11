@@ -1,5 +1,7 @@
 <?php
 
+use App\Components\BaseComponent;
+
 require_once __DIR__ . '/base-component.php';
 require_once __DIR__ . '/../lib/lists.php';
 class Sidebar extends BaseComponent

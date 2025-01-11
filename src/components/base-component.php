@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Components;
+
 abstract class BaseComponent
 {
     abstract protected function getName(): string;
