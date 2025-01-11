@@ -5,6 +5,8 @@ services:
       dockerfile: dockerfile
     ports:
       - 80:80
+    volumes:
+      - ./src:/var/www/html/
 
   mariadb:
     image: mariadb:latest
