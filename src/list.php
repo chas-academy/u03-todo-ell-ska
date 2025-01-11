@@ -1,10 +1,16 @@
 <?php
+
+use App\Controllers\Tasks;
+use App\Controllers\Lists;
+use App\Components\Sidebar;
+use App\Components\Header;
+use App\Components\TaskList;
+
 require_once __DIR__ . '/lib/tasks.php';
 require_once __DIR__ . '/lib/lists.php';
 require_once __DIR__ . '/components/sidebar.php';
 require_once __DIR__ . '/components/header.php';
 require_once __DIR__ . '/components/task-list.php';
-require_once __DIR__ . '/components/icon.php';
 
 try {
     $name = Lists::getName($_GET['id']);

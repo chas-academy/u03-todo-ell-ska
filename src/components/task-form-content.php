@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Components;
+
 require_once __DIR__ . '/base-component.php';
 
 class TaskFormContent extends BaseComponent

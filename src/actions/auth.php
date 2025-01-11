@@ -1,5 +1,7 @@
 <?php
 
+use App\Controllers\Auth;
+
 require_once __DIR__ . '/../lib/auth.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

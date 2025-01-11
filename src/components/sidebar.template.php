@@ -1,4 +1,9 @@
 <?php
+
+use App\Components\OpenProfileMenu;
+use App\Components\MenuItem;
+use App\Components\Icon;
+
 require_once __DIR__ . '/open-profile-menu.php';
 require_once __DIR__ . '/menu-item.php';
 require_once __DIR__ . '/icon.php';
@@ -36,6 +41,6 @@ require_once __DIR__ . '/icon.php';
             <?php Icon::render(['type' => 'plus', 'size' => 16]) ?>
             <span>New list</span>
         </button>
-        <?php OpenProfileMenu::render(['location' => Location::SIDEBAR]) ?>
+        <?php OpenProfileMenu::render(['location' => 'sidebar']) ?>
     </div>
 </aside>

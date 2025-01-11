@@ -1,6 +1,17 @@
-<?php require_once __DIR__ . '/icon.php' ?>
+<?php
 
-<?php if ((isset($this->tasks) && count($this->tasks) !== 0) || (isset($this->overdueTasks) && count($this->overdueTasks))) : ?>
+use App\Components\Icon;
+
+require_once __DIR__ . '/icon.php';
+
+?>
+
+<?php
+$hasTasks = isset($this->tasks) && count($this->tasks) !== 0;
+$hasOverdueTasks = isset($this->overdueTasks) && count($this->overdueTasks) !== 0;
+
+if ($hasTasks || $hasOverdueTasks) :
+    ?>
     <ul>
         <?php
         foreach ($this->tasks as $task) {
@@ -20,7 +31,7 @@
         endif;
         ?>
     </ul>
-<?php else :  ?>
+<?php else : ?>
     <div class="empty">
         <h2>All done!</h2>
         <div>

@@ -1,4 +1,10 @@
 <?php
+
+use App\Controllers\Tasks;
+use App\Components\Sidebar;
+use App\Components\Header;
+use App\Components\TaskList;
+
 require_once __DIR__ . '/lib/tasks.php';
 require_once __DIR__ . '/components/sidebar.php';
 require_once __DIR__ . '/components/header.php';
