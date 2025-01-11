@@ -1,6 +1,7 @@
 <?php
 
 use App\Components\Header;
+use App\Components\TaskList;
 
 require_once __DIR__ . '/lib/tasks.php';
 require_once __DIR__ . '/lib/lists.php';
