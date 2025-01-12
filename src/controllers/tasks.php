@@ -8,7 +8,7 @@ use PDOException;
 use Exception;
 
 require_once __DIR__ . '/../db.php';
-require_once __DIR__ . '/../lib/auth.php';
+require_once __DIR__ . '/../controllers/auth.php';
 require_once __DIR__ . '/../utils/navigation.php';
 require_once __DIR__ . '/../utils/validation.php';
 
@@ -24,7 +24,6 @@ class Tasks
         $name = validateString($name, true, 'Task name is required');
         $note = validateString($note);
         $deadline = validateString($deadline);
-        ;
         $scheduled = validateString($scheduled);
         $done = validateString($done) ?? '0';
         $listId = validateString($listId);

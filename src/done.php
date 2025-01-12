@@ -5,7 +5,7 @@ use App\Components\Sidebar;
 use App\Components\Header;
 use App\Components\TaskList;
 
-require_once __DIR__ . '/lib/tasks.php';
+require_once __DIR__ . '/controllers/tasks.php';
 require_once __DIR__ . '/components/sidebar.php';
 require_once __DIR__ . '/components/header.php';
 require_once __DIR__ . '/components/task-list.php';

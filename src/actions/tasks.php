@@ -2,7 +2,7 @@
 
 use App\Controllers\Tasks;
 
-require_once __DIR__ . '/../lib/tasks.php';
+require_once __DIR__ . '/../controllers/tasks.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($_POST['action'])) {
