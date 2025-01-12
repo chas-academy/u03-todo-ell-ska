@@ -5,7 +5,7 @@ namespace App\Components;
 use App\Controllers\Lists;
 
 require_once __DIR__ . '/base-component.php';
-require_once __DIR__ . '/../lib/lists.php';
+require_once __DIR__ . '/../controllers/lists.php';
 
 class Sidebar extends BaseComponent
 {

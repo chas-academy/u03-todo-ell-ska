@@ -63,9 +63,9 @@ Contains reusable templates and class components for modularity and reusability.
 Component::render($props);
 ```
 
-### /lib
+### /controllers
 
-Contains libraries essential for the core functionality of the app. These files include reusable code, such as authentication logic, that can be used across different parts of the application.
+Contains controllers essential for the core functionality of the app. These files include reusable code, such as authentication logic and crud functions for tasks and lists, that can be used across different parts of the application.
 
 ### /scripts
 

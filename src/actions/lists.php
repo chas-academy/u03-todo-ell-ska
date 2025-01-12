@@ -2,7 +2,7 @@
 
 use App\Controllers\Lists;
 
-require_once __DIR__ . '/../lib/lists.php';
+require_once __DIR__ . '/../controllers/lists.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($_POST['action'])) {

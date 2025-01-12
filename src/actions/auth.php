@@ -2,7 +2,7 @@
 
 use App\Controllers\Auth;
 
-require_once __DIR__ . '/../lib/auth.php';
+require_once __DIR__ . '/../controllers/auth.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!isset($_POST['action'])) {
